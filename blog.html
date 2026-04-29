@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rexford Journal &mdash; Practical insights on custom home building, interior design, and construction from the Rexford team in BC and Alberta.">
+  <title>Journal &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-index { background: var(--bone); padding: 80px 0 96px; }
+    .blog-index-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+      background: var(--mist);
+      border: 2px solid var(--mist);
+    }
+    .blog-card {
+      background: var(--paper);
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      transition: background 0.2s ease;
+    }
+    .blog-card:hover { background: var(--bone); }
+    .blog-card-img {
+      height: 240px; position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    .blog-card-img-inner {
+      position: absolute; inset: 0;
+      transition: transform 0.65s var(--ease-out);
+    }
+    .blog-card:hover .blog-card-img-inner { transform: scale(1.04); }
+    .blog-card-num {
+      position: absolute; right: 24px; bottom: 12px;
+      font-family: var(--display); font-weight: 900;
+      font-size: 100px; line-height: 1;
+      color: rgba(255,255,255,0.07);
+      pointer-events: none; user-select: none;
+    }
+    .blog-card-body { padding: 32px 36px 36px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-eyebrow {
+      font-family: var(--body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--bronze); margin-bottom: 14px;
+    }
+    .blog-card-title {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(17px, 1.7vw, 21px);
+      color: var(--ink); line-height: 1.25; margin-bottom: 16px;
+    }
+    .blog-card-excerpt {
+      font-family: var(--body); font-size: 14.5px; font-weight: 300;
+      color: var(--slate); line-height: 1.72; margin-bottom: 28px; flex: 1;
+    }
+    .blog-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--mist); padding-top: 18px;
+    }
+    .blog-card-author { font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--stone); }
+    .blog-card-read {
+      font-family: var(--body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--bronze);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .blog-card:hover .blog-card-read { gap: 10px; }
+
+    @media (max-width: 860px) {
+      .blog-index-inner { grid-template-columns: 1fr; background: none; border: none; gap: 24px; }
+      .blog-card { border: 1px solid var(--mist); }
+    }
+    @media (max-width: 600px) {
+      .blog-index { padding: 56px 0 72px; }
+      .blog-index-inner { padding: 0 20px; }
+      .blog-card-img { height: 200px; }
+      .blog-card-body { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      
+      <li><a href="blog.html" class="active">Journal</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    
+    <a href="blog.html">Journal</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <section class="page-hero" aria-labelledby="blog-heading">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow label label--light">Insights &amp; Ideas</p>
+      <h1 class="page-hero-title" id="blog-heading">Journal.</h1>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">Practical thinking on home building, interior design, and living well, from the Rexford team.</p>
+    </div>
+  </section>
+
+  <div class="blog-index">
+    <div class="blog-index-inner">
+
+      <a href="blog-hiring-builders.html" class="blog-card reveal" aria-label="Read: Essential Steps for Hiring Builders and Designers">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background: linear-gradient(135deg, #1B1F23 0%, #45556A 100%);"></div>
+          <span class="blog-card-num" aria-hidden="true">01</span>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-eyebrow">Construction &middot; January 2023 &middot; 3 min read</p>
+          <h2 class="blog-card-title">Essential Steps for Hiring Builders and Designers When Building Your New Home</h2>
+          <p class="blog-card-excerpt">Building a new home is an exciting journey, but finding the right team is crucial to avoiding delays, unexpected costs, and a final result that doesn&rsquo;t match your expectations.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author">Amanda Wiebe</span>
+            <span class="blog-card-read">Read more &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog-kitchen-tips.html" class="blog-card reveal reveal-d1" aria-label="Read: Top 5 Tips for Renovating Your Kitchen">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background: linear-gradient(135deg, #2d3f52 0%, #1B1F23 100%);"></div>
+          <span class="blog-card-num" aria-hidden="true">02</span>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-eyebrow">Interior Design &middot; January 2023 &middot; 3 min read</p>
+          <h2 class="blog-card-title">Top 5 Tips from Interior Designers for Renovating Your Kitchen</h2>
+          <p class="blog-card-excerpt">Kitchen renovations can transform your home&rsquo;s functionality and appeal. Interior designers share what actually minimizes time, costs, and stress &mdash; before the first wall comes down.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author">Amanda Wiebe</span>
+            <span class="blog-card-read">Read more &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog-secondary-suite.html" class="blog-card reveal" aria-label="Read: Should You Add a Secondary Suite?">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background: linear-gradient(135deg, #1B1F23 0%, #3a4d60 100%);"></div>
+          <span class="blog-card-num" aria-hidden="true">03</span>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-eyebrow">Design &middot; January 2023 &middot; 3 min read</p>
+          <h2 class="blog-card-title">Should You Add a Secondary Suite? Essential Tips for a Successful Design</h2>
+          <p class="blog-card-excerpt">A secondary suite offers extra living space, potential rental income, and increased property value, but only if the design and planning are done right from the start.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author">Amanda Wiebe</span>
+            <span class="blog-card-read">Read more &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog-flooring.html" class="blog-card reveal reveal-d1" aria-label="Read: Top Flooring Options for Western Canada">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background: linear-gradient(135deg, #4a3b2a 0%, #1B1F23 100%);"></div>
+          <span class="blog-card-num" aria-hidden="true">04</span>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-eyebrow">Materials &middot; January 2024 &middot; 4 min read</p>
+          <h2 class="blog-card-title">Top Flooring Options for Western Canada Based on Climate &amp; Design</h2>
+          <p class="blog-card-excerpt">Choosing the right flooring requires more than picking a style you like, as Western Canada&rsquo;s varied climate has a major say in how materials perform over time.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author">Amanda Wiebe</span>
+            <span class="blog-card-read">Read more &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We&rsquo;ll let you know if we&rsquo;re the right fit.</p></div>
+      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html" class="btn-outline">Meet the Team</a></div>
+    </div>
+  </section>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and large-scale residential. Design and construction under one roof across BC and Alberta.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Rexford Construction</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p><p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p><p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p><div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

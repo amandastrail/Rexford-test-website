@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Rexford &mdash; start a custom home, multi-family, or renovation project with our BC-based design and build studio.">
+  <title>Contact &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* â”€â”€ CONTACT LAYOUT â”€â”€ */
+    .contact-section {
+      background: var(--paper);
+      padding: 80px 0 120px;
+    }
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* â”€â”€ FORM COLUMN â”€â”€ */
+    .contact-form-col {}
+    .contact-form-head {
+      margin-bottom: 40px;
+    }
+    .contact-form-h {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 0.95;
+      margin: 12px 0 20px;
+    }
+    .contact-form-sub {
+      font-family: var(--body);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* â”€â”€ FORM â”€â”€ */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--bone);
+      border: 1px solid var(--mist);
+      border-radius: 2px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2345556A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 44px;
+      cursor: pointer;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--ink);
+      background: #fff;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--sand);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+    .form-note {
+      font-family: var(--body);
+      font-size: 12px;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .form-submit .btn-primary {
+      flex-shrink: 0;
+    }
+    .form-submit-note {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--stone);
+      line-height: 1.5;
+    }
+
+    /* â”€â”€ FORM SUCCESS STATE â”€â”€ */
+    .form-success {
+      display: none;
+      padding: 32px;
+      background: var(--bone);
+      border-left: 3px solid var(--bronze);
+    }
+    .form-success p {
+      font-family: var(--body);
+      font-size: 16px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .form-success strong {
+      font-weight: 600;
+    }
+
+    /* â”€â”€ INFO COLUMN â”€â”€ */
+    .contact-info-col {
+      position: sticky;
+      top: 100px;
+    }
+    .contact-info-card {
+      background: var(--ink);
+      padding: 48px 40px;
+      color: var(--paper);
+    }
+    .contact-info-card .label {
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-info-item:first-of-type { border-top: none; padding-top: 0; }
+    .contact-info-item strong {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .contact-info-item span,
+    .contact-info-item a {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--paper);
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+    .contact-info-item a:hover { color: var(--bronze-lt); }
+
+    .contact-hours {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-hours strong {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .contact-hours p {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--sand);
+      line-height: 1.7;
+    }
+
+    .contact-social {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-social strong {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .contact-social a {
+      font-family: var(--body);
+      font-size: 14px;
+      color: var(--sand);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .contact-social a:hover { color: var(--paper); }
+
+    /* â”€â”€ WHAT TO EXPECT â”€â”€ */
+    .expect-strip {
+      background: var(--bone);
+      border-top: 1px solid var(--mist);
+      padding: 72px 0;
+    }
+    .expect-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .expect-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .expect-h {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .expect-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .expect-step {
+      padding: 0 40px 0 0;
+      border-right: 1px solid var(--mist);
+    }
+    .expect-step:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+    .expect-step:nth-child(2) { padding: 0 40px; }
+    .expect-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--mist);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .expect-title {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .expect-body {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1000px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+      .contact-info-col { position: static; }
+      .contact-info-card { padding: 40px 32px; }
+      .expect-grid { grid-template-columns: 1fr; gap: 40px; }
+      .expect-step, .expect-step:last-child, .expect-step:nth-child(2) {
+        padding: 0 0 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--mist);
+      }
+      .expect-step:last-child { border-bottom: none; padding-bottom: 0; }
+    }
+    @media (max-width: 640px) {
+      .contact-section { padding: 60px 0 80px; }
+      .contact-inner, .expect-inner { padding: 0 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-submit { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      
+      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link active">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    
+    <a href="blog.html">Journal</a><a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow"    aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow label label--light">Let's talk</p>
+      <h1 class="page-hero-title" id="page-title">Contact.</h1>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">Tell us about your project. We'll review your scope and reach out within one business day.</p>
+    </div>
+  </section>
+
+
+  <!-- REVIEW STRIP -->
+  <div class="review-strip" aria-label="Client testimonials">
+    <div class="review-strip-inner">
+      <div class="review-strip-card reveal">
+        <p class="review-strip-text">&ldquo;They made me feel like royalty, always attentive and responsive to my wishes. Not only do we now have a gorgeous house, we feel like we have gained friends.&rdquo;</p>
+        <div class="review-strip-meta">
+          <span class="review-strip-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>Dorry van driel &middot; Google Review</span>
+        </div>
+      </div>
+      <div class="review-strip-card reveal reveal-d1">
+        <p class="review-strip-text">&ldquo;Thank you so much for the work you have done, it has exceeded our expectations! We appreciate all the care you took of our home and with our family.&rdquo;</p>
+        <div class="review-strip-meta">
+          <span class="review-strip-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>Schmidt Family &middot; Client Review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" aria-labelledby="form-heading">
+    <div class="contact-inner">
+
+      <!-- FORM COLUMN -->
+      <div class="contact-form-col reveal">
+        <div class="contact-form-head">
+          <span class="label">Start a project</span>
+          <h2 class="contact-form-h" id="form-heading">Tell us about<br>your project.</h2>
+          <p class="contact-form-sub">We work on custom homes, multi-family developments, renovations, and interior projects across BC and Alberta. Fill out the form and we'll be in touch soon.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate aria-label="Project inquiry form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="Amanda" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Wiebe" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="778-000-0000" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="projectType">Project Type <span aria-hidden="true">*</span></label>
+            <select id="projectType" name="projectType" required>
+              <option value="" disabled selected>Select a project type</option>
+              <option value="custom-home">Custom Home</option>
+              <option value="multi-family">Multi-Family Development</option>
+              <option value="renovation">Renovation</option>
+              <option value="interior-design">Interior Design</option>
+              <option value="drafting">Architectural Drafting Only</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Project Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Chilliwack, BC" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" placeholder="Share your vision, rough scope, lot details, timeline, or anything else that helps us understand your project&hellip;" required></textarea>
+          </div>
+
+          <p class="form-note">Fields marked with * are required. We typically respond within one business day.</p>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Send Inquiry</button>
+            <p class="form-submit-note">No commitment. We'll review your project<br>and reach out to discuss next steps.</p>
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess" role="alert">
+          <p><strong>Thank you, your inquiry has been received.</strong><br>A member of the Rexford team will be in touch within one business day. In the meantime, feel free to call us at <a href="tel:7788086397">778.808.6397</a>.</p>
+        </div>
+      </div>
+
+      <!-- INFO COLUMN -->
+      <div class="contact-info-col reveal reveal-d1" aria-label="Contact information">
+        <div class="contact-info-card">
+          <span class="label">Find us</span>
+
+          <div class="contact-info-item">
+            <strong>Address</strong>
+            <span>8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</span>
+          </div>
+
+          <div class="contact-info-item">
+            <strong>Phone</strong>
+            <a href="tel:7788086397">778.808.6397</a>
+          </div>
+
+          <div class="contact-info-item">
+            <strong>Email</strong>
+            <a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a>
+          </div>
+
+          <div class="contact-info-item">
+            <strong>Region</strong>
+            <span>British Columbia &amp; Alberta</span>
+          </div>
+
+          <div class="contact-hours">
+            <strong>Office Hours</strong>
+            <p>Monday &ndash; Friday<br>8:00 am &ndash; 5:00 pm PST</p>
+          </div>
+
+          <div class="contact-social">
+            <strong>Instagram</strong>
+            <a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHAT TO EXPECT -->
+  <section class="expect-strip" aria-labelledby="expect-heading">
+    <div class="expect-inner">
+      <div class="expect-header reveal">
+        <span class="label">What to expect</span>
+        <h2 class="expect-h" id="expect-heading">After you reach out.</h2>
+      </div>
+      <div class="expect-grid">
+
+        <div class="expect-step reveal">
+          <div class="expect-num">01</div>
+          <p class="expect-title">We review your inquiry</p>
+          <p class="expect-body">Within one business day, the Rexford team reviews your project details, scope, and location to assess fit and timeline availability.</p>
+        </div>
+
+        <div class="expect-step reveal reveal-d1">
+          <div class="expect-num">02</div>
+          <p class="expect-title">We reach out to connect</p>
+          <p class="expect-body">We'll follow up by phone or email to ask a few clarifying questions and get a better picture of your vision, budget, and timeline.</p>
+        </div>
+
+        <div class="expect-step reveal reveal-d2">
+          <div class="expect-num">03</div>
+          <p class="expect-title">We schedule a discovery call</p>
+          <p class="expect-body">If there's a mutual fit, we set up a discovery call or site meeting to walk through your project in detail and outline our recommended approach.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div>
+          <p class="footer-tagline">Built on principle. By design.</p>
+          <p class="footer-blurb">Custom homes, multi-family, and large-scale residential. Design and construction under one roof across BC and Alberta.</p>
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html">Rexford Design</a></li>
+            <li><a href="services.html">Rexford Construction</a></li>
+            <li><a href="services.html">Custom Homes</a></li>
+            <li><a href="services.html">Multi-family</a></li>
+            <li><a href="services.html">Renovations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Rexford</a></li>
+            
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Contact</p>
+          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
+          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
+          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
+          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* â”€â”€ NAV â”€â”€ */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }));
+
+    /* â”€â”€ FORM VALIDATION & SUBMIT â”€â”€ */
+    const form    = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      /* basic field validation */
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--bronze)';
+          valid = false;
+        }
+      });
+      if (!valid) {
+        form.querySelector('[required]').focus();
+        return;
+      }
+
+      /* show success state */
+      form.style.display = 'none';
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    /* â”€â”€ REVEAL â”€â”€ */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

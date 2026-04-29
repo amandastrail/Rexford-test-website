@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Rexford Process &mdash; from discovery through key handover, design and construction under one roof.">
+  <title>Process &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* â”€â”€ Process page expanded steps â”€â”€ */
+    .process-page { background: var(--paper); padding: 0 80px 120px; }
+    .process-page-inner { max-width: 1200px; margin: 0 auto; }
+
+    .process-overview {
+      background: var(--bone);
+      padding: 80px;
+      border-left: 3px solid var(--bronze);
+      margin-bottom: 0;
+    }
+    .process-overview-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .overview-h {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-top: 16px;
+      line-height: 1.15;
+    }
+    .overview-body {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.72;
+      margin-bottom: 20px;
+    }
+    .overview-body:last-of-type { margin-bottom: 0; }
+
+    /* Expanded step cards */
+    .process-expanded {
+      background: var(--paper);
+      padding: 112px 80px;
+    }
+    .process-expanded-inner { max-width: 1200px; margin: 0 auto; }
+
+    .exp-step {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      padding: 64px 0;
+      border-top: 1px solid var(--mist);
+    }
+    .exp-step:last-child { border-bottom: 1px solid var(--mist); }
+
+    .exp-left {
+      padding-right: 64px;
+      border-right: 1px solid var(--mist);
+    }
+    .exp-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 80px;
+      color: var(--mist);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .exp-phase {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--bronze);
+    }
+
+    .exp-right { padding-left: 64px; }
+    .exp-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .exp-desc {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.72;
+      margin-bottom: 32px;
+    }
+    .exp-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 48px;
+    }
+    .exp-detail-col h4 {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 14px;
+    }
+    .exp-detail-col ul { list-style: none; }
+    .exp-detail-col li {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--slate);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--mist);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .exp-detail-col li:last-child { border-bottom: none; }
+    .exp-detail-col li::before {
+      content: '';
+      width: 3px; height: 3px;
+      background: var(--bronze);
+      flex-shrink: 0;
+    }
+
+    /* What to bring section */
+    .bring-section {
+      background: var(--bone);
+      padding: 80px;
+      border-left: 3px solid var(--bronze);
+    }
+    .bring-inner { max-width: 1200px; margin: 0 auto; }
+    .bring-h {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(24px, 2.5vw, 34px);
+      color: var(--ink);
+      margin-top: 14px;
+      margin-bottom: 48px;
+    }
+    .bring-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--mist);
+    }
+    .bring-item {
+      padding: 36px 40px 36px 0;
+    }
+    .bring-item + .bring-item { padding-left: 40px; border-left: 1px solid var(--mist); }
+    .bring-item-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .bring-item-desc {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1000px) {
+      .process-overview-inner { grid-template-columns: 1fr; gap: 40px; }
+      .exp-step     { grid-template-columns: 1fr; }
+      .exp-left     { padding-right: 0; border-right: none; padding-bottom: 24px; border-bottom: 1px solid var(--mist); margin-bottom: 32px; display: flex; align-items: center; gap: 24px; }
+      .exp-num      { font-size: 56px; margin-bottom: 0; }
+      .exp-right    { padding-left: 0; }
+      .exp-details  { grid-template-columns: 1fr; gap: 24px; }
+      .bring-grid   { grid-template-columns: 1fr; }
+      .bring-item + .bring-item { border-left: none; padding-left: 0; border-top: 1px solid var(--mist); padding-top: 36px; }
+    }
+    @media (max-width: 900px) {
+      .process-overview { padding: 64px 32px; }
+      .process-expanded { padding: 80px 32px; }
+      .bring-section    { padding: 64px 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      
+      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    
+    <a href="blog.html">Journal</a><a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow"    aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow label label--light">How we work</p>
+      <h1 class="page-hero-title" id="page-title">Process.</h1>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">Design and construction under one roof means no handoff, no lost information, and one team accountable from conversation to key.</p>
+    </div>
+  </section>
+
+
+  <!-- OVERVIEW -->
+  <div class="process-overview">
+    <div class="process-overview-inner">
+      <div class="reveal">
+        <span class="label">How we work</span>
+        <h2 class="overview-h">Design first. Then build right.</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p class="overview-body">When design and construction are separate firms, information gets lost at the handoff. The builder finds things the architect didn't account for. The client ends up in the middle, absorbing cost and delay.</p>
+        <p class="overview-body">At Rexford, design leads the process. We spend the time upfront to resolve every finish, fitting, and detail on paper. When we manage construction too, that thorough design process pays off at every stage. The process below is how that plays out in practice.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EXPANDED STEPS -->
+  <section class="process-expanded" aria-labelledby="process-heading">
+    <div class="process-expanded-inner">
+
+      <div class="exp-step reveal">
+        <div class="exp-left">
+          <div class="exp-num">01</div>
+          <span class="exp-phase">Phase One</span>
+        </div>
+        <div class="exp-right">
+          <h2 class="exp-title">Discovery &amp; Brief</h2>
+          <p class="exp-desc">Before anything is drawn, we spend time understanding your project. Site conditions, program requirements, budget parameters, timeline expectations, and how you intend to use the space, and all of it matters. No assumptions before we understand the brief.</p>
+          <div class="exp-details">
+            <div class="exp-detail-col">
+              <h4>What happens</h4>
+              <ul>
+                <li>Initial consultation</li>
+                <li>Site visit &amp; assessment</li>
+                <li>Program development</li>
+                <li>Budget framing</li>
+                <li>Feasibility review</li>
+              </ul>
+            </div>
+            <div class="exp-detail-col">
+              <h4>What you receive</h4>
+              <ul>
+                <li>Project brief document</li>
+                <li>Preliminary budget range</li>
+                <li>Timeline overview</li>
+                <li>Go/no-go decision</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-step reveal">
+        <div class="exp-left">
+          <div class="exp-num">02</div>
+          <span class="exp-phase">Phase Two</span>
+        </div>
+        <div class="exp-right">
+          <h2 class="exp-title">Design &amp; Documentation</h2>
+          <p class="exp-desc">The studio works through concept, schematic design, and design development, iterating until the project is right. We then produce full permit drawings, construction documents, finish schedules, and specifications. Every decision is resolved on paper before the site starts.</p>
+          <div class="exp-details">
+            <div class="exp-detail-col">
+              <h4>What happens</h4>
+              <ul>
+                <li>Concept design</li>
+                <li>Schematic drawings</li>
+                <li>Design development</li>
+                <li>Permit application</li>
+                <li>Interior design &amp; finishes</li>
+              </ul>
+            </div>
+            <div class="exp-detail-col">
+              <h4>What you receive</h4>
+              <ul>
+                <li>Permit-ready drawings</li>
+                <li>Finish schedule</li>
+                <li>Specifications package</li>
+                <li>Millwork drawings</li>
+                <li>Updated budget</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-step reveal">
+        <div class="exp-left">
+          <div class="exp-num">03</div>
+          <span class="exp-phase">Phase Three</span>
+        </div>
+        <div class="exp-right">
+          <h2 class="exp-title">Construction</h2>
+          <p class="exp-desc">Site work begins with a fixed schedule and coordinated trades. Our construction team is the same team that worked on the design, so they know the intent behind every detail. Weekly reporting keeps you informed without having to manage the site yourself.</p>
+          <div class="exp-details">
+            <div class="exp-detail-col">
+              <h4>What happens</h4>
+              <ul>
+                <li>Site preparation</li>
+                <li>Trade coordination</li>
+                <li>Construction &amp; framing</li>
+                <li>Mechanical &amp; electrical</li>
+                <li>Finishes &amp; millwork install</li>
+              </ul>
+            </div>
+            <div class="exp-detail-col">
+              <h4>What you receive</h4>
+              <ul>
+                <li>Weekly progress updates</li>
+                <li>Photo documentation</li>
+                <li>Budget tracking reports</li>
+                <li>Schedule updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-step reveal">
+        <div class="exp-left">
+          <div class="exp-num">04</div>
+          <span class="exp-phase">Phase Four</span>
+        </div>
+        <div class="exp-right">
+          <h2 class="exp-title">Handover &amp; Close</h2>
+          <p class="exp-desc">A thorough walkthrough of every system and finish. We don't hand over keys until the project meets the standard you approved in the drawing. You receive a full documentation package and know who to call if anything needs attention after you move in.</p>
+          <div class="exp-details">
+            <div class="exp-detail-col">
+              <h4>What happens</h4>
+              <ul>
+                <li>Final inspection walkthrough</li>
+                <li>Deficiency list &amp; close-out</li>
+                <li>Systems orientation</li>
+                <li>Key handover</li>
+                <li>Post-occupancy check-in</li>
+              </ul>
+            </div>
+            <div class="exp-detail-col">
+              <h4>What you receive</h4>
+              <ul>
+                <li>As-built drawings</li>
+                <li>Warranty documentation</li>
+                <li>Maintenance guides</li>
+                <li>Trade contact list</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHAT TO BRING -->
+  <div class="bring-section">
+    <div class="bring-inner reveal">
+      <span class="label">Before your first conversation</span>
+      <h2 class="bring-h">What's helpful to have ready.</h2>
+      <div class="bring-grid">
+        <div class="bring-item reveal">
+          <h3 class="bring-item-title">Site or address</h3>
+          <p class="bring-item-desc">Whether you own the lot already or are still looking, knowing the location helps us understand zoning, setbacks, and site conditions before we meet.</p>
+        </div>
+        <div class="bring-item reveal reveal-d1">
+          <h3 class="bring-item-title">A rough budget range</h3>
+          <p class="bring-item-desc">You don't need a number to the dollar. A range tells us whether we can design the project you have in mind, and helps us prioritize where the money should go.</p>
+        </div>
+        <div class="bring-item reveal reveal-d2">
+          <h3 class="bring-item-title">A sense of what you want</h3>
+          <p class="bring-item-desc">Photos, a list, a description, or anything that communicates how you want to live in the space. The more we understand your intentions, the better the brief we can write.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CTA -->
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-glow"    aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="reveal">
+        <p class="cta-eyebrow label label--light">Start a project</p>
+        <h2 class="cta-h" id="cta-heading">Ready to begin the conversation?</h2>
+        <p class="cta-sub">Discovery starts with a call. Tell us about your project and we'll tell you what we need to get started.</p>
+      </div>
+      <div class="cta-btns reveal reveal-d1">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="projects.html" class="btn-outline">See Our Work</a>
+        <div class="cta-note"><a href="tel:7788086397">778.808.6397</a></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div>
+          <p class="footer-tagline">Built on principle. By design.</p>
+          <p class="footer-blurb">Custom homes, multi-family, and large-scale residential. Design and construction under one roof across BC and Alberta.</p>
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html">Rexford Design</a></li>
+            <li><a href="services.html">Rexford Construction</a></li>
+            <li><a href="services.html">Custom Homes</a></li>
+            <li><a href="services.html">Multi-family</a></li>
+            <li><a href="services.html">Renovations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Rexford</a></li>
+            
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Contact</p>
+          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
+          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
+          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
+          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }));
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

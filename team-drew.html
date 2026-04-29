@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Drew Delbridge &mdash; Senior Architectural Drafting & Designer at Rexford. Over 27 years of experience across residential, commercial, and multi-family projects in BC, Alberta, and Saskatchewan.">
+  <title>Drew Delbridge &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .profile-hero { background: var(--ink); padding-top: 72px; min-height: 70vh; display: grid; grid-template-columns: 1fr 480px; align-items: end; position: relative; overflow: hidden; }
+    .hero-texture, .hero-glow { position: absolute; inset: 0; pointer-events: none; }
+    .profile-hero-text { padding: 80px 64px 80px 80px; position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+    .profile-back { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: color 0.2s ease; }
+    .profile-back:hover { color: var(--sand); }
+    .profile-back::before { content: '\2190'; font-size: 14px; }
+    .profile-role { font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze-lt); margin-bottom: 16px; }
+    .profile-name { font-family: var(--display); font-weight: 900; font-size: clamp(48px, 6vw, 88px); letter-spacing: 0.04em; text-transform: uppercase; color: var(--paper); line-height: 0.92; margin-bottom: 32px; }
+    .profile-tagline { font-family: var(--body); font-size: 17px; font-weight: 300; color: var(--sand); line-height: 1.65; max-width: 460px; }
+    .profile-photo-col { position: relative; align-self: stretch; overflow: hidden; }
+    .profile-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(0.15) saturate(0.9); }
+    .profile-bio { background: var(--paper); padding: 96px 0; }
+    .profile-bio-inner { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+    .bio-section { margin-bottom: 56px; }
+    .bio-section-label { font-family: var(--body); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); margin-bottom: 16px; }
+    .bio-p { font-family: var(--body); font-size: 17px; font-weight: 300; color: var(--slate); line-height: 1.75; margin-bottom: 18px; }
+    .bio-p:last-child { margin-bottom: 0; }
+    .bio-divider { border: none; border-top: 1px solid var(--mist); margin: 56px 0; }
+    .bio-quote { border-left: 3px solid var(--bronze); padding: 8px 0 8px 32px; margin: 48px 0; }
+    .bio-quote p { font-family: var(--display); font-style: italic; font-weight: 700; font-size: clamp(20px, 2.5vw, 26px); color: var(--ink); line-height: 1.4; }
+    .bio-quote cite { display: block; font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: 16px; font-style: normal; }
+    .team-nav-strip { background: var(--bone); border-top: 1px solid var(--mist); padding: 56px 0; }
+    .team-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .team-nav-label { font-family: var(--body); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); }
+    .team-nav-links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+    .team-nav-link { font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--slate); text-decoration: none; padding: 8px 16px; border: 1px solid var(--mist); border-radius: 2px; transition: all 0.2s ease; white-space: nowrap; }
+    .team-nav-link:hover { border-color: var(--slate); color: var(--ink); }
+    .team-nav-link.current { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    @media (max-width: 900px) { .profile-hero { grid-template-columns: 1fr; min-height: unset; } .profile-photo-col { height: 360px; order: -1; } .profile-hero-text { padding: 48px 40px 56px; } }
+    @media (max-width: 600px) { .profile-hero-text { padding: 40px 20px 48px; } .profile-bio-inner { padding: 0 20px; } .profile-bio { padding: 64px 0; } .team-nav-inner { flex-direction: column; align-items: flex-start; padding: 0 20px; } .team-nav-links { justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home"><img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo"><span class="nav-name">Rexford</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li><li><a href="process.html">Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <section class="profile-hero" aria-labelledby="profile-name">
+    <div class="hero-texture" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+    <div class="profile-hero-text">
+      <a href="about.html#team" class="profile-back">Back to Team</a>
+      <p class="profile-role">Senior Architectural Drafting &amp; Designer</p>
+      <h1 class="profile-name" id="profile-name">Drew<br>Delbridge</h1>
+      <p class="profile-tagline">27+ years of drafting and design experience across BC, Alberta, and Saskatchewan, with technical precision grounded in real-world construction insight.</p>
+    </div>
+    <div class="profile-photo-col" aria-hidden="true">
+      <img src="https://static.wixstatic.com/media/01f59f_485c131254224750b97929e4355b54be~mv2.jpg/v1/fill/w_640,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC_0701_edited.jpg" alt="Drew Delbridge">
+    </div>
+  </section>
+
+  <section class="profile-bio" aria-label="Drew Delbridge biography">
+    <div class="profile-bio-inner">
+      <div class="bio-section reveal">
+        <p class="bio-section-label">Background</p>
+        <p class="bio-p">Originally from Australia, Drew grew up immersed in construction through his father's work. After moving to Canada in 1993, he continued building practical knowledge by working summer projects in Chilliwack, BC, before pursuing formal training in Architectural Drafting and Design at the University of the Fraser Valley.</p>
+        <p class="bio-p">With over 27 years of professional experience in architectural drafting and design, plus a decade as a structural drafter for a leading BC structural engineering firm, Drew's portfolio spans residential, commercial, and multi-family developments across BC, Alberta, and Saskatchewan.</p>
+      </div>
+      <hr class="bio-divider">
+      <div class="bio-section reveal">
+        <p class="bio-section-label">Beyond the drafting table</p>
+        <p class="bio-p">Drew has volunteered his design expertise for meaningful humanitarian causes, including designing a school in Mirebalais, Haiti following the 2010 earthquake. That same commitment to purposeful design informs everything he brings to Rexford projects.</p>
+        <p class="bio-p">His work is characterized by a commitment to craftsmanship, collaboration, and meaningful design, bringing a rare combination of technical precision and real-world insight to every project.</p>
+      </div>
+      <div class="bio-quote reveal">
+        <p>"Technical precision and real-world insight aren't opposites, and the best drawings come from understanding both sides of the wall."</p>
+        <cite>&mdash; Drew Delbridge, Senior Designer</cite>
+      </div>
+    </div>
+  </section>
+
+  <div class="team-nav-strip" aria-label="Meet the rest of the team">
+    <div class="team-nav-inner">
+      <span class="team-nav-label">The team</span>
+      <nav class="team-nav-links" aria-label="Team member pages">
+        <a href="team-amanda.html" class="team-nav-link">Amanda</a><a href="team-sam.html" class="team-nav-link">Sam</a><a href="team-drew.html" class="team-nav-link current">Drew</a><a href="team-sarah.html" class="team-nav-link">Sarah</a><a href="team-garry.html" class="team-nav-link">Garry</a><a href="team-janelle.html" class="team-nav-link">Janelle</a><a href="team-jacinta.html" class="team-nav-link">Jacinta</a><a href="team-andrew.html" class="team-nav-link">Andrew</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p></div>
+      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html#team" class="btn-outline">Meet the Team</a></div>
+    </div>
+  </section>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and large-scale residential. Design and construction under one roof across BC and Alberta.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Rexford Construction</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p><p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p><p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p><div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

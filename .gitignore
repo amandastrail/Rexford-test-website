@@ -1,0 +1,13 @@
+# Internal / AI tooling
+.claude/
+CLAUDE.md
+
+# Internal business documents
+Marketing/
+Reviews/
+
+# Environment & credentials
+.env
+credentials.json
+token.json
+.tmp/

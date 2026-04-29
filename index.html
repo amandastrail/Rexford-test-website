@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rexford &mdash; Design, plan, and build. Custom homes, multi-family, and commercial projects designed and styled across British Columbia.">
+  <title>REXFORD &mdash; Built on principle. By design.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* â”€â”€ Homepage-specific: Full-viewport hero â”€â”€ */
+    .hero {
+      min-height: 100svh;
+      background: var(--ink);
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 80px 72px;
+    }
+    .hero-eyebrow {
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
+    }
+    .hero-wordmark {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(64px, 11vw, 148px);
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+      color: var(--paper);
+      line-height: 0.92;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.5s forwards;
+    }
+    .hero-rule {
+      width: 0;
+      height: 1px;
+      background: var(--bronze);
+      margin-bottom: 28px;
+      animation: growRule 0.9s var(--ease-out) 0.85s forwards;
+    }
+    .hero-sub {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: clamp(16px, 1.7vw, 21px);
+      color: var(--sand);
+      line-height: 1.6;
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 1s forwards;
+    }
+    .hero-sub em { font-style: italic; color: var(--paper); }
+    .hero-scroll-hint {
+      position: absolute;
+      right: 80px; bottom: 72px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.5s forwards;
+    }
+    .hero-scroll-hint span {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--stone);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .scroll-bar {
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, var(--bronze), transparent);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    /* â”€â”€ Intro band â”€â”€ */
+    .intro {
+      background: var(--bone);
+      padding: 96px 80px;
+      border-left: 3px solid var(--bronze);
+    }
+    .intro-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 96px;
+      align-items: center;
+    }
+    .intro-heading {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(34px, 3.5vw, 52px);
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      margin-top: 16px;
+    }
+    .intro-body {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 18px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .intro-body:last-of-type { margin-bottom: 0; }
+    .intro-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--mist);
+    }
+    .stat {
+      padding-right: 48px;
+      margin-right: 48px;
+      border-right: 1px solid var(--mist);
+    }
+    .stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .stat-n { font-family: var(--display); font-weight: 700; font-size: 38px; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+    .stat-l { font-family: var(--body); font-weight: 500; font-size: 12px; color: var(--stone); letter-spacing: 0.04em; }
+
+    /* â”€â”€ Services split panel â”€â”€ */
+    .services { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc {
+      padding: 88px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 48px;
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+    }
+    .svc--design      { background: var(--bone); }
+    .svc--construction{ background: var(--ink); }
+    .svc__glow { position: absolute; inset: 0; pointer-events: none; }
+    .svc--design .svc__glow      { background: radial-gradient(ellipse 60% 50% at 90% 10%, rgba(138,111,78,0.08), transparent); }
+    .svc--construction .svc__glow{ background: radial-gradient(ellipse 50% 60% at 10% 90%, rgba(69,85,106,0.25), transparent); }
+    .svc__body { position: relative; z-index: 1; }
+    .svc__name {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(30px, 3vw, 44px);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 16px 0 4px;
+    }
+    .svc--design .svc__name      { color: var(--ink); }
+    .svc--construction .svc__name{ color: var(--paper); }
+    .svc__sub {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .svc--design .svc__sub      { color: var(--bronze); }
+    .svc--construction .svc__sub{ color: var(--bronze-lt); }
+    .svc__rule { width: 40px; height: 1px; margin-bottom: 32px; }
+    .svc--design .svc__rule      { background: var(--bronze); }
+    .svc--construction .svc__rule{ background: var(--bronze-lt); }
+    .svc__desc { font-family: var(--body); font-weight: 400; font-size: 15.5px; line-height: 1.7; margin-bottom: 36px; }
+    .svc--design .svc__desc      { color: var(--slate); }
+    .svc--construction .svc__desc{ color: var(--sand); }
+    .svc__list { list-style: none; }
+    .svc__list li {
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      padding: 11px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .svc__list li + li { border-top: 1px solid; }
+    .svc--design .svc__list li      { color: var(--ink);  border-color: var(--mist); }
+    .svc--construction .svc__list li{ color: var(--sand); border-color: rgba(215,211,204,0.12); }
+    .svc__list li::before { content: ''; width: 4px; height: 4px; background: var(--bronze); flex-shrink: 0; }
+    .svc--construction .svc__list li::before { background: var(--bronze-lt); }
+    .svc__link {
+      position: relative; z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      transition: all 0.22s ease;
+      align-self: flex-start;
+    }
+    .svc--design .svc__link { background: var(--bronze); color: var(--paper); }
+    .svc--design .svc__link:hover { background: var(--ink); }
+    .svc--construction .svc__link { border: 1px solid var(--bronze-lt); color: var(--paper); }
+    .svc--construction .svc__link:hover { background: var(--bronze-lt); color: var(--ink); }
+
+    /* â”€â”€ Homepage responsive â”€â”€ */
+    @media (max-width: 1100px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 900px) {
+      .hero-main        { padding: 0 32px 56px; }
+      .hero-scroll-hint { display: none; }
+      .intro            { padding: 72px 32px; border-left-width: 2px; }
+      .services         { grid-template-columns: 1fr; }
+      .svc              { padding: 64px 32px; min-height: unset; }
+      .intro-stats      { flex-wrap: wrap; gap: 32px; }
+      .stat             { border-right: none; padding-right: 0; margin-right: 0; }
+    }
+    @media (max-width: 480px) {
+      .hero-wordmark { letter-spacing: 0.03em; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      
+      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    
+    <a href="blog.html">Journal</a><a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow"    aria-hidden="true"></div>
+    <div class="hero-main">
+      <p class="hero-eyebrow label label--light">British Columbia Based &nbsp;&middot;&nbsp; Design &amp; Drafting</p>
+      <h1 class="hero-wordmark" id="hero-heading">REXFORD</h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-sub">
+        Custom homes, multi-family, and commercial projects designed and styled under one roof.<br>
+        <em>Built on principle. By design.</em>
+      </p>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Design</span><span class="sep">&middot;</span><span>Plan</span><span class="sep">&middot;</span>
+        <span>Build</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
+        <span>Multi-family</span><span class="sep">&middot;</span><span>BC &amp; Alberta</span><span class="sep">&middot;</span>
+        <span>Built on Principle</span><span class="sep">&middot;</span><span>By Design</span><span class="sep">&middot;</span>
+        <span>Design</span><span class="sep">&middot;</span><span>Plan</span><span class="sep">&middot;</span>
+        <span>Build</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
+        <span>Multi-family</span><span class="sep">&middot;</span><span>BC &amp; Alberta</span><span class="sep">&middot;</span>
+        <span>Built on Principle</span><span class="sep">&middot;</span><span>By Design</span><span class="sep">&middot;</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INTRO -->
+  <section class="intro" aria-labelledby="intro-heading">
+    <div class="intro-inner">
+      <div class="reveal">
+        <span class="label">What we do</span>
+        <h2 class="intro-heading" id="intro-heading">Design.<br>Plan.<br>Build.</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p class="intro-body">Rexford is a design and drafting studio serving homeowners, builders, and developers across British Columbia. We produce architectural drawings and interior designs that work with any build team, and offer construction management for clients who want a single point of contact from concept through completion.</p>
+        <p class="intro-body">We resolve every finish, material, and detail on paper before construction begins. That process is what keeps projects on track and finished spaces looking the way they were designed.</p>
+        <div class="intro-stats">
+          <div class="stat"><span class="stat-n">BC</span><span class="stat-l">&amp; Alberta</span></div>
+          <div class="stat"><span class="stat-n">01</span><span class="stat-l">Studio. Design through delivery.</span></div>
+          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Accountable, start to finish</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- AFFILIATIONS -->
+  <div class="affiliations" aria-label="Industry affiliations">
+    <div class="affiliations-inner">
+      <span class="affiliations-label">Industry affiliations &amp; memberships</span>
+      <div class="affiliations-logos">
+        <img src="Affiliated%20Logos/chilliwack-chamber-logo.png" alt="Chilliwack Chamber of Commerce" loading="lazy">
+        <span class="affil-chamber-split" role="img" aria-label="Chilliwack Chamber of Commerce — Horizontal">
+          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-icon-layer" aria-hidden="true" loading="lazy">
+          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-text-layer" aria-hidden="true" loading="lazy">
+        </span>
+        <img src="Affiliated%20Logos/Screenshot_27-4-2026_132713_www.chba.ca.jpeg" alt="Canadian Home Builders' Association" loading="lazy">
+        <img src="Affiliated%20Logos/MetisNation-Logo-FullColour.png" alt="M&eacute;tis Nation British Columbia" loading="lazy">
+        <img src="Affiliated%20Logos/worksafebc_logo.jpg" alt="WorkSafeBC" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="svc svc--design" aria-labelledby="svc-design-heading">
+      <div class="svc__glow" aria-hidden="true"></div>
+      <div class="svc__body reveal">
+        <span class="label">Studio side</span>
+        <h2 class="svc__name" id="svc-design-heading">REXFORD</h2>
+        <p class="svc__sub">Design</p>
+        <div class="svc__rule"></div>
+        <p class="svc__desc">Architectural and interior design from concept through permit-ready drawings. We resolve every finish, millwork detail, and specification before a single nail is driven.</p>
+        <ul class="svc__list" role="list">
+          <li>Architectural drafting &amp; design</li>
+          <li>Permit drawings &amp; documentation</li>
+          <li>Interior design &amp; finishes</li>
+          <li>Millwork &amp; custom specifications</li>
+          <li>Interior styling</li>
+        </ul>
+      </div>
+      <a href="services.html" class="svc__link">Explore Design &nbsp;&rarr;</a>
+    </div>
+    <div class="svc svc--construction" aria-labelledby="svc-const-heading">
+      <div class="svc__glow" aria-hidden="true"></div>
+      <div class="svc__body reveal reveal-d1">
+        <span class="label label--light">Build &amp; PM</span>
+        <h2 class="svc__name" id="svc-const-heading">REXFORD</h2>
+        <p class="svc__sub">Construction</p>
+        <div class="svc__rule" style="background:var(--bronze-lt)"></div>
+        <p class="svc__desc">Custom homes, renovations, and large-scale residential construction. Schedule discipline, coordinated trades, and jobsite quality from site prep through handover.</p>
+        <ul class="svc__list" role="list">
+          <li>Custom home construction</li>
+          <li>Multi-family residential</li>
+          <li>Large-scale renovations</li>
+          <li>Trade coordination &amp; management</li>
+          <li>Site supervision &amp; quality control</li>
+        </ul>
+      </div>
+      <a href="services.html" class="svc__link">Explore Construction &nbsp;&rarr;</a>
+    </div>
+  </section>
+
+
+  <!-- PROCESS (summary) -->
+  <section class="process" id="process" aria-labelledby="process-heading">
+    <div class="process-inner">
+      <div class="process-header">
+        <div class="reveal">
+          <span class="label">How we work</span>
+          <h2 class="process-h" id="process-heading">From first conversation<br>to key handover.</h2>
+        </div>
+        <p class="process-intro reveal reveal-d1">Every project starts with a thorough design phase, resolving each detail on paper before site work begins. When we manage construction too, that precision carries all the way through to the finished space.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step reveal"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We learn your project, including site conditions, program, budget, and timeline. No assumptions before we understand the brief.</p></div>
+        <div class="step reveal reveal-d1"><div class="step-num">02</div><h3 class="step-title">Design</h3><p class="step-desc">Concept drawings, permit documents, finish schedules, and specifications. The studio works until every detail is resolved on paper.</p></div>
+        <div class="step reveal reveal-d2"><div class="step-num">03</div><h3 class="step-title">Build</h3><p class="step-desc">Site work begins with a fixed schedule and coordinated trades. We hold the standard you approved in the drawing.</p></div>
+        <div class="step reveal reveal-d3"><div class="step-num">04</div><h3 class="step-title">Handover</h3><p class="step-desc">A thorough walkthrough, full documentation package, and post-occupancy support. The project isn't done until it's right.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REVIEWS -->
+  <section class="reviews" aria-labelledby="reviews-heading">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <div class="reveal">
+          <span class="label label--light">Client stories</span>
+          <h2 class="section-h" id="reviews-heading" style="color:var(--paper);margin-top:12px;">What our clients say.</h2>
+        </div>
+        <a href="https://g.co/kgs/rexfordco" class="reviews-google reveal reveal-d1" target="_blank" rel="noopener" aria-label="View Rexford on Google Reviews">&#9733; 5.0 &nbsp;&middot;&nbsp; Google Reviews</a>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">It&rsquo;s been an absolute joy to have Amanda and her team supporting and guiding us through the re-build process. They made me feel like royalty, always attentive and responsive to my wishes. Not only do we now have a gorgeous house, we feel like we have gained friends.</p>
+          <div class="review-author">
+            <span class="review-name">Dorry van driel</span>
+            <span class="review-source">Google</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-d1">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">Working with the Rexford team has been a great experience for our home-building project. We are in a small Northern BC town without designers or drafters, but we&rsquo;ve been able to get all we need from Rexford. Amanda and team walked us through every change and edit along the way!</p>
+          <div class="review-author">
+            <span class="review-name">Jaclyn Neufeld</span>
+            <span class="review-source">Google</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-d2">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">The Rexford team did a wonderful job with the design and drawings for our home addition. They took the time to collaborate with us and were receptive to adjustments and changes. We appreciate their skills and great communication!</p>
+          <div class="review-author">
+            <span class="review-name">Kara Erickson</span>
+            <span class="review-source">Google</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">Thank you so much for the work you have done, it has exceeded our expectations! We appreciate all the care you took of our home and with our family during these past few months. You have a very good team of trades.</p>
+          <div class="review-author">
+            <span class="review-name">Schmidt Family</span>
+            <span class="review-source">Client</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-d1">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">We have had a lot of work done on 2 of our houses. High quality workmanship, and very good ideas for doing the job right. I would recommend Rexford for all your building and renovations. We will definitely have them back.</p>
+          <div class="review-author">
+            <span class="review-name">Thiessen Family</span>
+            <span class="review-source">Google</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ABOUT STUDIO (summary) -->
+  <section class="about-studio" id="about" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <div class="reveal">
+        <span class="label">Our studio</span>
+        <h2 class="about-h" id="about-heading">A BC-based design &amp; build studio.</h2>
+        <p class="about-pull">"Where structure meets style, and every line tells a story."</p>
+        <p class="about-body">Rexford is a British Columbia-based design and drafting studio known for its thoughtful approach to capturing the character of every space. Our team brings together architectural precision and a genuine eye for design, guided by clarity, craftsmanship, and care.</p>
+        <p class="about-body">From concept to completion, we translate ideas into architectural form with precision and purpose.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="about-card">
+          <span class="about-card-label">Find us</span>
+          <div class="about-card-item"><strong>Address</strong><span>8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</span></div>
+          <div class="about-card-item"><strong>Phone</strong><span><a href="tel:7788086397">778.808.6397</a></span></div>
+          <div class="about-card-item"><strong>Email</strong><span><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></span></div>
+          <div class="about-card-item"><strong>Instagram</strong><span><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></span></div>
+          <div class="about-card-item"><strong>Region</strong><span>British Columbia &amp; Alberta</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRINCIPLE QUOTE -->
+  <section class="principle" aria-label="Guiding principle">
+    <div class="principle-inner reveal">
+      <div class="principle-mark" aria-hidden="true">"</div>
+      <p class="principle-text">Good design is only as good as the thinking behind it. We stay involved from first sketch to final detail to make sure nothing gets lost along the way.</p>
+      <span class="principle-attr label">Rexford &nbsp;&middot;&nbsp; Design &amp; Drafting</span>
+    </div>
+  </section>
+
+
+  <!-- PILLARS -->
+  <section class="pillars" aria-labelledby="pillars-heading">
+    <div class="pillars-inner">
+      <div class="pillars-header reveal">
+        <span class="label">Why Rexford</span>
+        <h2 class="pillars-h" id="pillars-heading">One firm. Full accountability.</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar reveal">
+          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1"/><path d="M3 18 L20 6 L37 18"/><line x1="16" y1="34" x2="16" y2="24"/><line x1="24" y1="34" x2="24" y2="24"/></svg>
+          <h3 class="pillar-title">Integrated under one roof</h3>
+          <p class="pillar-desc">Design and construction are one team, one contract, one conversation. No finger-pointing between architect and builder, and we own the outcome from first sketch to final walkthrough.</p>
+        </div>
+        <div class="pillar reveal reveal-d1">
+          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"/><polyline points="20,11 20,20 27,25"/></svg>
+          <h3 class="pillar-title">Schedule discipline</h3>
+          <p class="pillar-desc">We set a construction timeline before breaking ground and hold it. Our trade coordination process is built around the schedule, not around waiting.</p>
+        </div>
+        <div class="pillar reveal reveal-d2">
+          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 32 L8 14 L20 6 L32 14 L32 32"/><line x1="4" y1="32" x2="36" y2="32"/><rect x="15" y="21" width="10" height="11"/><line x1="20" y1="12" x2="20" y2="18"/></svg>
+          <h3 class="pillar-title">Drawn, then built</h3>
+          <p class="pillar-desc">Every finish, fitting, and detail is specified on paper before construction starts. The design studio resolves the hard decisions up front, so the site team isn't making them on the fly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta" id="contact" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-glow"    aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="reveal">
+        <p class="cta-eyebrow label label--light">Start a project</p>
+        <h2 class="cta-h" id="cta-heading">Ready to build something worth keeping?</h2>
+        <p class="cta-sub">Tell us about your project, including site, scope, and timeline. We'll tell you if we're the right fit.</p>
+      </div>
+      <div class="cta-btns reveal reveal-d1">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="about.html" class="btn-outline">About Rexford</a>
+        <div class="cta-note"><a href="tel:7788086397">778.808.6397</a></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div>
+          <p class="footer-tagline">Built on principle. By design.</p>
+          <p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p>
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html">Rexford Design</a></li>
+            <li><a href="services.html">Rexford Construction</a></li>
+            <li><a href="services.html">Custom Homes</a></li>
+            <li><a href="services.html">Multi-family</a></li>
+            <li><a href="services.html">Renovations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Rexford</a></li>
+            
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Contact</p>
+          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
+          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
+          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
+          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }));
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Rexford &mdash; A BC-based design and build studio. Meet the team behind the work.">
+  <title>About &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    a.member {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+    }
+    a.member .member-photo { overflow: hidden; }
+    a.member .member-photo img { transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease; }
+    a.member:hover .member-photo img { transform: scale(1.05); filter: brightness(0.9) saturate(1.05); }
+    a.member .member-name { transition: color 0.2s ease; }
+    a.member:hover .member-name { color: var(--bronze); }
+    a.member::after { content: 'Read bio \2192'; display: block; font-family: var(--body); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bronze); opacity: 0; margin-top: 6px; transition: opacity 0.25s ease; }
+    a.member:hover::after { opacity: 1; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      
+      <li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    
+    <a href="blog.html">Journal</a><a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow"    aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow label label--light">British Columbia &amp; Alberta</p>
+      <h1 class="page-hero-title" id="page-title">About.</h1>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">A studio built on the belief that great work comes from people who care about every line, every detail, and every client.</p>
+    </div>
+  </section>
+
+
+  <!-- STUDIO STORY -->
+  <section class="about-studio" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <div class="reveal">
+        <span class="label">Our studio</span>
+        <h2 class="about-h" id="about-heading">A BC-based design &amp; drafting studio.</h2>
+        <p class="about-pull">"Where structure meets style, and every line tells a story."</p>
+        <p class="about-body">Rexford is a British Columbia-based design and drafting studio known for its thoughtful approach to capturing the character of every space. Our team brings together architectural precision and a genuine eye for design, guided by clarity, craftsmanship, and care.</p>
+        <p class="about-body">From the first concept sketch through permit-ready drawings and interior selections, we translate ideas into architectural form with precision and purpose. We work with homeowners, developers, and builders across BC and Alberta, providing drawings and design services that integrate with any project team. For clients who need it, we also offer construction management and project oversight to see the work through to completion.</p>
+        <p class="about-body">We're based in Chilliwack, BC, and work across British Columbia and Alberta.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="about-card">
+          <span class="about-card-label">Find us</span>
+          <div class="about-card-item"><strong>Address</strong><span>8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</span></div>
+          <div class="about-card-item"><strong>Phone</strong><span><a href="tel:7788086397">778.808.6397</a></span></div>
+          <div class="about-card-item"><strong>Email</strong><span><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></span></div>
+          <div class="about-card-item"><strong>Instagram</strong><span><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></span></div>
+          <div class="about-card-item"><strong>Region</strong><span>British Columbia &amp; Alberta</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- AFFILIATIONS -->
+  <div class="affiliations" aria-label="Industry affiliations">
+    <div class="affiliations-inner">
+      <span class="affiliations-label">Industry affiliations &amp; memberships</span>
+      <div class="affiliations-logos">
+        <img src="Affiliated%20Logos/chilliwack-chamber-logo.png" alt="Chilliwack Chamber of Commerce" loading="lazy">
+        <span class="affil-chamber-split" role="img" aria-label="Chilliwack Chamber of Commerce — Horizontal">
+          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-icon-layer" aria-hidden="true" loading="lazy">
+          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-text-layer" aria-hidden="true" loading="lazy">
+        </span>
+        <img src="Affiliated%20Logos/Screenshot_27-4-2026_132713_www.chba.ca.jpeg" alt="Canadian Home Builders' Association" loading="lazy">
+        <img src="Affiliated%20Logos/MetisNation-Logo-FullColour.png" alt="M&eacute;tis Nation British Columbia" loading="lazy">
+        <img src="Affiliated%20Logos/worksafebc_logo.jpg" alt="WorkSafeBC" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TEAM -->
+  <section class="team" id="team" aria-labelledby="team-heading">
+    <div class="team-inner">
+      <div class="team-header reveal">
+        <span class="label">The people</span>
+        <h2 class="team-h" id="team-heading">Built by people who care.</h2>
+      </div>
+      <div class="team-grid">
+
+        <a href="team-amanda.html" class="member reveal" aria-label="Read Amanda Wiebe's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_ff695b15518c47e19691b02ffe712abb~mv2.jpg/v1/crop/x_0,y_198,w_2000,h_1944/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC_1077_edited.jpg" alt="Amanda Wiebe" loading="lazy">
+          </div>
+          <p class="member-name">Amanda Wiebe</p>
+          <p class="member-role">Co-Founder &amp; Designer</p>
+        </a>
+
+        <a href="team-sam.html" class="member reveal reveal-d1" aria-label="Read Sam Wiebe's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_0fee57b398154e189b90d7b4daeabfc8~mv2.png/v1/crop/x_0,y_317,w_2813,h_2735/fill/w_443,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_DSC0056%20-%20Copy.png" alt="Sam Wiebe" loading="lazy">
+          </div>
+          <p class="member-name">Sam Wiebe</p>
+          <p class="member-role">Co-Founder &amp; Construction Management</p>
+        </a>
+
+        <a href="team-drew.html" class="member reveal reveal-d2" aria-label="Read Drew Delbridge's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_485c131254224750b97929e4355b54be~mv2.jpg/v1/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC_0701_edited.jpg" alt="Drew Delbridge" loading="lazy">
+          </div>
+          <p class="member-name">Drew Delbridge</p>
+          <p class="member-role">Senior Architectural Drafting &amp; Designer</p>
+        </a>
+
+        <a href="team-sarah.html" class="member reveal reveal-d3" aria-label="Read Sarah Penner's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_d5f7c97094114ecbbf5724c44c32640b~mv2.jpg/v1/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/sarah%20portrait2_JPG.jpg" alt="Sarah Penner" loading="lazy">
+          </div>
+          <p class="member-name">Sarah Penner</p>
+          <p class="member-role">Interior Designer</p>
+        </a>
+
+        <a href="team-garry.html" class="member reveal" aria-label="Read Garry Gill's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_eef2492797d840f38907f7b07c393ecb~mv2.jpg/v1/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Headshot%201%20(1)_edited.jpg" alt="Garry Gill" loading="lazy">
+          </div>
+          <p class="member-name">Garry Gill</p>
+          <p class="member-role">Architectural Drafting &amp; Designer</p>
+        </a>
+
+        <a href="team-janelle.html" class="member reveal reveal-d1" aria-label="Read Janelle Martin's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_4ce6d371a19444509262ac0bb883637f~mv2.jpg/v1/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1000018337.jpg" alt="Janelle Martin" loading="lazy">
+          </div>
+          <p class="member-name">Janelle Martin</p>
+          <p class="member-role">Project &amp; Team Management</p>
+        </a>
+
+        <a href="team-jacinta.html" class="member reveal reveal-d2" aria-label="Read Jacinta Hunt's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_c67e73292db5463bb15b0fa6090e2b89~mv2.jpg/v1/fill/w_443,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1000018336_edited_edited.jpg" alt="Jacinta Hunt" loading="lazy">
+          </div>
+          <p class="member-name">Jacinta Hunt</p>
+          <p class="member-role">Accounting</p>
+        </a>
+
+        <a href="team-andrew.html" class="member reveal reveal-d3" aria-label="Read Andrew Wiebe's bio">
+          <div class="member-photo">
+            <img src="https://static.wixstatic.com/media/01f59f_6a7f9df25b404a16a2cae07b6ef4e7cd~mv2.png/v1/crop/x_0,y_116,w_917,h_893/fill/w_443,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Andrew.png" alt="Andrew Wiebe" loading="lazy">
+          </div>
+          <p class="member-name">Andrew Wiebe</p>
+          <p class="member-role">Construction Team</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRINCIPLE -->
+  <section class="principle" aria-label="Guiding principle">
+    <div class="principle-inner reveal">
+      <div class="principle-mark" aria-hidden="true">"</div>
+      <p class="principle-text">Good design is only as good as the thinking behind it. We stay involved from first sketch to final detail to make sure nothing gets lost along the way.</p>
+      <span class="principle-attr label">Rexford &nbsp;&middot;&nbsp; Design &amp; Drafting</span>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-glow"    aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="reveal">
+        <p class="cta-eyebrow label label--light">Work with us</p>
+        <h2 class="cta-h" id="cta-heading">Ready to start a project?</h2>
+        <p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p>
+      </div>
+      <div class="cta-btns reveal reveal-d1">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="projects.html" class="btn-outline">See Our Work</a>
+        <div class="cta-note"><a href="tel:7788086397">778.808.6397</a></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div>
+          <p class="footer-tagline">Built on principle. By design.</p>
+          <p class="footer-blurb">Custom homes, multi-family, and large-scale residential. Design and construction under one roof across BC and Alberta.</p>
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html">Rexford Design</a></li>
+            <li><a href="services.html">Rexford Construction</a></li>
+            <li><a href="services.html">Custom Homes</a></li>
+            <li><a href="services.html">Multi-family</a></li>
+            <li><a href="services.html">Renovations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Rexford</a></li>
+            
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Contact</p>
+          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
+          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
+          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
+          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }));
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
