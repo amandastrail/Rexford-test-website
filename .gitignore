@@ -2,8 +2,9 @@
 .claude/
 CLAUDE.md
 
-# Internal business documents
-Marketing/
+# Internal business documents (allow images, block docs/html)
+Marketing/*.pdf
+Marketing/*.html
 Reviews/
 
 # Environment & credentials
