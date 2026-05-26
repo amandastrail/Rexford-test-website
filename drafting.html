@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Permit-ready architectural drawings for custom homes, multi-family, and renovations across BC and Alberta. Get a quote from Rexford Design.">
+  <title>Architectural Drafting &amp; Design &mdash; REXFORD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hero ── */
+    .draft-hero {
+      min-height: 100svh;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 120px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .draft-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Marketing/drafting.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      filter: grayscale(0.3);
+    }
+    .draft-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+    .draft-hero-eyebrow {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--bronze-lt);
+      margin-bottom: 24px;
+      animation: fadeUp 0.7s var(--ease-out) 0.2s both;
+    }
+    .draft-hero-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(52px, 8vw, 104px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--paper);
+      line-height: 0.92;
+      margin-bottom: 32px;
+      animation: fadeUp 0.9s var(--ease-out) 0.35s both;
+    }
+    .draft-hero-rule {
+      width: 0;
+      height: 1px;
+      background: var(--bronze);
+      margin-bottom: 28px;
+      animation: growRule 0.9s var(--ease-out) 0.65s forwards;
+    }
+    .draft-hero-sub {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: var(--sand);
+      line-height: 1.65;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s var(--ease-out) 0.8s both;
+    }
+    .draft-hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s var(--ease-out) 1s both;
+    }
+
+    /* ── Trust Bar ── */
+    .trust-bar {
+      background: var(--bronze);
+      padding: 20px 80px;
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-item {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--paper);
+      opacity: 0.92;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trust-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+    .trust-item:first-child::before { display: none; }
+
+    /* ── Who It's For ── */
+    .who-section {
+      background: var(--paper);
+      padding: 96px 80px;
+    }
+    .who-inner { max-width: 1200px; margin: 0 auto; }
+    .who-header { margin-bottom: 56px; }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .who-card {
+      background: var(--bone);
+      padding: 48px 40px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .who-card:hover { border-top-color: var(--bronze); background: var(--paper); }
+    .who-card-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 24px;
+      color: var(--bronze);
+    }
+    .who-card-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+    .who-card-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* ── What You Get ── */
+    .deliverables {
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 580px;
+    }
+    .deliverables-content {
+      padding: 96px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .deliverables-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--bronze-lt);
+      margin-bottom: 16px;
+    }
+    .deliverables-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(28px, 3vw, 42px);
+      color: var(--paper);
+      line-height: 1.1;
+      margin-bottom: 40px;
+      letter-spacing: 0.02em;
+    }
+    .deliverables-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 32px;
+    }
+    .deliverables-list li {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--sand);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .deliverables-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--bronze);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .deliverables-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .deliverables-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.75) saturate(0.8);
+    }
+
+    /* ── How It Works ── */
+    .how-section {
+      background: var(--bone);
+      padding: 96px 80px;
+    }
+    .how-inner { max-width: 1200px; margin: 0 auto; }
+    .how-header { margin-bottom: 64px; }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .how-step {
+      background: var(--paper);
+      padding: 40px 32px;
+      position: relative;
+    }
+    .how-step-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 56px;
+      color: var(--mist);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .how-step-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+    .how-step-desc {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .how-step::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      right: -1px;
+      width: 2px;
+      height: 32px;
+      background: var(--bronze);
+    }
+    .how-step:last-child::after { display: none; }
+
+    /* ── Quote Form ── */
+    .quote-section {
+      background: var(--paper);
+      padding: 96px 80px;
+      border-top: 1px solid var(--mist);
+    }
+    .quote-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .quote-header { margin-bottom: 56px; }
+    .quote-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group--full { grid-column: 1 / -1; }
+    .form-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--bone);
+      border: 1px solid var(--mist);
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      appearance: none;
+      border-radius: 0;
+      width: 100%;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--bronze); }
+    .form-textarea { resize: vertical; min-height: 140px; }
+    .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7E70' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .form-submit { grid-column: 1 / -1; margin-top: 8px; }
+    .form-note { grid-column: 1 / -1; font-family: var(--body); font-size: 12px; color: var(--stone); margin-top: 4px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--bronze);
+      padding: 16px 32px;
+      transition: background 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--ink); }
+    .btn-outline {
+      display: inline-block;
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: transparent;
+      padding: 15px 32px;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn-outline:hover { border-color: var(--paper); background: rgba(255,255,255,0.06); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .who-grid { grid-template-columns: 1fr 1fr; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .deliverables { grid-template-columns: 1fr; }
+      .deliverables-photo { height: 380px; order: -1; }
+    }
+    @media (max-width: 768px) {
+      .draft-hero { padding: 100px 32px 64px; }
+      .trust-bar { padding: 20px 32px; gap: 20px; }
+      .who-section, .how-section, .quote-section { padding: 64px 32px; }
+      .deliverables-content { padding: 64px 32px; }
+      .who-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .how-step::after { display: none; }
+      .quote-form { grid-template-columns: 1fr; }
+      .form-group--full, .form-submit, .form-note { grid-column: 1; }
+      .deliverables-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .draft-hero { padding: 88px 20px 56px; }
+      .who-section, .how-section, .quote-section { padding: 56px 20px; }
+      .deliverables-content { padding: 56px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="draft-hero" aria-labelledby="draft-hero-title">
+    <div class="draft-hero-bg" aria-hidden="true"></div>
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="draft-hero-content">
+      <p class="draft-hero-eyebrow">Rexford Design &mdash; Architectural Drafting</p>
+      <h1 class="draft-hero-title" id="draft-hero-title">Your home<br>starts here.</h1>
+      <div class="draft-hero-rule" aria-hidden="true"></div>
+      <p class="draft-hero-sub">Permit-ready architectural drawings for custom homes, multi-family builds, and renovations across British Columbia and Alberta.</p>
+      <div class="draft-hero-cta">
+        <a href="#quote" class="btn-primary">Get a Quote</a>
+        <a href="services.html" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Key credentials" role="list">
+    <span class="trust-item" role="listitem">BC &amp; Alberta Service Area</span>
+    <span class="trust-item" role="listitem">Design &amp; Drafting Under One Roof</span>
+    <span class="trust-item" role="listitem">Permit-Ready Drawings</span>
+    <span class="trust-item" role="listitem">Custom &amp; Spec Builds</span>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who-section" aria-labelledby="who-heading">
+    <div class="who-inner">
+      <div class="who-header reveal">
+        <span class="label">Who we work with</span>
+        <h2 class="section-h" id="who-heading">Is Rexford the right fit?</h2>
+        <p class="section-intro" style="margin-top:14px; max-width:560px;">We work with a range of clients at different stages of the process. Here&rsquo;s where we typically come in.</p>
+      </div>
+      <div class="who-grid">
+        <div class="who-card reveal">
+          <svg class="who-card-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 18 L20 7 L32 18"/><rect x="11" y="18" width="18" height="14" rx="0.5"/><rect x="17" y="25" width="6" height="7"/></svg>
+          <h3 class="who-card-title">Homeowners</h3>
+          <p class="who-card-desc">You have a lot or a home you want to build or renovate. You need drawings that will get through the permit process and reflect what you actually want to build.</p>
+        </div>
+        <div class="who-card reveal reveal-d1">
+          <svg class="who-card-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="14" width="28" height="20" rx="0.5"/><path d="M13 14V10a7 7 0 0114 0v4"/><line x1="20" y1="22" x2="20" y2="26"/><circle cx="20" cy="21" r="1.5"/></svg>
+          <h3 class="who-card-title">Builders &amp; Developers</h3>
+          <p class="who-card-desc">You&rsquo;re managing multiple sites or a subdivision and need reliable, coordinated drawings on schedule. We integrate with your build team and work to your timelines.</p>
+        </div>
+        <div class="who-card reveal reveal-d2">
+          <svg class="who-card-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="18" width="26" height="15" rx="0.5"/><path d="M4 18h32"/><rect x="15" y="10" width="10" height="8"/><line x1="13" y1="26" x2="13" y2="33"/><line x1="27" y1="26" x2="27" y2="33"/></svg>
+          <h3 class="who-card-title">Contractors</h3>
+          <p class="who-card-desc">Your client has a design in mind but no drawings. We produce the permit set so you can get to work. Fast turnaround, clean documentation, and one point of contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <div class="deliverables" aria-label="Drafting deliverables">
+    <div class="deliverables-content reveal">
+      <p class="deliverables-label">What&rsquo;s included</p>
+      <h2 class="deliverables-title">Every drawing set<br>built to be built.</h2>
+      <ul class="deliverables-list">
+        <li>Site plan &amp; survey integration</li>
+        <li>Floor plans (all levels)</li>
+        <li>Exterior elevations</li>
+        <li>Building sections</li>
+        <li>Roof plan</li>
+        <li>Foundation plan</li>
+        <li>Electrical layout</li>
+        <li>Window &amp; door schedules</li>
+        <li>Detail drawings</li>
+        <li>As-built documentation</li>
+        <li>Permit-ready drawing sets</li>
+        <li>Revisions as required</li>
+      </ul>
+    </div>
+    <div class="deliverables-photo" aria-hidden="true">
+      <img src="Marketing/drafting%202.png" alt="Architectural drafting in progress" loading="lazy">
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" aria-labelledby="how-heading">
+    <div class="how-inner">
+      <div class="how-header reveal">
+        <span class="label">The process</span>
+        <h2 class="section-h" id="how-heading">From inquiry to permit.</h2>
+        <p class="section-intro" style="margin-top:14px; max-width:540px;">A clear four-step process so you always know where things stand.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step reveal">
+          <div class="how-step-num">01</div>
+          <h3 class="how-step-title">Initial Inquiry</h3>
+          <p class="how-step-desc">Tell us about your project, site, and timeline. We&rsquo;ll confirm fit and send a proposal within two business days.</p>
+        </div>
+        <div class="how-step reveal reveal-d1">
+          <div class="how-step-num">02</div>
+          <h3 class="how-step-title">Concept &amp; Schematic</h3>
+          <p class="how-step-desc">We develop the layout, massing, and overall design based on your brief, site conditions, and local zoning requirements.</p>
+        </div>
+        <div class="how-step reveal reveal-d2">
+          <div class="how-step-num">03</div>
+          <h3 class="how-step-title">Design Development</h3>
+          <p class="how-step-desc">Details, specifications, and full coordination across all drawing sheets. We resolve everything before the permit submission.</p>
+        </div>
+        <div class="how-step reveal reveal-d3">
+          <div class="how-step-num">04</div>
+          <h3 class="how-step-title">Permit-Ready Set</h3>
+          <p class="how-step-desc">Final drawing set ready for municipal submission. We handle revisions required by the authority having jurisdiction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <section class="quote-section" id="quote" aria-labelledby="quote-heading">
+    <div class="quote-inner">
+      <div class="quote-header reveal">
+        <span class="label">Get started</span>
+        <h2 class="section-h" id="quote-heading">Request a quote.</h2>
+        <p class="section-intro" style="margin-top:14px; max-width:520px;">Tell us about your project and we&rsquo;ll follow up within two business days with a proposal or a few clarifying questions.</p>
+      </div>
+      <div class="reveal">
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js"></script>
+        <iframe src="https://hello.dubsado.com/public/form/view/6a133d4ff9970a89e50e805c?iframe=true" frameBorder="0" width="100%" height="750" title="Drafting quote request form"></iframe>
+        <script type="text/javascript">setTimeout(function(){iFrameResize({checkOrigin: false});},30);</script>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Rexford Construction</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p><p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p><p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p><div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
