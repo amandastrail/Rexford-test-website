@@ -181,22 +181,24 @@
     .svc__desc { font-family: var(--body); font-weight: 400; font-size: 15.5px; line-height: 1.7; margin-bottom: 36px; }
     .svc--design .svc__desc      { color: var(--slate); }
     .svc--construction .svc__desc{ color: var(--sand); }
-    .svc__list { list-style: none; }
-    .svc__list li {
-      font-family: var(--body);
-      font-weight: 500;
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      padding: 11px 0;
+    .svc__tags {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
     }
-    .svc__list li + li { border-top: 1px solid; }
-    .svc--design .svc__list li      { color: var(--ink);  border-color: var(--mist); }
-    .svc--construction .svc__list li{ color: var(--sand); border-color: rgba(215,211,204,0.12); }
-    .svc__list li::before { content: ''; width: 4px; height: 4px; background: var(--bronze); flex-shrink: 0; }
-    .svc--construction .svc__list li::before { background: var(--bronze-lt); }
+    .svc__tag {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border: 2.5px solid var(--mist);
+      color: var(--ink);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .svc__tag:hover { border-color: var(--bronze); color: var(--bronze); }
     .svc__link {
       position: relative; z-index: 1;
       display: inline-flex;
@@ -216,9 +218,92 @@
     .svc--construction .svc__link { border: 1px solid var(--bronze-lt); color: var(--paper); }
     .svc--construction .svc__link:hover { background: var(--bronze-lt); color: var(--ink); }
 
-    /* â”€â”€ Homepage responsive â”€â”€ */
+    /* ── Construction quiet strip ── */
+    .const-note {
+      background: var(--bone);
+      border-top: 1px solid var(--mist);
+      border-bottom: 1px solid var(--mist);
+      padding: 56px 80px;
+    }
+    .const-note-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .const-note-text { flex: 1; }
+    .const-note-h {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(20px, 2vw, 26px);
+      color: var(--ink);
+      margin: 10px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .const-note-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .const-note-link {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--mist);
+      padding: 14px 24px;
+      white-space: nowrap;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .const-note-link:hover { border-color: var(--slate); color: var(--ink); }
+
+    /* ── Work gallery strip ── */
+    .work-gallery { overflow: hidden; }
+    .work-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 500px;
+    }
+    .wg-photo { overflow: hidden; position: relative; }
+    .wg-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .wg-photo:hover img { transform: scale(1.04); }
+
+    /* ── Detail strip ── */
+    .detail-strip {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr 1fr;
+      height: 300px;
+      overflow: hidden;
+    }
+    .detail-strip-photo { overflow: hidden; }
+    .detail-strip-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .detail-strip-photo:hover img { transform: scale(1.05); }
+
+    /* ── Homepage responsive ── */
     @media (max-width: 1100px) {
       .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .const-note { padding: 48px 32px; }
+      .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
     }
     @media (max-width: 900px) {
       .hero-main        { padding: 0 32px 56px; }
@@ -228,6 +313,12 @@
       .svc              { padding: 64px 32px; min-height: unset; }
       .intro-stats      { flex-wrap: wrap; gap: 32px; }
       .stat             { border-right: none; padding-right: 0; margin-right: 0; }
+    }
+    @media (max-width: 768px) {
+      .work-gallery-grid { grid-template-columns: 1fr; height: auto; }
+      .wg-photo { height: 260px; }
+      .detail-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .detail-strip-photo { height: 200px; }
     }
     @media (max-width: 480px) {
       .hero-wordmark { letter-spacing: 0.03em; }
@@ -284,11 +375,11 @@
     <div class="hero-ticker" aria-hidden="true">
       <div class="ticker-track">
         <span>Design</span><span class="sep">&middot;</span><span>Plan</span><span class="sep">&middot;</span>
-        <span>Build</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
+        <span>Draft</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
         <span>Multi-family</span><span class="sep">&middot;</span><span>BC &amp; Alberta</span><span class="sep">&middot;</span>
         <span>Built on Principle</span><span class="sep">&middot;</span><span>By Design</span><span class="sep">&middot;</span>
         <span>Design</span><span class="sep">&middot;</span><span>Plan</span><span class="sep">&middot;</span>
-        <span>Build</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
+        <span>Draft</span><span class="sep">&middot;</span><span>Custom Homes</span><span class="sep">&middot;</span>
         <span>Multi-family</span><span class="sep">&middot;</span><span>BC &amp; Alberta</span><span class="sep">&middot;</span>
         <span>Built on Principle</span><span class="sep">&middot;</span><span>By Design</span><span class="sep">&middot;</span>
       </div>
@@ -301,10 +392,10 @@
     <div class="intro-inner">
       <div class="reveal">
         <span class="label">What we do</span>
-        <h2 class="intro-heading" id="intro-heading">Design.<br>Plan.<br>Build.</h2>
+        <h2 class="intro-heading" id="intro-heading">Design.<br>Plan.<br>Create.</h2>
       </div>
       <div class="reveal reveal-d1">
-        <p class="intro-body">Rexford is a design and drafting studio serving homeowners, builders, and developers across British Columbia. We produce architectural drawings and interior designs that work with any build team, and offer construction management for clients who want a single point of contact from concept through completion.</p>
+        <p class="intro-body">Rexford is a design and drafting studio based in Chilliwack, BC. We produce architectural drawings and interior designs that work alongside any build team. For clients who want one firm handling both, we offer construction management too.</p>
         <p class="intro-body">We resolve every finish, material, and detail on paper before construction begins. That process is what keeps projects on track and finished spaces looking the way they were designed.</p>
         <div class="intro-stats">
           <div class="stat"><span class="stat-n">BC</span><span class="stat-l">&amp; Alberta</span></div>
@@ -335,42 +426,40 @@
 
 
   <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="svc svc--design" aria-labelledby="svc-design-heading">
+  <section class="services" id="services" style="display:block;">
+    <div class="svc svc--design" style="min-height:560px;" aria-labelledby="svc-design-heading">
       <div class="svc__glow" aria-hidden="true"></div>
       <div class="svc__body reveal">
-        <span class="label">Studio side</span>
+        <span class="label">What we do</span>
         <h2 class="svc__name" id="svc-design-heading">REXFORD</h2>
         <p class="svc__sub">Design</p>
         <div class="svc__rule"></div>
-        <p class="svc__desc">Architectural and interior design from concept through permit-ready drawings. We resolve every finish, millwork detail, and specification before a single nail is driven.</p>
-        <ul class="svc__list" role="list">
-          <li>Architectural drafting &amp; design</li>
-          <li>Permit drawings &amp; documentation</li>
-          <li>Interior design &amp; finishes</li>
-          <li>Millwork &amp; custom specifications</li>
-          <li>Interior styling</li>
-        </ul>
+        <p class="svc__desc">Architectural and interior design through to permit-ready drawings.<br>Every finish, millwork detail, and specification is resolved on paper before anyone picks up a tool.</p>
+        <div class="svc__tags" role="list">
+          <span class="svc__tag" role="listitem">Architectural drafting &amp; design</span>
+          <span class="svc__tag" role="listitem">Permit drawings &amp; documentation</span>
+          <span class="svc__tag" role="listitem">Interior design &amp; finishes</span>
+          <span class="svc__tag" role="listitem">Millwork &amp; custom specifications</span>
+          <span class="svc__tag" role="listitem">Interior styling</span>
+        </div>
       </div>
       <a href="services.html" class="svc__link">Explore Design &nbsp;&rarr;</a>
     </div>
-    <div class="svc svc--construction" aria-labelledby="svc-const-heading">
-      <div class="svc__glow" aria-hidden="true"></div>
-      <div class="svc__body reveal reveal-d1">
-        <span class="label label--light">Build &amp; PM</span>
-        <h2 class="svc__name" id="svc-const-heading">REXFORD</h2>
-        <p class="svc__sub">Construction</p>
-        <div class="svc__rule" style="background:var(--bronze-lt)"></div>
-        <p class="svc__desc">Custom homes, renovations, and large-scale residential construction. Schedule discipline, coordinated trades, and jobsite quality from site prep through handover.</p>
-        <ul class="svc__list" role="list">
-          <li>Custom home construction</li>
-          <li>Multi-family residential</li>
-          <li>Large-scale renovations</li>
-          <li>Trade coordination &amp; management</li>
-          <li>Site supervision &amp; quality control</li>
-        </ul>
+  </section>
+
+
+  <!-- WORK GALLERY -->
+  <section class="work-gallery" aria-label="Our work">
+    <div class="work-gallery-grid">
+      <div class="wg-photo">
+        <img src="Marketing/website-photos/interior-living-2.jpeg" alt="Residential interior — grand living space with fireplace" loading="lazy">
       </div>
-      <a href="services.html" class="svc__link">Explore Construction &nbsp;&rarr;</a>
+      <div class="wg-photo">
+        <img src="Marketing/website-photos/interior-staircase.jpg" alt="Residential interior — custom staircase detail" loading="lazy">
+      </div>
+      <div class="wg-photo">
+        <img src="Marketing/website-photos/interior-living-1.jpeg" alt="Residential interior — modern neutral living room" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -383,13 +472,13 @@
           <span class="label">How we work</span>
           <h2 class="process-h" id="process-heading">From first conversation<br>to key handover.</h2>
         </div>
-        <p class="process-intro reveal reveal-d1">Every project starts with a thorough design phase, resolving each detail on paper before site work begins. When we manage construction too, that precision carries all the way through to the finished space.</p>
+        <p class="process-intro reveal reveal-d1">Every project starts with a proper design phase, with each detail resolved on paper before site work begins. When we're managing construction too, that same care carries through to the finished space.</p>
       </div>
       <div class="process-steps">
         <div class="step reveal"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We learn your project, including site conditions, program, budget, and timeline. No assumptions before we understand the brief.</p></div>
         <div class="step reveal reveal-d1"><div class="step-num">02</div><h3 class="step-title">Design</h3><p class="step-desc">Concept drawings, permit documents, finish schedules, and specifications. The studio works until every detail is resolved on paper.</p></div>
-        <div class="step reveal reveal-d2"><div class="step-num">03</div><h3 class="step-title">Build</h3><p class="step-desc">Site work begins with a fixed schedule and coordinated trades. We hold the standard you approved in the drawing.</p></div>
-        <div class="step reveal reveal-d3"><div class="step-num">04</div><h3 class="step-title">Handover</h3><p class="step-desc">A thorough walkthrough, full documentation package, and post-occupancy support. The project isn't done until it's right.</p></div>
+        <div class="step reveal reveal-d2"><div class="step-num">03</div><h3 class="step-title">Deliver</h3><p class="step-desc">Permit drawings, interior specifications, and full documentation ready for your build team, or ours if you need site management.</p></div>
+        <div class="step reveal reveal-d3"><div class="step-num">04</div><h3 class="step-title">Handover</h3><p class="step-desc">A proper walkthrough, all your documentation, and follow-up once you're settled in. We don't call it done until it is.</p></div>
       </div>
     </div>
   </section>
@@ -465,9 +554,9 @@
       <div class="reveal">
         <span class="label">Our studio</span>
         <h2 class="about-h" id="about-heading">A BC-based design &amp; build studio.</h2>
-        <p class="about-pull">"Where structure meets style, and every line tells a story."</p>
-        <p class="about-body">Rexford is a British Columbia-based design and drafting studio known for its thoughtful approach to capturing the character of every space. Our team brings together architectural precision and a genuine eye for design, guided by clarity, craftsmanship, and care.</p>
-        <p class="about-body">From concept to completion, we translate ideas into architectural form with precision and purpose.</p>
+        <p class="about-pull">"Every project gets our full attention, whether it's a single home or a multi-lot development."</p>
+        <p class="about-body">Rexford is a design and drafting studio based in Chilliwack, BC. We work with homeowners, builders, and developers who want their spaces properly thought through, not just drawn.</p>
+        <p class="about-body">We get involved early and stay that way, from the first sketch through to the finished space.</p>
       </div>
       <div class="reveal reveal-d1">
         <div class="about-card">
@@ -487,10 +576,31 @@
   <section class="principle" aria-label="Guiding principle">
     <div class="principle-inner reveal">
       <div class="principle-mark" aria-hidden="true">"</div>
-      <p class="principle-text">Good design is only as good as the thinking behind it. We stay involved from first sketch to final detail to make sure nothing gets lost along the way.</p>
+      <p class="principle-text">Good design is only as good as the thinking behind it. We stay involved from the first sketch to the final detail, because the details don't take care of themselves.</p>
       <span class="principle-attr label">Rexford &nbsp;&middot;&nbsp; Design &amp; Drafting</span>
     </div>
   </section>
+
+
+  <!-- CONSTRUCTION (quiet supporting note) -->
+  <section class="const-note" aria-label="Construction management">
+    <div class="const-note-inner reveal">
+      <div class="const-note-text">
+        <span class="label">Also available</span>
+        <h3 class="const-note-h">Need someone to manage the build too?</h3>
+        <p class="const-note-desc">For clients who want one firm handling everything from drawings to the finished build, we offer construction management alongside our design work.</p>
+      </div>
+      <a href="services.html" class="const-note-link">Learn about Construction &nbsp;&rarr;</a>
+    </div>
+  </section>
+
+
+  <!-- DETAIL STRIP -->
+  <div class="detail-strip" aria-hidden="true">
+    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-kitchen-1.jpeg" alt="" loading="lazy" style="object-position:center 70%;"></div>
+    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-bedroom.jpeg"   alt="" loading="lazy"></div>
+    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-bathroom.jpeg"  alt="" loading="lazy" style="object-position:center 80%;"></div>
+  </div>
 
 
   <!-- PILLARS -->
@@ -504,7 +614,7 @@
         <div class="pillar reveal">
           <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1"/><path d="M3 18 L20 6 L37 18"/><line x1="16" y1="34" x2="16" y2="24"/><line x1="24" y1="34" x2="24" y2="24"/></svg>
           <h3 class="pillar-title">Integrated under one roof</h3>
-          <p class="pillar-desc">Design and construction are one team, one contract, one conversation. No finger-pointing between architect and builder, and we own the outcome from first sketch to final walkthrough.</p>
+          <p class="pillar-desc">Design and construction handled by the same firm, under one contract. No miscommunication between the designer and the builder, because they're the same people.</p>
         </div>
         <div class="pillar reveal reveal-d1">
           <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"/><polyline points="20,11 20,20 27,25"/></svg>
@@ -528,7 +638,7 @@
     <div class="cta-inner">
       <div class="reveal">
         <p class="cta-eyebrow label label--light">Start a project</p>
-        <h2 class="cta-h" id="cta-heading">Ready to build something worth keeping?</h2>
+        <h2 class="cta-h" id="cta-heading">Ready to design something worth keeping?</h2>
         <p class="cta-sub">Tell us about your project, including site, scope, and timeline. We'll tell you if we're the right fit.</p>
       </div>
       <div class="cta-btns reveal reveal-d1">
@@ -553,7 +663,7 @@
           <p class="footer-col-label">Services</p>
           <ul class="footer-links" role="list">
             <li><a href="services.html">Rexford Design</a></li>
-            <li><a href="services.html">Rexford Construction</a></li>
+            
             <li><a href="services.html">Custom Homes</a></li>
             <li><a href="services.html">Multi-family</a></li>
             <li><a href="services.html">Renovations</a></li>
@@ -578,7 +688,7 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-legal">&copy; 2026 Rexford Contracting &amp; Design Inc. All rights reserved.</p>
-        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a><a href="services.html">Rexford Construction</a></div>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a></div>
       </div>
     </div>
   </footer>
