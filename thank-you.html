@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA:BEGIN -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0FYHZWVTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X0FYHZWVTZ');
+
+    // Phone / email clicks as GA4 events (enhanced measurement skips tel:/mailto:).
+    // Marked as key events in GA4 admin; imported as conversions by Google Ads.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('tel:') === 0) {
+        gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href, page_path: location.pathname });
+      }
+    });
+  </script>
+  <!-- GA:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Only form-submitters should land here; keep it out of search results
+       so organic visits never inflate the Google Ads conversion count. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Thank you &mdash; your project inquiry has been received by the Rexford team.">
+  <title>Thank You &mdash; REXFORD</title>
+
+  <!-- The Dubsado form redirects here inside its embed iframe; break out so
+       the visitor sees the full page rather than a page-within-a-page. -->
+  <script>
+    if (window.top !== window.self) {
+      try { window.top.location.replace(window.location.href); }
+      catch (err) { window.top.location = window.location.href; }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── Next steps (mirrors the contact page's expect strip) ── */
+    .expect-strip { padding: 100px 0 120px; background: var(--paper); }
+    .expect-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .expect-header { margin-bottom: 56px; }
+    .expect-h {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.01em;
+      margin-top: 14px;
+      color: var(--ink);
+    }
+    .expect-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .expect-step {
+      padding: 0 40px 0 0;
+      border-right: 1px solid var(--mist);
+    }
+    .expect-step:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+    .expect-step:nth-child(2) { padding: 0 40px; }
+    .expect-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--mist);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .expect-title {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .expect-body {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .expect-cta { margin-top: 64px; }
+
+    @media (max-width: 1000px) {
+      .expect-grid { grid-template-columns: 1fr; gap: 40px; }
+      .expect-step, .expect-step:last-child, .expect-step:nth-child(2) {
+        padding: 0 0 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--mist);
+      }
+      .expect-step:last-child { border-bottom: none; padding-bottom: 0; }
+    }
+    @media (max-width: 640px) {
+      .expect-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    <a href="blog.html">Journal</a><a href="about.html">About</a>
+    <a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow"    aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow label label--light">Request received</p>
+      <h1 class="page-hero-title" id="page-title">Thank you.</h1>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">Your project inquiry is in our hands. We'll review the details and reach out within one business day.</p>
+    </div>
+  </section>
+
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="expect-strip" aria-labelledby="expect-heading">
+    <div class="expect-inner">
+      <div class="expect-header reveal">
+        <span class="label">What happens next</span>
+        <h2 class="expect-h" id="expect-heading">From here, it's on us.</h2>
+      </div>
+      <div class="expect-grid">
+
+        <div class="expect-step reveal">
+          <div class="expect-num">01</div>
+          <p class="expect-title">We review your inquiry</p>
+          <p class="expect-body">Within one business day, the Rexford team reviews your project details, scope, and location to assess fit and timeline availability.</p>
+        </div>
+
+        <div class="expect-step reveal reveal-d1">
+          <div class="expect-num">02</div>
+          <p class="expect-title">We reach out to connect</p>
+          <p class="expect-body">We'll follow up by phone or email to ask a few clarifying questions and get a better picture of your vision, budget, and timeline.</p>
+        </div>
+
+        <div class="expect-step reveal reveal-d2">
+          <div class="expect-num">03</div>
+          <p class="expect-title">We schedule a discovery call</p>
+          <p class="expect-body">If there's a mutual fit, we set up a discovery call or site meeting to walk through your project in detail and outline our recommended approach.</p>
+        </div>
+
+      </div>
+      <div class="expect-cta reveal">
+        <p class="expect-body">In the meantime, browse <a href="blog.html">the journal</a> for planning guides, or see <a href="process.html">how our process works</a> from first call to final drawings.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div>
+          <p class="footer-tagline">Built on principle. By design.</p>
+          <p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p>
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html">Rexford Design</a></li>
+            <li><a href="services.html">Custom Homes</a></li>
+            <li><a href="services.html">Multi-family</a></li>
+            <li><a href="services.html">Renovations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Rexford</a></li>
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Contact</p>
+          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
+          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
+          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
+          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved.</p>
+        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── NAV ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }));
+
+    /* ── REVEAL ── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── LEAD EVENT ──
+       Fire only in the top-level window: when this page first loads inside the
+       Dubsado iframe (before the breakout script navigates away), we skip it so
+       each submission counts exactly once. */
+    if (window.top === window.self && typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { method: 'dubsado_form' });
+    }
+  </script>
+</body>
+</html>

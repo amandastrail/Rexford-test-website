@@ -9,6 +9,19 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-X0FYHZWVTZ');
+
+    // Phone / email clicks as GA4 events (enhanced measurement skips tel:/mailto:).
+    // Marked as key events in GA4 admin; imported as conversions by Google Ads.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('tel:') === 0) {
+        gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href, page_path: location.pathname });
+      }
+    });
   </script>
   <!-- GA:END -->
   <meta charset="UTF-8">

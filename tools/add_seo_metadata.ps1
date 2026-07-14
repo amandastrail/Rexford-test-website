@@ -24,8 +24,9 @@ $BizName = 'Rexford Drafting & Design Inc.'
 $BizId   = "$Base/#business"
 $SiteId  = "$Base/#website"
 
-# Pages that must never be indexed (internal docs / scratch)
-$NoIndex = @('summer-job-agreement.html')
+# Pages that must never be indexed (internal docs / scratch / post-form
+# conversion page — organic visits to thank-you would inflate Ads conversions)
+$NoIndex = @('summer-job-agreement.html', 'thank-you.html')
 $Skip    = @('_mockup.html')
 
 function Get-Tag {
