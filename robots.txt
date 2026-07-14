@@ -1,0 +1,79 @@
+# robots.txt - rexfordco.ca
+# Search and AI assistants are welcome. Internal documents are excluded.
+
+User-agent: *
+Allow: /
+Disallow: /summer-job-agreement
+Disallow: /_mockup
+
+# --- AI / LLM crawlers: explicitly permitted so Rexford can be cited in AI answers ---
+
+User-agent: GPTBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Claude-User
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Applebot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Bingbot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: CCBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /summer-job-agreement
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /summer-job-agreement
+
+Sitemap: https://rexfordco.ca/sitemap.xml
