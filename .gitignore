@@ -1,14 +1,73 @@
-# Internal / AI tooling
-.claude/
-CLAUDE.md
+# ─────────────────────────────────────────────────────────────────────────
+# Rexford — repository ignore rules
+#
+# This one folder holds TWO very different things:
+#   1. The public website, deployed to rexfordco.ca by Vercel
+#   2. Private business documents — client proposals, contracts,
+#      financials, questionnaires, insurance files
+#
+# Anything committed here is PUBLIC: it goes to a public GitHub repo AND
+# gets served by Vercel. A blanket `git add -A` would publish client work.
+#
+# So this file is an ALLOWLIST, not a blocklist. Everything is ignored by
+# default; only files the website actually needs are let back in. A new
+# client folder is therefore private automatically — you never have to
+# remember to exclude it.
+#
+# To publish a NEW website asset, add an explicit `!` rule below.
+# ─────────────────────────────────────────────────────────────────────────
 
-# Internal business documents (allow images, block docs/html)
-Marketing/*.pdf
-Marketing/*.html
-Reviews/
+# 1 ── Ignore everything at the repo root by default.
+/*
 
-# Environment & credentials
+# 2 ── Let the website back in.
+
+# Config & core files
+!/.gitignore
+!/vercel.json
+!/robots.txt
+!/sitemap.xml
+!/styles.css
+
+# Public site pages
+!/*.html
+
+# ...except internal HTML that must never be published.
+# (These come after !/*.html — later rules win.)
+/summer-job-agreement.html
+/_mockup.html
+
+# Image assets used by the site
+!/Brand Asset/
+!/Affiliated Logos/
+!/Caijsa.jpg
+
+# ...but not the internal brand book, and not raw font files
+# (pages load Jost + Inter from Google Fonts, so no .ttf ships).
+/Brand Asset/*.pdf
+/Brand Asset/fonts/
+
+# Marketing: publish the website photos, never the documents.
+# The previous rules were `Marketing/*.pdf` and `Marketing/*.html`, which
+# matched only the TOP level — they did NOT match Marketing/Proposal/*.html,
+# so client proposals were publishable by accident. Un-ignoring just the
+# image folders closes that hole permanently.
+!/Marketing/
+/Marketing/*
+!/Marketing/website-photos/
+!/Marketing/drafting.png
+!/Marketing/drafting 2.png
+!/Marketing/kitchen 2.png
+
+# Tooling: only scripts that build the site itself.
+!/tools/
+/tools/*
+!/tools/add_seo_metadata.ps1
+
+# 3 ── Secrets: never commit these, whatever any rule above says.
 .env
+.env.*
 credentials.json
 token.json
-.tmp/
+*.key
+*.pem
