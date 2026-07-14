@@ -317,13 +317,15 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 72px;
+  /* Fluid gap: at a fixed 72px the sixth logo orphaned onto its own row.
+     Scales with viewport so all six hold one line down to laptop widths. */
+  gap: clamp(20px, 2.8vw, 72px);
   flex-wrap: wrap;
 }
 .affiliations-logos img {
   height: 52px;
   width: auto;
-  max-width: 180px;
+  max-width: 150px;
   object-fit: contain;
   filter: grayscale(1) opacity(0.45);
   transition: filter 0.35s ease;
