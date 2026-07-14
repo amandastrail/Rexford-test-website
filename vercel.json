@@ -3,9 +3,15 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [{ "type": "host", "value": "www.rexfordco.ca" }],
-      "destination": "https://rexfordco.ca/:path*",
+      "destination": "https://rexfordco.ca/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "www.rexfordco.ca" }],
+      "destination": "https://rexfordco.ca/:path+",
       "permanent": true
     }
   ]
