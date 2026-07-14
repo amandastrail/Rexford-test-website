@@ -162,6 +162,16 @@ foreach ($p in $pages) {
     $ogType = 'website'
     $type   = 'page'
 
+    # Blog posts share their own hero photo rather than the generic site image,
+    # so a link to a specific post previews that post.
+    $pageImage = $OgImage
+    $hero = [regex]::Match($html, "(?s)\.blog-hero-bg\s*\{.*?background-image:\s*url\('([^']+)'\)")
+    if ($hero.Success) {
+        $rel = $hero.Groups[1].Value -replace '^\./',''
+        $enc = ($rel -split '/' | ForEach-Object { [uri]::EscapeDataString([uri]::UnescapeDataString($_)) }) -join '/'
+        $pageImage = "$Base/$enc"
+    }
+
     if ($name -eq 'index.html') {
         $type = 'home'
         $schemaNode = @($BusinessNode, $WebSiteNode)
@@ -175,7 +185,7 @@ foreach ($p in $pages) {
             'description'      = $desc
             'url'              = $canon
             'mainEntityOfPage' = $canon
-            'image'            = $OgImage
+            'image'            = $pageImage
             'inLanguage'       = 'en-CA'
             'author'           = [ordered]@{ '@type'='Organization'; 'name'=$BizName; '@id'=$BizId }
             'publisher'        = $Publisher
@@ -262,11 +272,11 @@ foreach ($p in $pages) {
     [void]$sb.AppendLine("  <meta property=""og:url"" content=""$canon"">")
     [void]$sb.AppendLine("  <meta property=""og:title"" content=""$tTitle"">")
     [void]$sb.AppendLine("  <meta property=""og:description"" content=""$tDesc"">")
-    [void]$sb.AppendLine("  <meta property=""og:image"" content=""$OgImage"">")
+    [void]$sb.AppendLine("  <meta property=""og:image"" content=""$pageImage"">")
     [void]$sb.AppendLine("  <meta name=""twitter:card"" content=""summary_large_image"">")
     [void]$sb.AppendLine("  <meta name=""twitter:title"" content=""$tTitle"">")
     [void]$sb.AppendLine("  <meta name=""twitter:description"" content=""$tDesc"">")
-    [void]$sb.AppendLine("  <meta name=""twitter:image"" content=""$OgImage"">")
+    [void]$sb.AppendLine("  <meta name=""twitter:image"" content=""$pageImage"">")
     [void]$sb.AppendLine("  <script type=""application/ld+json"">")
     [void]$sb.AppendLine("  $json")
     [void]$sb.AppendLine('  </script>')
