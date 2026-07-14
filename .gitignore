@@ -63,6 +63,7 @@
 !/tools/
 /tools/*
 !/tools/add_seo_metadata.ps1
+!/tools/add_analytics.ps1
 
 # 3 ── Secrets: never commit these, whatever any rule above says.
 .env
