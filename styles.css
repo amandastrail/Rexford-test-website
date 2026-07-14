@@ -974,6 +974,62 @@ footer {
 .footer-sub-brands a:hover { color: var(--bronze); }
 
 /* ═══════════════════════════════════════════
+   FAQ  (native <details> accordion, no JS)
+   Answers stay in the DOM when collapsed, so
+   crawlers and AI assistants read them either way.
+═══════════════════════════════════════════ */
+.faq { background: var(--paper); padding: 96px 80px; border-top: 1px solid var(--mist); }
+.faq-inner { max-width: 860px; margin: 0 auto; }
+.faq-heading {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(30px, 3.4vw, 44px);
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin: 14px 0 48px;
+}
+.faq-item { border-bottom: 1px solid var(--mist); }
+.faq-item:first-of-type { border-top: 1px solid var(--mist); }
+.faq-q {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  padding: 26px 44px 26px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:hover { color: var(--bronze); }
+/* plus/minus indicator */
+.faq-q::after {
+  content: '+';
+  position: absolute;
+  right: 4px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 26px;
+  color: var(--bronze);
+  transition: transform 0.2s ease;
+}
+.faq-item[open] .faq-q::after { content: '\2013'; }
+.faq-item[open] .faq-q { color: var(--bronze); }
+.faq-a { padding: 0 44px 28px 0; }
+.faq-a p {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--slate);
+}
+.faq-a p + p { margin-top: 14px; }
+.faq-a a { color: var(--bronze); border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+.faq-a a:hover { border-color: var(--bronze); }
+
+/* ═══════════════════════════════════════════
    RESPONSIVE — SHARED
 ═══════════════════════════════════════════ */
 @media (max-width: 1100px) {
@@ -1023,7 +1079,12 @@ footer {
   .review-strip-inner { grid-template-columns: 1fr; gap: 28px; }
 }
 
+@media (max-width: 900px) {
+  .faq                { padding: 72px 32px; }
+}
 @media (max-width: 600px) {
+  .faq                { padding: 56px 20px; }
+  .faq-q              { font-size: 16px; padding: 22px 36px 22px 0; }
   .reviews            { padding: 64px 20px; }
   .review-card        { max-width: 100%; }
   .review-strip       { padding: 48px 20px; }

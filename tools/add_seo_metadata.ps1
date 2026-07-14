@@ -58,6 +58,27 @@ function Get-PostDate {
 
 function To-Json { param($Obj) ($Obj | ConvertTo-Json -Depth 12 -Compress) }
 
+# Pull question/answer pairs out of the VISIBLE FAQ accordion on the page.
+# Deriving the schema from the rendered markup (rather than a separate list) means
+# FAQPage structured data can never drift from what a human actually reads --
+# which is exactly what Google requires for FAQ rich results.
+function Get-FaqItems {
+    param($Html)
+    $items = @()
+    $block = [regex]::Match($Html, '(?s)<!-- FAQ:BEGIN -->(.*?)<!-- FAQ:END -->')
+    if (-not $block.Success) { return $items }
+    foreach ($d in [regex]::Matches($block.Groups[1].Value, '(?s)<details class="faq-item">(.*?)</details>')) {
+        $inner = $d.Groups[1].Value
+        $q = [regex]::Match($inner, '(?s)<summary class="faq-q">(.*?)</summary>')
+        $a = [regex]::Match($inner, '(?s)<div class="faq-a">(.*?)</div>')
+        if (-not ($q.Success -and $a.Success)) { continue }
+        $qt = (Decode ($q.Groups[1].Value -replace '<[^>]+>','')).Trim()
+        $at = (Decode ($a.Groups[1].Value -replace '</p>\s*<p[^>]*>',' ' -replace '<[^>]+>','')) -replace '\s+',' '
+        $items += [pscustomobject]@{ Q = $qt; A = $at.Trim() }
+    }
+    return $items
+}
+
 # The seven services shown in the homepage ticker
 $Services = @('Site Planning','Drafting','Custom Homes','Renovations',
               'Multi-family','Commercial','Interior Design')
@@ -209,6 +230,21 @@ foreach ($p in $pages) {
             '@type'='WebPage'; 'name'=$title; 'description'=$desc; 'url'=$canon
             'isPartOf'=[ordered]@{ '@id'=$SiteId }; 'about'=$Publisher; 'inLanguage'='en-CA'
         })
+    }
+
+    # Any page carrying a visible FAQ accordion also gets FAQPage schema.
+    $faq = Get-FaqItems $html
+    if ($faq.Count -gt 0) {
+        $schemaNode += [ordered]@{
+            '@type'      = 'FAQPage'
+            'mainEntity' = @($faq | ForEach-Object {
+                [ordered]@{
+                    '@type'          = 'Question'
+                    'name'           = $_.Q
+                    'acceptedAnswer' = [ordered]@{ '@type'='Answer'; 'text'=$_.A }
+                }
+            })
+        }
     }
 
     $graph = [ordered]@{ '@context'='https://schema.org'; '@graph'=$schemaNode }
