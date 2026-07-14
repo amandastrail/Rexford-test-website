@@ -109,7 +109,16 @@ $BusinessNode = [ordered]@{
         [ordered]@{ '@type'='AdministrativeArea'; 'name'='British Columbia' },
         [ordered]@{ '@type'='AdministrativeArea'; 'name'='Alberta' }
     )
-    'sameAs'      = @('https://instagram.com/therexfordcompany')
+    # sameAs links this website to the same business elsewhere. The Google Business
+    # Profile entry is the important one: it tells search engines and AI assistants
+    # that rexfordco.ca and that Google listing are one entity, so reviews, hours and
+    # location on Google corroborate the site (and vice versa).
+    # The URL uses the stable Knowledge Graph MID rather than a short link -- the old
+    # g.co/kgs short link died when Google retired Firebase Dynamic Links.
+    'sameAs'      = @(
+        'https://instagram.com/therexfordcompany',
+        'https://www.google.com/search?kgmid=/g/11y2kp7nqq'
+    )
     'hasOfferCatalog' = [ordered]@{
         '@type' = 'OfferCatalog'
         'name'  = 'Design & Drafting Services'
