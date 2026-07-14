@@ -16,7 +16,7 @@ $ErrorActionPreference = 'Stop'
 
 $Base    = 'https://rexfordco.ca'
 $OgImage = "$Base/Marketing/website-photos/interior-kitchen-1.jpeg"
-$Logo    = "$Base/Brand%20Asset/R.png"
+$Logo    = "$Base/Brand%20Asset/R-web.png"
 # Must match the Google Business Profile name character-for-character (NAP consistency).
 # GBP is registered as "Rexford Drafting & Design Inc."; the site previously said
 # "Contracting", which split the business into two entities in Google's eyes.
