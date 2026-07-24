@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA:BEGIN -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0FYHZWVTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X0FYHZWVTZ');
+
+    // Phone / email clicks as GA4 events (enhanced measurement skips tel:/mailto:).
+    // Marked as key events in GA4 admin; imported as conversions by Google Ads.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('tel:') === 0) {
+        gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href, page_path: location.pathname });
+      }
+    });
+  </script>
+  <!-- GA:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modular vs panelized vs prefab, the real case for factory-built homes in Canada, and the financing catch nobody puts on the brochure.">
+  <title>Modular Homes: The Future, or Just a Promise? - REXFORD Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero is a FALLBACK library image; no modular photo exists yet.
+       Ideal: crane lifting a finished module onto a foundation, or a
+       modular factory line; credible and Canadian-looking.
+       Swap here AND in og/twitter/JSON-LD images once sourced. */
+    .blog-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('Marketing/website-photos/interior-kitchen-1.jpeg');
+      background-size: cover; background-position: center;
+      opacity: 0.18; filter: grayscale(0.2);
+    }
+  </style>
+  <!-- SEO:BEGIN -->
+  <link rel="canonical" href="https://rexfordco.ca/blog-modular-future">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Rexford">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:url" content="https://rexfordco.ca/blog-modular-future">
+  <meta property="og:title" content="Modular Homes: The Future, or Just a Promise? - REXFORD Journal">
+  <meta property="og:description" content="Modular vs panelized vs prefab, the real case for factory-built homes in Canada, and the financing catch nobody puts on the brochure.">
+  <meta property="og:image" content="https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modular Homes: The Future, or Just a Promise? - REXFORD Journal">
+  <meta name="twitter:description" content="Modular vs panelized vs prefab, the real case for factory-built homes in Canada, and the financing catch nobody puts on the brochure.">
+  <meta name="twitter:image" content="https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Modular Homes: The Future, or Just This Decade's Promise?",
+    "description": "Modular vs panelized vs prefab, the real case for factory-built homes in Canada, and the financing catch nobody puts on the brochure.",
+    "author": { "@type": "Person", "name": "Amanda Wiebe" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rexford Drafting & Design Inc.",
+      "logo": { "@type": "ImageObject", "url": "https://rexfordco.ca/Brand%20Asset/R-web.png" }
+    },
+    "datePublished": "2026-07-24",
+    "image": "https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg",
+    "mainEntityOfPage": "https://rexfordco.ca/blog-modular-future",
+    "articleSection": "Development"
+  }
+  </script>
+  <!-- SEO:END -->
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="blog.html" class="active">Journal</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <section class="page-hero" aria-labelledby="post-title" style="position:relative;overflow:hidden;">
+    <div class="blog-hero-bg" aria-hidden="true"></div>
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="page-hero-content" style="max-width: 860px;">
+      <a href="blog.html" class="post-back">Back to Journal</a>
+      <p class="post-eyebrow">Development &middot; Building &middot; July 2026</p>
+      <h1 class="post-title" id="post-title">Modular Homes: The Future, or Just This Decade&rsquo;s Promise?</h1>
+      <div class="post-meta">
+        <span>Amanda Wiebe</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="post-body" aria-label="Post body">
+    <div class="post-body-inner">
+
+      <p>Every few years, modular construction gets crowned the answer to the housing crisis. Build the house in a factory, truck it to the lot, snap it together in a week, and skip most of the delays and weather and labour shortages that plague conventional building. The pitch is compelling, and this time there is real money and policy behind it. So it is a fair question: are modular homes finally the future, or is this another cycle of promise that quietly under-delivers?</p>
+      <p>The honest answer is: both, depending on what you are building and whether you can get it financed.</p>
+
+      <h2>First, the words actually mean different things</h2>
+      <p>Half the confusion around &ldquo;modular&rdquo; comes from loose vocabulary. Three different things get lumped together:</p>
+      <ul>
+        <li><strong>Modular (volumetric).</strong> Whole three-dimensional room boxes are built in a factory (framed, wired, plumbed, sometimes finished), then trucked in and stacked on your foundation.</li>
+        <li><strong>Panelized.</strong> Flat wall and floor panels are built in a factory and assembled on site. Faster than stick-building, but you are still framing a house, just with a head start.</li>
+        <li><strong>Prefab / kit.</strong> A broad catch-all that can mean anything from a package of pre-cut lumber to a nearly complete home.</li>
+      </ul>
+      <p>When people say modular is the future, they usually mean the first one. It is also the one with the biggest advantages and the most stubborn constraints.</p>
+
+      <h2>The case that it&rsquo;s the future</h2>
+      <p>It is stronger than it has ever been. A factory-built home is assembled indoors, on a controlled line, by the same crews doing the same tasks repeatedly. That produces genuine benefits:</p>
+      <ul>
+        <li><strong>Speed.</strong> Factory production runs in parallel with site work. Your foundation is poured while the house is being built, and weather stops delaying you.</li>
+        <li><strong>Consistency.</strong> Factory quality control and repeatable assembly reduce the variability you get on an open site.</li>
+        <li><strong>Less waste.</strong> Centralized cutting and material handling generates less job-site waste.</li>
+      </ul>
+      <p>And the momentum is no longer just talk. <strong>Build Canada Homes</strong>, the federal homebuilding agency, aims to fund thousands of modular units on federal land starting in 2026. New timber-modular factories are coming online with capacity for well over a thousand units a year. Canada&rsquo;s prefabricated construction market is projected to grow from roughly CAD 14 billion in 2025 toward CAD 18 billion by 2030. Housing policy at every level now explicitly prefers modular and prefab where they can be scaled. BC, for what it is worth, has been building modular for decades. This is not new ground here.</p>
+
+      <h2>The catch nobody puts on the brochure: financing</h2>
+      <p>Here is the honest constraint, and it is the one that stops most modular projects before they start. The way homes are normally financed does not match the way modular homes get built.</p>
+      <p>A conventional construction loan releases money in stages tied to site progress: foundation done, framing done, lock-up, and so on. A modular home inverts that. The factory needs to be paid up front to build your house before it ever arrives on site, at the exact moment a traditional lender has released almost nothing. That mismatch is why you will see headlines about prefab solving the housing crisis paired with the phrase &ldquo;but nobody can get financing.&rdquo; It is being worked on (CMHC has introduced financing aimed specifically at modular and prefab), but it is still the single biggest friction for a private buyer today.</p>
+      <p>Then there are the physical constraints that are easy to forget:</p>
+      <ul>
+        <li><strong>Transportation and craning.</strong> Modules travel by truck and get lifted by crane. That is real cost, and it grows with distance and site access.</li>
+        <li><strong>The truck sets the design.</strong> A module has to fit on a highway, so road width quietly caps room dimensions and drives design decisions.</li>
+        <li><strong>The site still has to be ready.</strong> Servicing, foundation, and permits do not disappear. Modular compresses the build; it does not erase the site work.</li>
+        <li><strong>It needs scale to be cheap.</strong> Factories are only efficient with sustained demand. The cost advantage shows up on repeatable, standardized units, not on a one-off custom home.</li>
+      </ul>
+
+      <h2>Where modular already works today</h2>
+      <p>Strip away the hype and a clear pattern emerges. Modular wins where units are repetitive and standardized, where sites are remote or the building season is short, and where a project is large enough to keep a factory line busy. That points squarely at multi-family, worker and student housing, and, increasingly relevant under BC&rsquo;s new density rules, secondary suites and laneway homes. It is a weaker fit for a bespoke one-off custom home on an easy-access urban lot, where conventional building is still hard to beat.</p>
+      <blockquote style="border-left: 3px solid var(--bronze); padding: 8px 0 8px 32px; margin: 40px 0; font-family: var(--display); font-style: italic; font-weight: 700; font-size: clamp(19px, 2.3vw, 24px); color: var(--ink); line-height: 1.45;">Modular changes how a building gets assembled. It does not change whether the building is any good. That is still decided in the drawings.</blockquote>
+
+      <h2>So, are they the future?</h2>
+      <p>For certain building types, yes, and that share is growing for real reasons, not just optimism. For the detached custom home, not really, not yet, and maybe not ever in the way the headlines suggest. The mistake is treating modular as a silver bullet rather than a delivery method that is excellent for some projects and wrong for others. And it is worth saying plainly: a modular fourplex can be just as poorly laid out as a site-built one. The factory does not design the home. We have written before about <a href="https://rexfordco.ca/blog-ssmuh-fourplex-design.html" style="color:var(--bronze);">what separates a small multi-unit project people want to live in from one they merely tolerate</a>, and that judgment is the same whether the walls are raised on site or trucked in finished.</p>
+
+      <h2>Where we come in</h2>
+      <p>Rexford is an architectural drafting and design studio in Chilliwack, working across the Fraser Valley and BC. Whether a project is site-built or modular, the design and the drawings still decide whether it is worth living in and whether the numbers work. We are happy to help you figure out whether modular actually suits your project and site, and if it does, to design something the factory can build and someone will genuinely want to call home. <a href="https://rexfordco.ca/contact.html" style="color:var(--bronze);">Get in touch</a>.</p>
+
+      <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--mist);">
+        <p class="label" style="margin-bottom: 20px;">Related articles</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+          <a href="https://rexfordco.ca/blog-ssmuh-fourplex-design.html" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Design</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">Designing a Fourplex People Actually Want to Live In</p>
+          </a>
+          <a href="https://rexfordco.ca/blog-fourplex-pro-forma.html" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Development</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">The Fourplex Pro Forma: Where Design Decisions Quietly Eat Your Margin</p>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 32px 36px; background: var(--bone); border-top: 3px solid var(--bronze);">
+        <p class="label" style="margin-bottom: 12px;">Weighing modular for your project?</p>
+        <p style="font-family: var(--body); font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.7; margin-bottom: 20px;">Tell us about the site and what you want to build. We will help you figure out whether modular actually fits, and send a proposal within two business days.</p>
+        <a href="contact.html" style="display: inline-block; font-family: var(--body); font-weight: 600; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; background: var(--bronze); color: var(--paper); padding: 14px 28px; transition: background 0.2s;" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--bronze)'">Start a Conversation &rarr;</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved.</p></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+  </script>
+</body>
+</html>

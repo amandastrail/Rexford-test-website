@@ -61,8 +61,23 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rexfordco.ca/blog-icf-bc</loc>
+    <lastmod>2026-07-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rexfordco.ca/blog-kitchen-tips</loc>
     <lastmod>2026-07-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rexfordco.ca/blog-modular-future</loc>
+    <lastmod>2026-07-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rexfordco.ca/blog-net-zero-bc</loc>
+    <lastmod>2026-07-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>

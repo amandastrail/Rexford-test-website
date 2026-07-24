@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA:BEGIN -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0FYHZWVTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X0FYHZWVTZ');
+
+    // Phone / email clicks as GA4 events (enhanced measurement skips tel:/mailto:).
+    // Marked as key events in GA4 admin; imported as conversions by Google Ads.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('tel:') === 0) {
+        gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href, page_path: location.pathname });
+      }
+    });
+  </script>
+  <!-- GA:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What ICF is, the honest R-value story, what it really costs, and where insulated concrete forms make sense in BC, from basements to seismic zones.">
+  <title>Insulated Concrete Forms (ICF): Is It Worth It in BC? - REXFORD Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero is a FALLBACK library image; no ICF photo exists yet.
+       Ideal: ICF foam blocks stacked with rebar before the pour.
+       Swap here AND in og/twitter/JSON-LD images once sourced. */
+    .blog-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('Marketing/website-photos/interior-staircase.jpg');
+      background-size: cover; background-position: center;
+      opacity: 0.18; filter: grayscale(0.2);
+    }
+  </style>
+  <!-- SEO:BEGIN -->
+  <link rel="canonical" href="https://rexfordco.ca/blog-icf-bc">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Rexford">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:url" content="https://rexfordco.ca/blog-icf-bc">
+  <meta property="og:title" content="Insulated Concrete Forms (ICF): Is It Worth It in BC? - REXFORD Journal">
+  <meta property="og:description" content="What ICF is, the honest R-value story, what it really costs, and where insulated concrete forms make sense in BC, from basements to seismic zones.">
+  <meta property="og:image" content="https://rexfordco.ca/Marketing/website-photos/interior-staircase.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insulated Concrete Forms (ICF): Is It Worth It in BC? - REXFORD Journal">
+  <meta name="twitter:description" content="What ICF is, the honest R-value story, what it really costs, and where insulated concrete forms make sense in BC, from basements to seismic zones.">
+  <meta name="twitter:image" content="https://rexfordco.ca/Marketing/website-photos/interior-staircase.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Insulated Concrete Forms (ICF): What It Is, and When It's Worth It in BC",
+    "description": "What ICF is, the honest R-value story, what it really costs, and where insulated concrete forms make sense in BC, from basements to seismic zones.",
+    "author": { "@type": "Person", "name": "Amanda Wiebe" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rexford Drafting & Design Inc.",
+      "logo": { "@type": "ImageObject", "url": "https://rexfordco.ca/Brand%20Asset/R-web.png" }
+    },
+    "datePublished": "2026-07-24",
+    "image": "https://rexfordco.ca/Marketing/website-photos/interior-staircase.jpg",
+    "mainEntityOfPage": "https://rexfordco.ca/blog-icf-bc",
+    "articleSection": "Materials"
+  }
+  </script>
+  <!-- SEO:END -->
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="blog.html" class="active">Journal</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <section class="page-hero" aria-labelledby="post-title" style="position:relative;overflow:hidden;">
+    <div class="blog-hero-bg" aria-hidden="true"></div>
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="page-hero-content" style="max-width: 860px;">
+      <a href="blog.html" class="post-back">Back to Journal</a>
+      <p class="post-eyebrow">Materials &middot; July 2026</p>
+      <h1 class="post-title" id="post-title">Insulated Concrete Forms (ICF): What It Is, and When It&rsquo;s Worth It in BC</h1>
+      <div class="post-meta">
+        <span>Amanda Wiebe</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="post-body" aria-label="Post body">
+    <div class="post-body-inner">
+
+      <p>Every so often a client asks us about building with ICF, usually after seeing it on a home tour or hearing that a neighbour&rsquo;s basement &ldquo;stays warm without trying.&rdquo; It is a genuinely good system. It is also not the right answer for every project, and the difference comes down to your site, your budget, and how long you plan to stay.</p>
+      <p>Here is a straight explanation of what it is, where it makes sense in BC, and where the money actually goes.</p>
+
+      <h2>What ICF actually is</h2>
+      <p>An insulated concrete form is exactly what the name says. Instead of building a wooden wall or pouring bare concrete into temporary forms that get stripped away, you stack hollow blocks made of rigid foam. Think of large, interlocking building blocks. You run steel reinforcing bar through them, then fill the cavity with concrete. The foam is never removed. It stays as permanent insulation on both faces of a solid concrete wall.</p>
+      <p>So the finished wall is a sandwich: a layer of foam, a structural concrete core, another layer of foam. Insulation, structure, and airtightness in a single pour.</p>
+
+      <h2>The performance numbers, honestly</h2>
+      <p>A standard ICF wall carries a nominal insulation value of roughly <strong>R-22 to R-25</strong>. On paper that is good, not spectacular. But the nominal number understates it, because the concrete core adds thermal mass and the continuous foam eliminates the thermal bridging you get through wood studs. Accounting for that, real-world effective performance often lands closer to <strong>R-30 to R-35</strong>, and some systems built for cold climates push higher still.</p>
+      <p>The other quiet advantage is airtightness. Because the wall is a monolithic pour rather than an assembly of many parts, air leakage is very low, and airtightness is one of the most valuable things you can have when you are trying to satisfy the BC Energy Step Code.</p>
+
+      <h2>What it costs</h2>
+      <p>ICF is a premium, but a smaller one than people assume. It typically adds around <strong>3 to 5 percent to total project cost</strong>, on the order of $2 to $4 per square foot of floor area. The reason it is not more is that ICF only affects the above-grade walls, roughly 15 to 20 percent of a build. Your roof, floors, windows, and finishes cost the same either way.</p>
+      <p>Against that upfront cost, you are buying 30 to 50 percent lower heating and cooling loads than a conventional wood-framed wall, plus quieter rooms and often lower insurance premiums. The financial case is strongest for owners planning to stay 15 years or more, where the operating savings have time to work.</p>
+
+      <h2>Where it fits in BC</h2>
+      <p>This is the part most articles skip. ICF is not a whole-house religion; it is a tool that shines in specific places:</p>
+      <ul>
+        <li><strong>Foundations and basements.</strong> This is ICF&rsquo;s sweet spot in our climate. It handles frost, lateral soil pressure, and moisture better than a conventional poured wall, and it insulates below grade where standard basements leak heat. If you do ICF anywhere, the basement is the place to start.</li>
+        <li><strong>Cold and exposed sites.</strong> In the colder parts of the province, the thermal mass genuinely smooths out temperature swings and pairs well with radiant floor heating.</li>
+        <li><strong>Seismic zones.</strong> Coastal and southwest BC is earthquake country. A steel-reinforced concrete wall has real structural strength, and Canadian ICF systems have been engineered and reviewed to the National Building Code for exactly these conditions.</li>
+        <li><strong>Anyone chasing a high Step Code.</strong> The built-in airtightness and continuous insulation make Step Code compliance easier to reach and prove.</li>
+      </ul>
+
+      <h2>The honest downsides</h2>
+      <p>We would rather you hear these from us than discover them mid-build:</p>
+      <ul>
+        <li><strong>Higher upfront cost.</strong> Real, though modest, and front-loaded.</li>
+        <li><strong>Harder to change later.</strong> Moving a window or adding a door in an ICF wall means cutting solid reinforced concrete. Renovations to ICF are more work, so the design needs to be right the first time.</li>
+        <li><strong>Wall thickness.</strong> ICF walls are thicker than framed walls, which quietly eats interior floor area. On a small lot or a tight footprint, that can matter.</li>
+        <li><strong>It rewards planning.</strong> Plumbing and electrical routing has to be thought through before the pour, and the system needs a crew that has actually built with it. A poorly planned ICF wall loses much of its advantage.</li>
+      </ul>
+      <blockquote style="border-left: 3px solid var(--bronze); padding: 8px 0 8px 32px; margin: 40px 0; font-family: var(--display); font-style: italic; font-weight: 700; font-size: clamp(19px, 2.3vw, 24px); color: var(--ink); line-height: 1.45;">ICF punishes improvisation and rewards good drawings. The decisions have to be made before the concrete goes in, which is exactly why it lives or dies at the design stage.</blockquote>
+
+      <h2>So, is it worth it?</h2>
+      <p>Usually yes for a basement or foundation in our climate. Often yes for a forever home on a cold or exposed site, or where quiet and resilience are worth paying for. Frequently no for a flip, a very tight budget, or a small footprint where wall thickness costs you rooms. The point is that it is a project-by-project decision, not a philosophy.</p>
+
+      <h2>Where we come in</h2>
+      <p>Rexford is a design and drafting studio in Chilliwack serving the Fraser Valley and the rest of BC. Because ICF is a system that has to be resolved on paper (wall thicknesses, openings, and mechanical routing all committed before the pour), the design phase is where it succeeds or fails. We will tell you honestly whether ICF earns its place on your project, and if it does, we will draw it so your build team is not solving it on the fly. <a href="https://rexfordco.ca/contact.html" style="color:var(--bronze);">Start a conversation</a>.</p>
+
+      <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--mist);">
+        <p class="label" style="margin-bottom: 20px;">Related articles</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+          <a href="https://rexfordco.ca/blog-net-zero-bc" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Building</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">Net Zero in BC: What It Actually Means for Your Build or Reno</p>
+          </a>
+          <a href="https://rexfordco.ca/blog-flooring.html" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Materials</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">Top Flooring Options for Western Canada Based on Climate &amp; Design</p>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 32px 36px; background: var(--bone); border-top: 3px solid var(--bronze);">
+        <p class="label" style="margin-bottom: 12px;">Wondering if ICF fits your project?</p>
+        <p style="font-family: var(--body); font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.7; margin-bottom: 20px;">Tell us about the site and what you are building. We will give you an honest read on whether ICF earns its place, and send a proposal within two business days.</p>
+        <a href="contact.html" style="display: inline-block; font-family: var(--body); font-weight: 600; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; background: var(--bronze); color: var(--paper); padding: 14px 28px; transition: background 0.2s;" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--bronze)'">Start a Conversation &rarr;</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved.</p></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+  </script>
+</body>
+</html>
