@@ -13,6 +13,31 @@
       "has": [{ "type": "host", "value": "www.rexfordco.ca" }],
       "destination": "https://rexfordco.ca/:path+",
       "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/amanda-wiebe",
+      "destination": "/team-amanda",
+      "permanent": true
+    },
+    {
+      "source": "/sam-wiebe",
+      "destination": "/team-sam",
+      "permanent": true
+    },
+    {
+      "source": "/drew-delbridge",
+      "destination": "/team-drew",
+      "permanent": true
+    },
+    {
+      "source": "/sarah-penner",
+      "destination": "/team-sarah",
+      "permanent": true
     }
   ]
 }
