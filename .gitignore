@@ -56,6 +56,8 @@
 !/Marketing/
 /Marketing/*
 !/Marketing/website-photos/
+# ...but never the raw drop-folder (huge originals, pre-optimization)
+/Marketing/website-photos/New photos to use/
 !/Marketing/drafting.png
 !/Marketing/drafting 2.png
 !/Marketing/kitchen 2.png
