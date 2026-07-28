@@ -26,7 +26,7 @@
   <!-- GA:END -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Rexford Process &mdash; from discovery through key handover, design and construction under one roof.">
+  <meta name="description" content="The Rexford Process &mdash; a design-led path from discovery to permit-ready drawings and builder handoff, with construction management available as an add-on.">
   <title>Process &mdash; REXFORD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,8 +198,80 @@
       line-height: 1.65;
     }
 
+    /* Construction management add-on band */
+    .cm-addon {
+      background: var(--ink);
+      padding: 104px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cm-addon-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    .cm-addon .label { color: var(--bronze-lt); }
+    .cm-h {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--paper);
+      letter-spacing: 0.01em;
+      margin-top: 16px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .cm-body {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 17px;
+      color: var(--sand);
+      line-height: 1.72;
+      margin-bottom: 20px;
+    }
+    .cm-body:last-of-type { margin-bottom: 32px; }
+    .cm-list { list-style: none; margin-top: 8px; }
+    .cm-list li {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--sand);
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cm-list li:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+    .cm-list li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--bronze);
+      flex-shrink: 0;
+    }
+    .cm-cta {
+      display: inline-block;
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      background: var(--bronze);
+      color: var(--paper);
+      padding: 14px 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cm-cta:hover { background: var(--bronze-lt); }
+
     @media (max-width: 1000px) {
       .process-overview-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cm-addon-inner { grid-template-columns: 1fr; gap: 40px; }
       .exp-step     { grid-template-columns: 1fr; }
       .exp-left     { padding-right: 0; border-right: none; padding-bottom: 24px; border-bottom: 1px solid var(--mist); margin-bottom: 32px; display: flex; align-items: center; gap: 24px; }
       .exp-num      { font-size: 56px; margin-bottom: 0; }
@@ -211,6 +283,7 @@
     @media (max-width: 900px) {
       .process-overview { padding: 64px 32px; }
       .process-expanded { padding: 80px 32px; }
+      .cm-addon         { padding: 72px 32px; }
       .bring-section    { padding: 64px 32px; }
     }
   </style>
@@ -221,14 +294,14 @@
   <meta property="og:locale" content="en_CA">
   <meta property="og:url" content="https://rexfordco.ca/process">
   <meta property="og:title" content="Process — REXFORD">
-  <meta property="og:description" content="The Rexford Process — from discovery through key handover, design and construction under one roof.">
+  <meta property="og:description" content="The Rexford Process — a design-led path from discovery to permit-ready drawings and builder handoff, with construction management available as an add-on.">
   <meta property="og:image" content="https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Process — REXFORD">
-  <meta name="twitter:description" content="The Rexford Process — from discovery through key handover, design and construction under one roof.">
+  <meta name="twitter:description" content="The Rexford Process — a design-led path from discovery to permit-ready drawings and builder handoff, with construction management available as an add-on.">
   <meta name="twitter:image" content="https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Process — REXFORD","description":"The Rexford Process — from discovery through key handover, design and construction under one roof.","url":"https://rexfordco.ca/process","isPartOf":{"@id":"https://rexfordco.ca/#website"},"about":{"@id":"https://rexfordco.ca/#business"},"inLanguage":"en-CA"}]}
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Process — REXFORD","description":"The Rexford Process — a design-led path from discovery to permit-ready drawings and builder handoff, with construction management available as an add-on.","url":"https://rexfordco.ca/process","isPartOf":{"@id":"https://rexfordco.ca/#website"},"about":{"@id":"https://rexfordco.ca/#business"},"inLanguage":"en-CA"}]}
   </script>
   <!-- SEO:END -->
 </head>
@@ -269,7 +342,7 @@
       <p class="page-hero-eyebrow label label--light">How we work</p>
       <h1 class="page-hero-title" id="page-title">Process.</h1>
       <div class="page-hero-rule" aria-hidden="true"></div>
-      <p class="page-hero-sub">Design and construction under one roof means no handoff, no lost information, and one team accountable from conversation to key.</p>
+      <p class="page-hero-sub">A design-led process. We resolve your project completely on paper, hand you a package any builder can build from, and stay accountable to the design every step after.</p>
     </div>
   </section>
 
@@ -279,11 +352,11 @@
     <div class="process-overview-inner">
       <div class="reveal">
         <span class="label">How we work</span>
-        <h2 class="overview-h">Design first. Then build right.</h2>
+        <h2 class="overview-h">The drawings decide everything.</h2>
       </div>
       <div class="reveal reveal-d1">
-        <p class="overview-body">When design and construction are separate firms, information gets lost at the handoff. The builder finds things the architect didn't account for. The client ends up in the middle, absorbing cost and delay.</p>
-        <p class="overview-body">At Rexford, design leads the process. We spend the time upfront to resolve every finish, fitting, and detail on paper. When we manage construction too, that thorough design process pays off at every stage. The process below is how that plays out in practice.</p>
+        <p class="overview-body">Every successful build is decided long before anyone breaks ground. The drawings determine what the project costs, how smoothly it permits, and whether the finished space feels the way you imagined it.</p>
+        <p class="overview-body">That is why Rexford is design-led. We are a drafting and design studio first: our process is built to resolve every decision on paper and produce documents any builder can price and build from. If you want one team to carry the project through construction as well, we offer construction management as an add-on. It is an option, never a requirement.</p>
       </div>
     </div>
   </div>
@@ -331,8 +404,8 @@
           <span class="exp-phase">Phase Two</span>
         </div>
         <div class="exp-right">
-          <h2 class="exp-title">Design &amp; Documentation</h2>
-          <p class="exp-desc">The studio works through concept, schematic design, and design development, iterating until the project is right. We then produce full permit drawings, construction documents, finish schedules, and specifications. Every decision is resolved on paper before the site starts.</p>
+          <h2 class="exp-title">Concept &amp; Design</h2>
+          <p class="exp-desc">This is where the project takes shape. The studio explores concept options with you, then iterates through schematic drawings and design development until the plan is right. Interior design runs alongside the architecture, so finishes, fixtures, and millwork are decided with the spaces rather than after them.</p>
           <div class="exp-details">
             <div class="exp-detail-col">
               <h4>What happens</h4>
@@ -340,18 +413,17 @@
                 <li>Concept design</li>
                 <li>Schematic drawings</li>
                 <li>Design development</li>
-                <li>Permit application</li>
-                <li>Interior design &amp; finishes</li>
+                <li>Interior design direction</li>
+                <li>Client reviews &amp; revisions</li>
               </ul>
             </div>
             <div class="exp-detail-col">
               <h4>What you receive</h4>
               <ul>
-                <li>Permit-ready drawings</li>
-                <li>Finish schedule</li>
-                <li>Specifications package</li>
-                <li>Millwork drawings</li>
-                <li>Updated budget</li>
+                <li>Concept &amp; schematic drawings</li>
+                <li>Developed plans &amp; elevations</li>
+                <li>Preliminary finish direction</li>
+                <li>Updated budget alignment</li>
               </ul>
             </div>
           </div>
@@ -364,26 +436,27 @@
           <span class="exp-phase">Phase Three</span>
         </div>
         <div class="exp-right">
-          <h2 class="exp-title">Construction</h2>
-          <p class="exp-desc">Site work begins with a fixed schedule and coordinated trades. Our construction team is the same team that worked on the design, so they know the intent behind every detail. Weekly reporting keeps you informed without having to manage the site yourself.</p>
+          <h2 class="exp-title">Permit &amp; Construction Documents</h2>
+          <p class="exp-desc">Design becomes documentation. We produce permit-ready drawings and a complete construction package: specifications, finish schedules, and millwork drawings, with engineering coordinated along the way. Nothing is left for a site crew to guess at, and that completeness is what protects your budget.</p>
           <div class="exp-details">
             <div class="exp-detail-col">
               <h4>What happens</h4>
               <ul>
-                <li>Site preparation</li>
-                <li>Trade coordination</li>
-                <li>Construction &amp; framing</li>
-                <li>Mechanical &amp; electrical</li>
-                <li>Finishes &amp; millwork install</li>
+                <li>Permit drawings &amp; application</li>
+                <li>Engineering coordination</li>
+                <li>Construction documents</li>
+                <li>Finish schedule &amp; specifications</li>
+                <li>Millwork drawings</li>
               </ul>
             </div>
             <div class="exp-detail-col">
               <h4>What you receive</h4>
               <ul>
-                <li>Weekly progress updates</li>
-                <li>Photo documentation</li>
-                <li>Budget tracking reports</li>
-                <li>Schedule updates</li>
+                <li>Permit-ready drawing set</li>
+                <li>Specifications package</li>
+                <li>Finish schedule</li>
+                <li>Millwork drawings</li>
+                <li>Updated budget</li>
               </ul>
             </div>
           </div>
@@ -396,32 +469,56 @@
           <span class="exp-phase">Phase Four</span>
         </div>
         <div class="exp-right">
-          <h2 class="exp-title">Handover &amp; Close</h2>
-          <p class="exp-desc">A thorough walkthrough of every system and finish. We don't hand over keys until the project meets the standard you approved in the drawing. You receive a full documentation package and know who to call if anything needs attention after you move in.</p>
+          <h2 class="exp-title">Builder Handoff &amp; Design Support</h2>
+          <p class="exp-desc">With the documents complete, you can take the package to any builder, or one we help you select. We stay available through construction to answer site questions, review shop drawings, and make sure what gets built matches what was drawn. The design stays accountable to the end.</p>
           <div class="exp-details">
             <div class="exp-detail-col">
               <h4>What happens</h4>
               <ul>
-                <li>Final inspection walkthrough</li>
-                <li>Deficiency list &amp; close-out</li>
-                <li>Systems orientation</li>
-                <li>Key handover</li>
-                <li>Post-occupancy check-in</li>
+                <li>Builder selection support</li>
+                <li>Pricing &amp; tender questions</li>
+                <li>Shop drawing review</li>
+                <li>Site questions &amp; clarifications</li>
+                <li>Design-intent reviews</li>
               </ul>
             </div>
             <div class="exp-detail-col">
               <h4>What you receive</h4>
               <ul>
-                <li>As-built drawings</li>
-                <li>Warranty documentation</li>
-                <li>Maintenance guides</li>
-                <li>Trade contact list</li>
+                <li>A builder-ready package</li>
+                <li>Ongoing design support</li>
+                <li>A build that matches the drawings</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
+    </div>
+  </section>
+
+
+  <!-- CONSTRUCTION MANAGEMENT ADD-ON -->
+  <section class="cm-addon" aria-labelledby="cm-heading">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="cm-addon-inner">
+      <div class="reveal">
+        <span class="label">Optional add-on</span>
+        <h2 class="cm-h" id="cm-heading">Want one team end to end? Add construction management.</h2>
+        <p class="cm-body">Some clients take our drawings to their own builder. Others want the team that designed the project to see it built. Through our construction division, Rexford offers construction management as an add-on to any design engagement.</p>
+        <p class="cm-body">The advantage is continuity: the people running your site know the intent behind every line on the drawings, so nothing gets lost in translation between the studio and the field.</p>
+        <a href="contact.html" class="cm-cta">Ask About Construction Management &rarr;</a>
+      </div>
+      <div class="reveal reveal-d1">
+        <ul class="cm-list">
+          <li>Trade coordination &amp; scheduling</li>
+          <li>Budget tracking &amp; reporting</li>
+          <li>Weekly progress updates with photos</li>
+          <li>Final walkthrough &amp; deficiency close-out</li>
+          <li>Key handover with as-builts, warranties &amp; maintenance guides</li>
+          <li>Post-occupancy check-in</li>
+        </ul>
+      </div>
     </div>
   </section>
 
