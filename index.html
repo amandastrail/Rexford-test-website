@@ -30,7 +30,7 @@
   <title>REXFORD &mdash; Built on principle. By design.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <style>
@@ -127,7 +127,7 @@
     }
     .intro-heading {
       font-family: var(--display);
-      font-weight: 900;
+      font-weight: 600;
       font-size: clamp(34px, 3.5vw, 52px);
       color: var(--ink);
       line-height: 1.1;
@@ -346,6 +346,77 @@
     @media (max-width: 480px) {
       .hero-wordmark { letter-spacing: 0.03em; }
     }
+
+    /* ── Split gateway: two studios below the hero ── */
+    .gateway {
+      display: flex;
+      min-height: 68vh;
+    }
+    .gate {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      transition: flex 0.7s var(--ease-out);
+    }
+    .gateway:hover .gate       { flex: 0.85; }
+    .gateway:hover .gate:hover { flex: 1.3; }
+    .gate-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 1.2s var(--ease-out);
+    }
+    .gate:hover .gate-img { transform: scale(1.04); }
+    .gate-body { position: relative; z-index: 2; padding: 52px; width: 100%; }
+    .gate-eyebrow {
+      font-family: var(--body); font-weight: 600;
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      margin-bottom: 14px; display: block;
+    }
+    .gate-rule { width: 44px; height: 1px; margin: 20px 0; transition: width 0.6s var(--ease-out); }
+    .gate:hover .gate-rule { width: 88px; }
+    .gate-desc { font-size: 15px; line-height: 1.7; max-width: 420px; font-weight: 300; }
+    .gate-cta {
+      display: inline-block; margin-top: 24px;
+      font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
+      font-weight: 600; padding-bottom: 6px;
+      border-bottom: 1px solid currentColor;
+    }
+    .gate--drafting .gate-img { background-image: url('Marketing/website-photos/rolled-blueprints-plans.jpeg'); }
+    .gate--drafting::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(27,31,35,0.42) 0%, rgba(27,31,35,0.88) 100%);
+    }
+    .gate--drafting .gate-eyebrow { color: var(--bronze-lt); }
+    .gate--drafting .gate-title {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(28px, 3vw, 42px); letter-spacing: 0.04em;
+      color: var(--paper); line-height: 1.1;
+    }
+    .gate--drafting .gate-rule { background: var(--bronze-lt); }
+    .gate--drafting .gate-desc { color: var(--mist); }
+    .gate--drafting .gate-cta  { color: var(--bronze-lt); }
+    .gate--interiors .gate-img { background-image: url('Marketing/website-photos/interior-living-1.jpeg'); }
+    .gate--interiors::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(251,249,245,0.10) 0%, rgba(244,241,236,0.92) 100%);
+    }
+    .gate--interiors .gate-eyebrow { color: var(--bronze); }
+    .gate--interiors .gate-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 500;
+      font-size: clamp(32px, 3.6vw, 50px); letter-spacing: 0.01em;
+      color: var(--ink); line-height: 1.05;
+    }
+    .gate--interiors .gate-title em { font-style: italic; font-weight: 400; color: var(--bronze); }
+    .gate--interiors .gate-rule { background: var(--bronze); }
+    .gate--interiors .gate-desc { color: var(--slate); }
+    .gate--interiors .gate-cta  { color: var(--bronze); }
+    @media (max-width: 860px) {
+      .gateway { flex-direction: column; min-height: unset; }
+      .gate { min-height: 56vh; flex: unset !important; }
+      .gate-body { padding: 36px 28px; }
+    }
   </style>
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/">
@@ -423,6 +494,34 @@
   </section>
 
 
+  <!-- SPLIT GATEWAY -->
+  <div class="gateway" aria-label="Choose a studio">
+
+    <a class="gate gate--drafting" href="drafting.html" aria-label="Explore drafting and permit services">
+      <div class="gate-img" aria-hidden="true"></div>
+      <div class="gate-body">
+        <span class="gate-eyebrow">Permit-Ready &middot; Precise</span>
+        <h2 class="gate-title">Drafting<br>&amp; Permits</h2>
+        <div class="gate-rule" aria-hidden="true"></div>
+        <p class="gate-desc">Architectural drawings, permit documentation, and site planning for custom homes, multi-family, and commercial projects across BC and Alberta.</p>
+        <span class="gate-cta">Explore Drafting &rarr;</span>
+      </div>
+    </a>
+
+    <a class="gate gate--interiors" href="interiors.html" aria-label="Explore interior design services">
+      <div class="gate-img" aria-hidden="true"></div>
+      <div class="gate-body">
+        <span class="gate-eyebrow">Considered &middot; Curated</span>
+        <h2 class="gate-title">Interior <em>Design</em></h2>
+        <div class="gate-rule" aria-hidden="true"></div>
+        <p class="gate-desc">Full-service interior design and styling. Every finish, fixture, and furnishing resolved into spaces that feel effortless to live in.</p>
+        <span class="gate-cta">Explore Interiors &rarr;</span>
+      </div>
+    </a>
+
+  </div>
+
+
   <!-- INTRO -->
   <section class="intro" aria-labelledby="intro-heading">
     <div class="intro-inner">
@@ -463,28 +562,6 @@
 
 
   <!-- SERVICES -->
-  <section class="services" id="services" style="display:block;">
-    <div class="svc svc--design" style="min-height:560px;" aria-labelledby="svc-design-heading">
-      <div class="svc__glow" aria-hidden="true"></div>
-      <div class="svc__body reveal">
-        <span class="label">What we do</span>
-        <h2 class="svc__name" id="svc-design-heading">REXFORD</h2>
-        <p class="svc__sub">Design</p>
-        <div class="svc__rule"></div>
-        <p class="svc__desc">Architectural and interior design through to permit-ready drawings.<br>Every finish, millwork detail, and specification is resolved on paper before anyone picks up a tool.</p>
-        <div class="svc__tags" role="list">
-          <span class="svc__tag" role="listitem">Architectural drafting &amp; design</span>
-          <span class="svc__tag" role="listitem">Permit drawings &amp; documentation</span>
-          <span class="svc__tag" role="listitem">Interior design &amp; finishes</span>
-          <span class="svc__tag" role="listitem">Millwork &amp; custom specifications</span>
-          <span class="svc__tag" role="listitem">Interior styling</span>
-        </div>
-      </div>
-      <a href="services.html" class="svc__link">Explore Design &nbsp;&rarr;</a>
-    </div>
-  </section>
-
-
   <!-- WORK GALLERY -->
   <section class="work-gallery" aria-label="Our work">
     <div class="work-gallery-grid">
@@ -495,7 +572,7 @@
         <img src="Marketing/website-photos/interior-staircase.jpg" alt="Residential interior — custom staircase detail" loading="lazy">
       </div>
       <div class="wg-photo">
-        <img src="Marketing/website-photos/interior-living-1.jpeg" alt="Residential interior — modern neutral living room" loading="lazy">
+        <img src="Marketing/website-photos/lifestyle-loft-living.jpeg" alt="Residential interior — loft living space with wood-framed doors and exposed beams" loading="lazy">
       </div>
     </div>
   </section>
@@ -509,14 +586,9 @@
           <span class="label">How we work</span>
           <h2 class="process-h" id="process-heading">From first conversation<br>to key handover.</h2>
         </div>
-        <p class="process-intro reveal reveal-d1">Every project starts with a proper design phase, with each detail resolved on paper before site work begins. When we're managing construction too, that same care carries through to the finished space.</p>
+        <p class="process-intro reveal reveal-d1">Every project starts with a proper design phase. When we're managing construction too, that same care carries through to the finished space.</p>
       </div>
-      <div class="process-steps">
-        <div class="step reveal"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We learn your project, including site conditions, program, budget, and timeline. No assumptions before we understand the brief.</p></div>
-        <div class="step reveal reveal-d1"><div class="step-num">02</div><h3 class="step-title">Design</h3><p class="step-desc">Concept drawings, permit documents, finish schedules, and specifications. The studio works until every detail is resolved on paper.</p></div>
-        <div class="step reveal reveal-d2"><div class="step-num">03</div><h3 class="step-title">Deliver</h3><p class="step-desc">Permit drawings, interior specifications, and full documentation ready for your build team, or ours if you need site management.</p></div>
-        <div class="step reveal reveal-d3"><div class="step-num">04</div><h3 class="step-title">Handover</h3><p class="step-desc">A proper walkthrough, all your documentation, and follow-up once you're settled in. We don't call it done until it is.</p></div>
-      </div>
+      <a href="process.html" class="process-link reveal">See our process &rarr;</a>
     </div>
   </section>
 
@@ -681,7 +753,6 @@
       <div class="cta-btns reveal reveal-d1">
         <a href="contact.html" class="btn-primary">Get in Touch</a>
         <a href="about.html" class="btn-outline">About Rexford</a>
-        <div class="cta-note"><a href="tel:7788086397">778.808.6397</a></div>
       </div>
     </div>
   </section>
@@ -700,7 +771,7 @@
           <p class="footer-col-label">Services</p>
           <ul class="footer-links" role="list">
             <li><a href="services.html">Rexford Design</a></li>
-            
+            <li><a href="interiors.html">Rexford Interiors</a></li>
             <li><a href="services.html">Custom Homes</a></li>
             <li><a href="services.html">Multi-family</a></li>
             <li><a href="services.html">Renovations</a></li>

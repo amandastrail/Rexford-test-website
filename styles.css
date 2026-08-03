@@ -237,9 +237,9 @@ a { color: inherit; text-decoration: none; }
 }
 .page-hero-title {
   font-family: var(--display);
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(56px, 9vw, 120px);
-  letter-spacing: 0.055em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--paper);
   line-height: 0.92;
@@ -593,6 +593,20 @@ a { color: inherit; text-decoration: none; }
   color: var(--slate);
   line-height: 1.7;
 }
+.process-link {
+  display: inline-block;
+  margin-top: 36px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--bronze);
+  transition: color 0.3s ease;
+}
+.process-link:hover { color: var(--ink); }
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -181,10 +181,9 @@
       background: var(--ink);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 580px;
     }
     .deliverables-content {
-      padding: 96px 80px;
+      padding: 40px 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -204,14 +203,14 @@
       font-size: clamp(28px, 3vw, 42px);
       color: var(--paper);
       line-height: 1.1;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       letter-spacing: 0.02em;
     }
     .deliverables-list {
       list-style: none;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 32px;
+      gap: 8px 32px;
     }
     .deliverables-list li {
       font-family: var(--body);
@@ -235,12 +234,90 @@
     .deliverables-photo {
       position: relative;
       overflow: hidden;
+      min-height: 240px;
     }
     .deliverables-photo img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: brightness(0.75) saturate(0.8);
+    }
+
+    /* ── Construction quiet strip ── */
+    .const-note {
+      background: var(--bone);
+      border-top: 1px solid var(--mist);
+      border-bottom: 1px solid var(--mist);
+      padding: 56px 80px;
+    }
+    .const-note-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .const-note-text { flex: 1; }
+    .const-note-h {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(20px, 2vw, 26px);
+      color: var(--ink);
+      margin: 10px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .const-note-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .const-note-link {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--mist);
+      padding: 14px 24px;
+      white-space: nowrap;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .const-note-link:hover { border-color: var(--slate); color: var(--ink); }
+    @media (max-width: 768px) {
+      .const-note { padding: 48px 32px; }
+      .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+    }
+
+    /* ── Built band ── */
+    .built-band { position: relative; }
+    .built-band img { width: 100%; height: min(92vh, 820px); object-fit: cover; object-position: center 30%; display: block; }
+    .built-band-caption {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      background: linear-gradient(180deg, rgba(27,31,35,0) 40%, rgba(27,31,35,0.62) 100%);
+      padding: 48px 80px;
+    }
+    .built-band-eyebrow {
+      font-family: var(--body); font-weight: 600;
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--bronze-lt); margin-bottom: 10px;
+    }
+    .built-band-h {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(22px, 2.6vw, 34px); letter-spacing: 0.03em;
+      color: var(--paper); line-height: 1.15;
+    }
+    @media (max-width: 700px) {
+      .built-band img { height: 46vh; }
+      .built-band-caption { padding: 28px 20px; }
     }
 
     /* ── How It Works ── */
@@ -301,10 +378,24 @@
       border-top: 1px solid var(--mist);
     }
     .quote-inner {
-      max-width: 860px;
+      max-width: 1160px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 0 72px;
+      align-items: start;
     }
-    .quote-header { margin-bottom: 56px; }
+    .quote-header { grid-column: 1 / -1; margin-bottom: 56px; }
+    .quote-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      box-shadow: 0 24px 56px rgba(27,31,35,0.12);
+    }
+    @media (max-width: 900px) {
+      .quote-inner { grid-template-columns: 1fr; }
+      .quote-photo { max-width: 420px; margin-top: 40px; }
+    }
     .quote-form {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -554,6 +645,16 @@
   </section>
 
   <!-- FAQ -->
+  <!-- BUILT BAND -->
+  <section class="built-band" aria-label="Finished custom home">
+    <img src="Marketing/website-photos/exterior-front-house-contemporary.jpeg" alt="Finished contemporary custom home with stone entry columns and black-framed windows" loading="lazy">
+    <div class="built-band-caption">
+      <span class="built-band-eyebrow">The result</span>
+      <p class="built-band-h">Every set of drawings ends up here.</p>
+    </div>
+  </section>
+
+
   <section class="faq" aria-labelledby="faq-heading">
     <div class="faq-inner">
       <span class="label">Common questions</span>
@@ -616,12 +717,29 @@
         <iframe src="https://hello.dubsado.com/public/form/view/6a133d4ff9970a89e50e805c?iframe=true" frameBorder="0" width="100%" height="750" title="Drafting quote request form"></iframe>
         <script type="text/javascript">setTimeout(function(){iFrameResize({checkOrigin: false});},30);</script>
       </div>
+      <div class="quote-photo reveal reveal-d1">
+        <img src="Marketing/website-photos/contact-laptop-cream.jpeg" alt="Working on a laptop in a calm, neutral space" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONSTRUCTION NOTE -->
+  <section class="const-note" aria-label="Construction management">
+    <div class="const-note-inner reveal">
+      <div class="const-note-text">
+        <span class="label">Also available</span>
+        <h3 class="const-note-h">Need someone to manage the build too?</h3>
+        <p class="const-note-desc">For clients who want one firm handling everything from drawings to the finished build, we offer construction management alongside our design work.</p>
+      </div>
+      <a href="services.html" class="const-note-link">Learn about Construction &nbsp;&rarr;</a>
     </div>
   </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">
     <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p></div>
-    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li>
+<li><a href="interiors.html">Rexford Interiors</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
     <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p><p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p><p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p></div>
   </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved.</p><div class="footer-sub-brands"><a href="services.html">Rexford Design</a></div></div></div></footer>
