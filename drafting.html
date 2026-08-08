@@ -176,6 +176,50 @@
       line-height: 1.7;
     }
 
+    /* ── Project types ── */
+    .types {
+      background: var(--bone);
+      padding: 96px 80px;
+      border-top: 1px solid var(--mist);
+    }
+    .types-inner { max-width: 1200px; margin: 0 auto; }
+    .types-header { margin-bottom: 48px; }
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--mist);
+      border: 1px solid var(--mist);
+    }
+    .type-cell {
+      background: var(--paper);
+      padding: 32px 28px;
+      transition: background 0.2s ease;
+    }
+    .type-cell:hover { background: #fff; }
+    .type-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+    .type-desc {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+    .type-desc a {
+      color: var(--bronze);
+      border-bottom: 1px solid var(--sand);
+    }
+    @media (max-width: 1000px) { .types-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .types { padding: 64px 32px; } }
+    @media (max-width: 520px) { .types-grid { grid-template-columns: 1fr; } }
+
     /* ── What You Get ── */
     .deliverables {
       background: var(--ink);
@@ -293,6 +337,84 @@
     @media (max-width: 768px) {
       .const-note { padding: 48px 32px; }
       .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+    }
+
+    /* ── On the boards ── */
+    .boards {
+      background: var(--paper);
+      padding: 96px 80px;
+      border-top: 1px solid var(--mist);
+    }
+    .boards-inner { max-width: 1160px; margin: 0 auto; }
+    .boards-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+    .boards-link {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--mist);
+      padding: 14px 24px;
+      white-space: nowrap;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .boards-link:hover { border-color: var(--slate); color: var(--ink); }
+    .boards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .sheet {
+      background: #fff;
+      border: 1px solid var(--mist);
+      margin: 0;
+    }
+    .sheet--feature { grid-column: 1 / -1; }
+    .sheet img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .sheet--feature img { aspect-ratio: 16 / 10; padding: 18px; }
+    .sheet figcaption {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-top: 1px solid var(--mist);
+    }
+    .sheet-name {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .sheet-num {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--stone);
+      white-space: nowrap;
+    }
+    @media (max-width: 820px) {
+      .boards { padding: 64px 24px; }
+      .boards-grid { grid-template-columns: 1fr; gap: 28px; }
     }
 
     /* ── Built band ── */
@@ -509,7 +631,7 @@
   <meta name="twitter:description" content="Permit-ready architectural drawings for custom homes, multi-family, and renovations across BC and Alberta. Get a quote from Rexford Design.">
   <meta name="twitter:image" content="https://rexfordco.ca/Marketing/website-photos/interior-kitchen-1.jpeg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Architectural Drafting \u0026 Design — REXFORD","description":"Permit-ready architectural drawings for custom homes, multi-family, and renovations across BC and Alberta. Get a quote from Rexford Design.","url":"https://rexfordco.ca/drafting","provider":{"@id":"https://rexfordco.ca/#business"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia"},{"@type":"AdministrativeArea","name":"Alberta"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Site Planning"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Drafting"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Homes"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Renovations"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Multi-family"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Interior Design"}}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much do architectural drawings cost in BC?","acceptedAnswer":{"@type":"Answer","text":"Fees vary with the size and complexity of the project, whether it is a new build or a renovation, what your municipality requires at submission, and whether design is included alongside the drafting. Secondary suite drawings are generally the most straightforward scope. A full custom home set is a meaningful investment, but it represents a small fraction of total construction cost. The fastest way to get a real number is a short conversation about your site, your municipality, and what you want to build. Tell us about the project and we will send a proposal within two business days. More on what drives drafting cost in BC."}},{"@type":"Question","name":"What is included in a permit-ready drawing set?","acceptedAnswer":{"@type":"Answer","text":"A complete set typically includes a site plan with survey integration, floor plans for every level, exterior elevations, building sections, a roof plan, a foundation plan, an electrical layout, window and door schedules, and detail drawings. We also produce as-built documentation and handle revisions as required. When comparing quotes, check what is actually included. A low quote missing required sheets costs more once the permit application comes back with deficiency notes."}},{"@type":"Question","name":"What is the difference between architectural design and drafting?","acceptedAnswer":{"@type":"Answer","text":"Design is the thinking: spatial layout, how rooms relate, how light enters, how the building meets the site. Drafting is the technical translation of that design into the construction documents your builder works from and your municipality requires for a permit. Drafting without design is just drawing lines. Design without drafting never becomes a building. Rexford handles both under one roof, so the original intent survives all the way to the permit set."}},{"@type":"Question","name":"How long does the design and permit process take?","acceptedAnswer":{"@type":"Answer","text":"Design and drawings typically take three to six months, driven largely by how quickly decisions get made and how many revisions happen along the way. Permit review then runs one to four months and varies significantly by municipality: Chilliwack and the smaller Fraser Valley municipalities often move faster than Metro Vancouver, where backlogs can stretch review out. A complete, well-coordinated drawing set is the single best way to avoid deficiency notices, which add weeks."}},{"@type":"Question","name":"Do you work with builders and contractors, or only homeowners?","acceptedAnswer":{"@type":"Answer","text":"Both. We work with homeowners building or renovating, with builders and developers coordinating multiple sites or a subdivision, and with contractors whose client has a design in mind but no drawings. We integrate with your build team and work to your timelines."}},{"@type":"Question","name":"What areas does Rexford serve?","acceptedAnswer":{"@type":"Answer","text":"We work across British Columbia and Alberta from our studio in Chilliwack, BC. That includes custom homes, renovations, multi-family projects, and subdivision packages."}}]}]}
+  {"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Architectural Drafting \u0026 Design — REXFORD","description":"Permit-ready architectural drawings for custom homes, multi-family, and renovations across BC and Alberta. Get a quote from Rexford Design.","url":"https://rexfordco.ca/drafting","provider":{"@id":"https://rexfordco.ca/#business"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia"},{"@type":"AdministrativeArea","name":"Alberta"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Site Planning"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Drafting"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Homes"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Renovations"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Multi-family"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Secondary Suites"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SSMUH Multiplexes"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"ICF Construction"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Interior Design"}}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much do architectural drawings cost in BC?","acceptedAnswer":{"@type":"Answer","text":"Fees vary with the size and complexity of the project, whether it is a new build or a renovation, what your municipality requires at submission, and whether design is included alongside the drafting. Secondary suite drawings are generally the most straightforward scope. A full custom home set is a meaningful investment, but it represents a small fraction of total construction cost. The fastest way to get a real number is a short conversation about your site, your municipality, and what you want to build. Tell us about the project and we will send a proposal within two business days. More on what drives drafting cost in BC."}},{"@type":"Question","name":"What is included in a permit-ready drawing set?","acceptedAnswer":{"@type":"Answer","text":"A complete set typically includes a site plan with survey integration, floor plans for every level, exterior elevations, building sections, a roof plan, a foundation plan, an electrical layout, window and door schedules, and detail drawings. We also produce as-built documentation and handle revisions as required. When comparing quotes, check what is actually included. A low quote missing required sheets costs more once the permit application comes back with deficiency notes."}},{"@type":"Question","name":"What is the difference between architectural design and drafting?","acceptedAnswer":{"@type":"Answer","text":"Design is the thinking: spatial layout, how rooms relate, how light enters, how the building meets the site. Drafting is the technical translation of that design into the construction documents your builder works from and your municipality requires for a permit. Drafting without design is just drawing lines. Design without drafting never becomes a building. Rexford handles both under one roof, so the original intent survives all the way to the permit set."}},{"@type":"Question","name":"How long does the design and permit process take?","acceptedAnswer":{"@type":"Answer","text":"Design and drawings typically take three to six months, driven largely by how quickly decisions get made and how many revisions happen along the way. Permit review then runs one to four months and varies significantly by municipality: Chilliwack and the smaller Fraser Valley municipalities often move faster than Metro Vancouver, where backlogs can stretch review out. A complete, well-coordinated drawing set is the single best way to avoid deficiency notices, which add weeks."}},{"@type":"Question","name":"Do you work with builders and contractors, or only homeowners?","acceptedAnswer":{"@type":"Answer","text":"Both. We work with homeowners building or renovating, with builders and developers coordinating multiple sites or a subdivision, and with contractors whose client has a design in mind but no drawings. We integrate with your build team and work to your timelines."}},{"@type":"Question","name":"What areas does Rexford serve?","acceptedAnswer":{"@type":"Answer","text":"We work across British Columbia and Alberta from our studio in Chilliwack, BC. That includes custom homes, renovations, multi-family projects, and subdivision packages."}}]}]}
   </script>
   <!-- SEO:END -->
 </head>
@@ -586,6 +708,51 @@
     </div>
   </section>
 
+  <!-- PROJECT TYPES -->
+  <section class="types" aria-labelledby="types-heading">
+    <div class="types-inner">
+      <div class="types-header reveal">
+        <span class="label">What we draw</span>
+        <h2 class="section-h" id="types-heading">Project types.</h2>
+      </div>
+      <div class="types-grid reveal reveal-d1">
+        <div class="type-cell">
+          <h3 class="type-name">Custom Homes</h3>
+          <p class="type-desc">Full design and permit-ready drawing sets for new builds, from first sketch to submission.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">Renovations &amp; Additions</h3>
+          <p class="type-desc">Drawings that respect the existing structure and get renovations through permit cleanly.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">Secondary Suites</h3>
+          <p class="type-desc">Legal suite conversions and garden suites. <a href="blog-secondary-suite.html">Read our suite guide</a>.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">SSMUH &amp; Multiplexes</h3>
+          <p class="type-desc">Duplex to fourplex drawings under BC&rsquo;s new small-scale multi-unit housing rules. <a href="blog-ssmuh-bill-25.html">How Bill 44 works</a>.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">Multi-Family</h3>
+          <p class="type-desc">Townhome and apartment projects, coordinated by unit type across the full set.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">ICF Construction</h3>
+          <p class="type-desc">Sets detailed for insulated concrete form builds. <a href="blog-icf-bc.html">Why ICF in BC</a>.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">Spec &amp; Subdivision</h3>
+          <p class="type-desc">Repeatable plan packages for builders and developers managing multiple lots.</p>
+        </div>
+        <div class="type-cell">
+          <h3 class="type-name">Commercial</h3>
+          <p class="type-desc">Tenant improvements and light commercial projects, documented for permit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- WHAT YOU GET -->
   <div class="deliverables" aria-label="Drafting deliverables">
     <div class="deliverables-content reveal">
@@ -645,6 +812,44 @@
   </section>
 
   <!-- FAQ -->
+  <!-- ON THE BOARDS -->
+  <section class="boards" aria-labelledby="boards-heading">
+    <div class="boards-inner">
+      <div class="boards-header">
+        <div class="reveal">
+          <span class="label">On the boards</span>
+          <h2 class="section-h" id="boards-heading">Every project starts as a study.</h2>
+          <p class="section-intro" style="margin-top:14px; max-width:560px;">Conceptual facade studies from recent Rexford projects: massing, rooflines, and proportion, worked out in pencil before the drawing set begins.</p>
+        </div>
+        <a href="projects.html" class="boards-link reveal reveal-d1">View All Projects &nbsp;&rarr;</a>
+      </div>
+
+      <div class="boards-grid">
+        <figure class="sheet sheet--feature reveal">
+          <img src="Marketing/website-photos/sketch-01-west-vancouver-residence.jpeg" alt="Conceptual facade study — West Vancouver Residence" loading="lazy">
+          <figcaption><span class="sheet-name">West Vancouver Residence</span><span class="sheet-num">Study No. 01</span></figcaption>
+        </figure>
+        <figure class="sheet reveal">
+          <img src="Marketing/website-photos/sketch-02-cabin-creek-residence-jasper.jpeg" alt="Conceptual facade study — Cabin Creek Residence, Jasper" loading="lazy">
+          <figcaption><span class="sheet-name">Cabin Creek Residence &middot; Jasper</span><span class="sheet-num">Study No. 02</span></figcaption>
+        </figure>
+        <figure class="sheet reveal reveal-d1">
+          <img src="Marketing/website-photos/sketch-03-ryder-lake-residence.jpeg" alt="Conceptual facade study — Ryder Lake Residence" loading="lazy">
+          <figcaption><span class="sheet-name">Ryder Lake Residence</span><span class="sheet-num">Study No. 03</span></figcaption>
+        </figure>
+        <figure class="sheet reveal">
+          <img src="Marketing/website-photos/sketch-04-stoney-plain-residence.jpeg" alt="Conceptual facade study — Stoney Plain Residence" loading="lazy">
+          <figcaption><span class="sheet-name">Stoney Plain Residence</span><span class="sheet-num">Study No. 04</span></figcaption>
+        </figure>
+        <figure class="sheet reveal reveal-d1">
+          <img src="Marketing/website-photos/sketch-05-geikie-residence-jasper.jpeg" alt="Conceptual facade study — Geikie Residence, Jasper" loading="lazy">
+          <figcaption><span class="sheet-name">Geikie Residence &middot; Jasper</span><span class="sheet-num">Study No. 05</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
   <!-- BUILT BAND -->
   <section class="built-band" aria-label="Finished custom home">
     <img src="Marketing/website-photos/exterior-front-house-contemporary.jpeg" alt="Finished contemporary custom home with stone entry columns and black-framed windows" loading="lazy">
