@@ -289,56 +289,6 @@
       filter: brightness(0.75) saturate(0.8);
     }
 
-    /* ── Construction quiet strip ── */
-    .const-note {
-      background: var(--bone);
-      border-top: 1px solid var(--mist);
-      border-bottom: 1px solid var(--mist);
-      padding: 56px 80px;
-    }
-    .const-note-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-    }
-    .const-note-text { flex: 1; }
-    .const-note-h {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(20px, 2vw, 26px);
-      color: var(--ink);
-      margin: 10px 0 12px;
-      letter-spacing: 0.01em;
-    }
-    .const-note-desc {
-      font-family: var(--body);
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-    .const-note-link {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--slate);
-      border: 1px solid var(--mist);
-      padding: 14px 24px;
-      white-space: nowrap;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-    .const-note-link:hover { border-color: var(--slate); color: var(--ink); }
-    @media (max-width: 768px) {
-      .const-note { padding: 48px 32px; }
-      .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
-    }
-
     /* ── On the boards ── */
     .boards {
       background: var(--paper);
@@ -498,6 +448,35 @@
       background: var(--paper);
       padding: 96px 80px;
       border-top: 1px solid var(--mist);
+    }
+    .quote-steps {
+      max-width: 1160px;
+      margin: 0 auto 72px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--mist);
+      border: 1px solid var(--mist);
+    }
+    .quote-step {
+      background: var(--bone);
+      padding: 26px 24px;
+    }
+    .quote-step-num {
+      font-family: var(--display); font-weight: 900;
+      font-size: 26px; color: var(--sand); line-height: 1;
+    }
+    .quote-step-title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 15px; color: var(--ink); letter-spacing: 0.03em;
+      margin-top: 10px;
+    }
+    .quote-step-desc {
+      font-family: var(--body); font-weight: 300;
+      font-size: 13px; line-height: 1.65; color: var(--slate); margin-top: 6px;
+    }
+    @media (max-width: 900px) {
+      .quote-steps { grid-template-columns: 1fr 1fr; }
     }
     .quote-inner {
       max-width: 1160px;
@@ -911,6 +890,28 @@
 
   <!-- QUOTE FORM -->
   <section class="quote-section" id="quote" aria-labelledby="quote-heading">
+    <div class="quote-steps" aria-label="What happens after you inquire">
+      <div class="quote-step">
+        <div class="quote-step-num">01</div>
+        <p class="quote-step-title">Inquire</p>
+        <p class="quote-step-desc">The form below takes about two minutes. Site, scope, timeline.</p>
+      </div>
+      <div class="quote-step">
+        <div class="quote-step-num">02</div>
+        <p class="quote-step-title">We Connect</p>
+        <p class="quote-step-desc">We review and follow up within two business days with a proposal or a few clarifying questions.</p>
+      </div>
+      <div class="quote-step">
+        <div class="quote-step-num">03</div>
+        <p class="quote-step-title">Proposal &amp; Agreement</p>
+        <p class="quote-step-desc">Clear scope and fee, signed digitally. No surprises at permit time.</p>
+      </div>
+      <div class="quote-step">
+        <div class="quote-step-num">04</div>
+        <p class="quote-step-title">Drawings Begin</p>
+        <p class="quote-step-desc">Discovery starts and your project goes on the board.</p>
+      </div>
+    </div>
     <div class="quote-inner">
       <div class="quote-header reveal">
         <span class="label">Get started</span>
@@ -928,18 +929,6 @@
     </div>
   </section>
 
-
-  <!-- CONSTRUCTION NOTE -->
-  <section class="const-note" aria-label="Construction management">
-    <div class="const-note-inner reveal">
-      <div class="const-note-text">
-        <span class="label">Also available</span>
-        <h3 class="const-note-h">Need someone to manage the build too?</h3>
-        <p class="const-note-desc">For clients who want one firm handling everything from drawings to the finished build, we offer construction management alongside our design work.</p>
-      </div>
-      <a href="services.html" class="const-note-link">Learn about Construction &nbsp;&rarr;</a>
-    </div>
-  </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">
     <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p></div>

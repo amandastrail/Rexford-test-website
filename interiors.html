@@ -269,6 +269,30 @@
       font-size: 15px; line-height: 1.8; color: var(--slate); margin-top: 22px;
     }
 
+    /* ── Getting started ── */
+    .int-start { padding: 100px 48px; background: var(--paper); border-top: 1px solid var(--mist); }
+    .int-start-inner { max-width: 1080px; margin: 0 auto; }
+    .int-start-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 40px; margin-top: 56px;
+    }
+    .int-start-num {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 34px; color: var(--sand); line-height: 1;
+    }
+    .int-start-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: 20px; color: var(--ink); margin-top: 12px;
+    }
+    .int-start-desc {
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      font-size: 14px; line-height: 1.7; color: var(--slate); margin-top: 8px;
+    }
+    @media (max-width: 900px) {
+      .int-start { padding: 72px 24px; }
+      .int-start-steps { grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+    }
+
     /* ── CTA ── */
     .int-cta { padding: 130px 48px; text-align: center; background: var(--bone); }
 
@@ -546,6 +570,38 @@
         <p class="int-designer-role">Co-Founder &amp; Principal Designer</p>
         <p class="int-designer-bio">With two decades of architectural drafting and design experience across Western Canada, Amanda leads every interiors project at Rexford. Her background on the technical side of building means the beautiful ideas are also the buildable ones.</p>
         <a class="int-link" href="team-amanda.html" style="margin-top:26px;">Meet Amanda</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section class="int-start" aria-labelledby="start-heading">
+    <div class="int-start-inner">
+      <div class="int-sec-head" style="margin-bottom:0;">
+        <span class="int-eyebrow">Getting started</span>
+        <h2 class="int-sec-h" id="start-heading">Simple, from <em>hello</em> onward.</h2>
+      </div>
+      <div class="int-start-steps">
+        <div>
+          <span class="int-start-num">1.</span>
+          <h3 class="int-start-title">Inquire</h3>
+          <p class="int-start-desc">Tell us about your project through our short form. It takes about two minutes.</p>
+        </div>
+        <div>
+          <span class="int-start-num">2.</span>
+          <h3 class="int-start-title">We connect</h3>
+          <p class="int-start-desc">We review within one business day, then follow up to talk scope, budget, and timeline.</p>
+        </div>
+        <div>
+          <span class="int-start-num">3.</span>
+          <h3 class="int-start-title">Proposal &amp; agreement</h3>
+          <p class="int-start-desc">A clear scope and fee for your project, signed digitally. You know exactly what to expect.</p>
+        </div>
+        <div>
+          <span class="int-start-num">4.</span>
+          <h3 class="int-start-title">Design begins</h3>
+          <p class="int-start-desc">Discovery kicks off and your project takes its place on the board.</p>
+        </div>
       </div>
     </div>
   </section>
