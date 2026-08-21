@@ -194,6 +194,11 @@
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 40px; margin-top: 64px;
     }
+    .int-step-photo {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      margin-bottom: 22px;
+      box-shadow: 0 18px 44px rgba(27,31,35,0.10);
+    }
     .int-step-n {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
       font-size: 40px; color: var(--sand); line-height: 1;
@@ -272,9 +277,17 @@
     /* ── Getting started ── */
     .int-start { padding: 100px 48px; background: var(--paper); border-top: 1px solid var(--mist); }
     .int-start-inner { max-width: 1080px; margin: 0 auto; }
+    .int-start-layout {
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 72px; align-items: center; margin-top: 56px;
+    }
+    .int-start-photo img {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      box-shadow: 0 24px 56px rgba(27,31,35,0.12);
+    }
     .int-start-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 40px; margin-top: 56px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px 48px;
     }
     .int-start-num {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
@@ -290,7 +303,9 @@
     }
     @media (max-width: 900px) {
       .int-start { padding: 72px 24px; }
-      .int-start-steps { grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+      .int-start-layout { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+      .int-start-photo { max-width: 380px; }
+      .int-start-steps { gap: 32px; }
     }
 
     /* ── CTA ── */
@@ -500,21 +515,25 @@
       </div>
       <div class="int-steps">
         <div>
+          <img class="int-step-photo" src="Marketing/website-photos/process-discovery-front-door.jpeg" alt="Craftsman front door on a welcoming porch" loading="lazy">
           <span class="int-step-n">I.</span>
           <h3 class="int-step-title">Discovery</h3>
           <p class="int-step-desc">We start with how you live, what you love, and what the space needs to do. Budget and timeline are on the table from day one.</p>
         </div>
         <div>
+          <img class="int-step-photo" src="Marketing/website-photos/interior-bedroom-rattan-chair.jpeg" alt="Sunlit bedroom corner with woven rattan chair" loading="lazy">
           <span class="int-step-n">II.</span>
           <h3 class="int-step-title">Concept</h3>
           <p class="int-step-desc">Design direction, material palettes, and space planning take shape. You see the vision before anything is ordered.</p>
         </div>
         <div>
+          <img class="int-step-photo" src="Marketing/website-photos/process-spec-swatches-plans.jpeg" alt="Fabric selections laid over floor plan drawings" loading="lazy">
           <span class="int-step-n">III.</span>
           <h3 class="int-step-title">Specification</h3>
           <p class="int-step-desc">Every finish, fixture, and detail is documented. Millwork is drawn, lighting is planned, and your builder gets drawings they can build from.</p>
         </div>
         <div>
+          <img class="int-step-photo" src="Marketing/website-photos/interior-dining-wicker-pendant.jpeg" alt="Styled dining room with oak table and wicker pendant" loading="lazy">
           <span class="int-step-n">IV.</span>
           <h3 class="int-step-title">Styling <span style="font-size:12px; font-family:'Inter',sans-serif; font-weight:400; color:var(--stone); text-transform:none; letter-spacing:0;">(add-on)</span></h3>
           <p class="int-step-desc">For clients who want it, furniture, artwork, and the finishing layer are installed and placed. The space is handed over complete, not almost done.</p>
@@ -532,13 +551,13 @@
       </div>
       <div class="int-mosaic">
         <figure class="int-mosaic-item int-mosaic-a">
-          <img src="Marketing/website-photos/interior-bathroom-sage-brass.jpeg" alt="Bathroom with sage green tile, brass fixtures, and oak vanity" style="object-position: center 58%;" loading="lazy">
+          <img src="Marketing/website-photos/interior-bathroom-sage-brass.jpeg" alt="Bathroom with sage green tile, brass fixtures, and oak vanity" style="object-position: center 43%;" loading="lazy">
         </figure>
         <figure class="int-mosaic-item int-mosaic-b">
           <img src="Marketing/website-photos/interior-kitchen-oak-island.jpeg" alt="Oak kitchen with large island" loading="lazy">
         </figure>
         <figure class="int-mosaic-item int-mosaic-c">
-          <img src="Marketing/website-photos/interior-bathroom.jpeg" alt="Bathroom with natural stone and warm wood" loading="lazy">
+          <img src="Marketing/website-photos/interior-bathroom.jpeg" alt="Bathroom with natural stone and warm wood" style="object-position: center 70%;" loading="lazy">
         </figure>
         <figure class="int-mosaic-item int-mosaic-d">
           <img src="Marketing/website-photos/interior-kitchen-rattan-pendants.jpeg" alt="Cream kitchen with oak island, marble counters, and rattan pendant lights" loading="lazy">
@@ -581,6 +600,7 @@
         <span class="int-eyebrow">Getting started</span>
         <h2 class="int-sec-h" id="start-heading">Simple, from <em>hello</em> onward.</h2>
       </div>
+      <div class="int-start-layout">
       <div class="int-start-steps">
         <div>
           <span class="int-start-num">1.</span>
@@ -602,6 +622,10 @@
           <h3 class="int-start-title">Design begins</h3>
           <p class="int-start-desc">Discovery kicks off and your project takes its place on the board.</p>
         </div>
+      </div>
+      <div class="int-start-photo">
+        <img src="Marketing/website-photos/lifestyle-inquiry-phone.jpeg" alt="Reaching out from your phone" loading="lazy">
+      </div>
       </div>
     </div>
   </section>
