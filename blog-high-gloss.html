@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA:BEGIN -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0FYHZWVTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X0FYHZWVTZ');
+
+    // Phone / email clicks as GA4 events (enhanced measurement skips tel:/mailto:).
+    // Marked as key events in GA4 admin; imported as conversions by Google Ads.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('tel:') === 0) {
+        gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href, page_path: location.pathname });
+      }
+    });
+  </script>
+  <!-- GA:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="High gloss paint is coming back after fifteen years of matte everything. What the finish actually demands, where it earns its place, and how to try it without committing the whole house.">
+  <title>High Gloss: The Next Paint Trend? - REXFORD Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('Marketing/website-photos/blog-paint-room.jpeg');
+      background-size: cover; background-position: center;
+      opacity: 0.18; filter: grayscale(0.2);
+    }
+  </style>
+  <!-- SEO:BEGIN -->
+  <link rel="canonical" href="https://rexfordco.ca/blog-high-gloss">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Rexford">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:url" content="https://rexfordco.ca/blog-high-gloss">
+  <meta property="og:title" content="High Gloss: The Next Paint Trend? - REXFORD Journal">
+  <meta property="og:description" content="High gloss paint is coming back after fifteen years of matte everything. What the finish actually demands, where it earns its place, and how to try it without committing the whole house.">
+  <meta property="og:image" content="https://rexfordco.ca/Marketing/website-photos/blog-paint-room.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="High Gloss: The Next Paint Trend? - REXFORD Journal">
+  <meta name="twitter:description" content="High gloss paint is coming back after fifteen years of matte everything. What the finish actually demands, where it earns its place, and how to try it without committing the whole house.">
+  <meta name="twitter:image" content="https://rexfordco.ca/Marketing/website-photos/blog-paint-room.jpeg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "High Gloss: The Next Paint Trend?",
+    "description": "High gloss paint is coming back after fifteen years of matte everything. What the finish actually demands, where it earns its place, and how to try it without committing the whole house.",
+    "author": { "@type": "Person", "name": "Amanda Wiebe" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rexford Drafting & Design Inc.",
+      "logo": { "@type": "ImageObject", "url": "https://rexfordco.ca/Brand%20Asset/R-web.png" }
+    },
+    "datePublished": "2026-08-23",
+    "image": "https://rexfordco.ca/Marketing/website-photos/blog-paint-room.jpeg",
+    "mainEntityOfPage": "https://rexfordco.ca/blog-high-gloss",
+    "articleSection": "Interior Design"
+  }
+  </script>
+  <!-- SEO:END -->
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" aria-label="Rexford home">
+      <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
+      <span class="nav-name">Rexford</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="blog.html" class="active">Journal</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+  </div>
+
+  <section class="page-hero" aria-labelledby="post-title" style="position:relative;overflow:hidden;">
+    <div class="blog-hero-bg" aria-hidden="true"></div>
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="page-hero-content" style="max-width: 860px;">
+      <a href="blog.html" class="post-back">Back to Journal</a>
+      <p class="post-eyebrow">Interior Design &middot; August 2026</p>
+      <h1 class="post-title" id="post-title">High Gloss: The Next Paint Trend?</h1>
+      <div class="post-meta">
+        <span>Amanda Wiebe</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="post-body" aria-label="Post body">
+    <div class="post-body-inner">
+
+      <p>We have spent roughly fifteen years going flatter. Matte walls, matte cabinets, matte black hardware, matte everything. It was a reaction against the shiny builder-grade semi-gloss trim of the nineties, and it worked. Then it kept working until every room in every listing photo looked like the same room.</p>
+      <p>So the pendulum is swinging, and it is swinging toward shine. Lacquered millwork, gloss ceilings, high-shine doors and colour-drenched rooms where the trim gleams. If you have been on any design feed lately you have seen it.</p>
+      <p>The question we get from clients is whether it is worth doing in their house, or whether it is a magazine thing that will look dated in four years. Here is our read.</p>
+
+      <h2>First, what &ldquo;high gloss&rdquo; actually means</h2>
+      <p>Sheen is a ladder, and most people only know two rungs on it:</p>
+      <ul>
+        <li><strong>Flat / matte.</strong> No reflection. Hides wall defects. Marks easily.</li>
+        <li><strong>Eggshell / satin.</strong> Slight sheen. The default for most interiors.</li>
+        <li><strong>Semi-gloss.</strong> Noticeably reflective. Standard trim and door finish for decades.</li>
+        <li><strong>High gloss.</strong> Mirror-adjacent. Reflects light and reflects the room.</li>
+      </ul>
+      <p>High gloss is not semi-gloss with more effort. It is a different finish with different rules, and the rules matter more than the colour.</p>
+
+      <h2>Why it is coming back</h2>
+      <p><strong>It is not actually new.</strong> Lacquered rooms, japanned furniture and oil-gloss panelling go back centuries. Georgian and Victorian interiors used shine deliberately, because before electricity you built rooms that made the most of the light you had. What reads as bold today was practical then.</p>
+      <p><strong>It amplifies light.</strong> Same reason. A gloss ceiling in a small dark room bounces daylight around instead of absorbing it. Northern exposure, basement suites, powder rooms with no window: these are the rooms gloss helps most, and they are the rooms most people paint flat white and then wonder why they feel like a cave.</p>
+      <p><strong>It is durable.</strong> Higher sheen means a harder, tighter film. It wipes down. In a mudroom, on a stair rail, on kitchen millwork, on a kid-height door, gloss earns its keep in a way matte simply does not.</p>
+      <p><strong>It reads as considered.</strong> Because it is expensive to do properly, gloss signals that someone made a decision. That is a real part of its appeal right now.</p>
+
+      <h2>The part nobody puts in the trend piece</h2>
+      <p>Gloss shows everything. Every dent in the drywall, every wave in the plaster, every brush mark, every bit of dust that landed while the coat was wet. A flat finish forgives a mediocre substrate. A gloss finish puts a spotlight on it.</p>
+      <p>That means:</p>
+      <ul>
+        <li><strong>Prep is most of the job.</strong> Skim coating, sanding, filling and priming, done properly, on every surface. If the wall is not flat, the gloss will tell everyone.</li>
+        <li><strong>It usually wants to be sprayed.</strong> Brush and roller can be done well by someone with real skill and patience, but sprayed finishes are where gloss looks like the reference photo.</li>
+        <li><strong>It is more coats.</strong> Plan on multiple thin coats with sanding between, not two heavy ones.</li>
+        <li><strong>It costs more.</strong> Sometimes two to three times a standard paint finish for the same area, almost all of it labour. That is the honest number, and it is the number that decides most projects.</li>
+        <li><strong>Touch-ups are harder.</strong> A gloss repair is a full-panel repair more often than a spot fix.</li>
+      </ul>
+      <p>None of that is a reason not to do it. It is a reason to do it on purpose, in the right place, with the right budget line.</p>
+
+      <h2>Where we would actually use it</h2>
+      <p>Our design sensibility is modern transitional, which means we want a house that still looks right in fifteen years. Gloss fits that, as long as it is used the way it was used historically: on architectural elements, not everywhere.</p>
+      <p>Good candidates:</p>
+      <ul>
+        <li>Interior doors, especially in a deep colour</li>
+        <li>Panelled or wainscotted feature walls</li>
+        <li>A ceiling in a small room, a powder room, a dining room, a library</li>
+        <li>Built-in millwork and cabinetry</li>
+        <li>Stair stringers, rails and newel posts</li>
+        <li>A single piece of furniture as a test run</li>
+      </ul>
+      <p>Where we would be careful: full high-gloss walls throughout an open living area. It is a lot of reflection, it is unforgiving of large flat drywall runs, and it is the version most likely to feel like a moment rather than a home.</p>
+
+      <h2>Trend, or return?</h2>
+      <p>Our take is that this is a return rather than a trend, which is why it is worth taking seriously. Sheen moves in long cycles, decades not seasons, and we are early in a move away from matte. Something done in gloss now is more likely to look ahead of the curve in 2032 than behind it.</p>
+      <p>The safer entry point, if you are not sure: pick one room, ideally a small dark one, and do the ceiling or the millwork in a saturated colour at high gloss. Live with it for a season. It is the cheapest way to find out whether you love it, and even if you do not, you have only committed one room.</p>
+      <p>If you want to talk through where gloss would work in your project and what it would actually cost to do right, that is a conversation worth having before the drawings are finished, not after.</p>
+
+      <h2>Where we come in</h2>
+      <p>Rexford is an architectural drafting and interior design studio in Chilliwack, working across BC and Alberta. Sheen is a specification, not an afterthought: it belongs in the finish schedule, room by room and surface by surface, where it can be priced honestly before anyone opens a can. Our <a href="interiors.html" style="color:var(--bronze);">interiors studio</a> will tell you where gloss earns its place in your project and where satin will serve you better for a third of the money. <a href="contact.html" style="color:var(--bronze);">Get in touch</a>.</p>
+
+      <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--mist);">
+        <p class="label" style="margin-bottom: 20px;">Related articles</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+          <a href="blog-finish-schedule.html" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Interior Design</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">The Finish Schedule: The Least Glamorous Document That Saves the Most Money</p>
+          </a>
+          <a href="blog-kitchen-tips.html" style="background:var(--bone); padding:24px 28px; display:block; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='var(--paper)'" onmouseout="this.style.background='var(--bone)'">
+            <p style="font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px;">Interior Design</p>
+            <p style="font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);line-height:1.3;">Top 5 Tips from Interior Designers for Renovating Your Kitchen</p>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 32px 36px; background: var(--bone); border-top: 3px solid var(--bronze);">
+        <p class="label" style="margin-bottom: 12px;">Do it on purpose</p>
+        <p style="font-family: var(--body); font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.7; margin-bottom: 20px;">Tell us about the room you have in mind. We will help you decide where gloss earns its keep and what it should cost, and send a proposal within two business days.</p>
+        <a href="contact.html" style="display: inline-block; font-family: var(--body); font-weight: 600; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; background: var(--bronze); color: var(--paper); padding: 14px 28px; transition: background 0.2s;" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--bronze)'">Start a Conversation &rarr;</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li>
+<li><a href="interiors.html">Rexford Interiors</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved.</p></div></div></footer>
+
+  <script>
+    const nav = document.getElementById('nav'); window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+  </script>
+</body>
+</html>
