@@ -311,54 +311,6 @@
     /* ── CTA ── */
     .int-cta { padding: 130px 48px; text-align: center; background: var(--bone); }
 
-    /* ── Construction quiet strip ── */
-    .const-note {
-      background: var(--paper);
-      border-top: 1px solid var(--mist);
-      padding: 56px 80px;
-    }
-    .const-note-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-    }
-    .const-note-text { flex: 1; }
-    .const-note-h {
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: clamp(22px, 2.2vw, 30px);
-      color: var(--ink);
-      margin: 10px 0 12px;
-      letter-spacing: 0.01em;
-    }
-    .const-note-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-    .const-note-link {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--slate);
-      border: 1px solid var(--mist);
-      padding: 14px 24px;
-      white-space: nowrap;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-    .const-note-link:hover { border-color: var(--slate); color: var(--ink); }
-    @media (max-width: 768px) {
-      .const-note { padding: 48px 32px; }
-      .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
-    }
 
     @media (max-width: 900px) {
       .int-hero { min-height: 82vh; padding: 100px 24px; }
@@ -635,18 +587,6 @@
     <span class="int-eyebrow">Begin</span>
     <h2 class="int-sec-h" style="margin-top:18px;">Let&rsquo;s talk about<br><em>your project.</em></h2>
     <a class="int-link" href="contact.html" style="margin-top:34px;">Start a Project</a>
-  </section>
-
-  <!-- CONSTRUCTION NOTE -->
-  <section class="const-note" aria-label="Construction management">
-    <div class="const-note-inner">
-      <div class="const-note-text">
-        <span class="int-eyebrow">Also available</span>
-        <h3 class="const-note-h">Need someone to manage the build too?</h3>
-        <p class="const-note-desc">For clients who want one firm handling everything from drawings to the finished build, we offer construction management alongside our design work.</p>
-      </div>
-      <a href="services.html" class="const-note-link">Learn about Construction &nbsp;&rarr;</a>
-    </div>
   </section>
 
   <!-- FOOTER -->

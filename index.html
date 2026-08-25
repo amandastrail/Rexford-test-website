@@ -241,53 +241,6 @@
     .svc--construction .svc__link { border: 1px solid var(--bronze-lt); color: var(--paper); }
     .svc--construction .svc__link:hover { background: var(--bronze-lt); color: var(--ink); }
 
-    /* ── Construction quiet strip ── */
-    .const-note {
-      background: var(--bone);
-      border-top: 1px solid var(--mist);
-      border-bottom: 1px solid var(--mist);
-      padding: 56px 80px;
-    }
-    .const-note-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-    }
-    .const-note-text { flex: 1; }
-    .const-note-h {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(20px, 2vw, 26px);
-      color: var(--ink);
-      margin: 10px 0 12px;
-      letter-spacing: 0.01em;
-    }
-    .const-note-desc {
-      font-family: var(--body);
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-    .const-note-link {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--slate);
-      border: 1px solid var(--mist);
-      padding: 14px 24px;
-      white-space: nowrap;
-      transition: border-color 0.2s ease, color 0.2s ease;
-      flex-shrink: 0;
-    }
-    .const-note-link:hover { border-color: var(--slate); color: var(--ink); }
-
     /* ── Work gallery strip ── */
     .work-gallery { overflow: hidden; }
     .work-gallery-grid {
@@ -323,10 +276,6 @@
     /* ── Homepage responsive ── */
     @media (max-width: 1100px) {
       .intro-inner { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 768px) {
-      .const-note { padding: 48px 32px; }
-      .const-note-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
     }
     @media (max-width: 900px) {
       .hero-main        { padding: 0 32px 56px; }
@@ -692,17 +641,6 @@
 
 
   <!-- CONSTRUCTION (quiet supporting note) -->
-  <section class="const-note" aria-label="Construction management">
-    <div class="const-note-inner reveal">
-      <div class="const-note-text">
-        <span class="label">Also available</span>
-        <h3 class="const-note-h">Need someone to manage the build too?</h3>
-        <p class="const-note-desc">For clients who want one firm handling everything from drawings to the finished build, we offer construction management alongside our design work.</p>
-      </div>
-      <a href="services.html" class="const-note-link">Learn about Construction &nbsp;&rarr;</a>
-    </div>
-  </section>
-
 
   <!-- DETAIL STRIP -->
   <div class="detail-strip" aria-hidden="true">
@@ -713,33 +651,6 @@
 
 
   <!-- PILLARS -->
-  <section class="pillars" aria-labelledby="pillars-heading">
-    <div class="pillars-inner">
-      <div class="pillars-header reveal">
-        <span class="label">Why Rexford</span>
-        <h2 class="pillars-h" id="pillars-heading">One firm. Full accountability.</h2>
-      </div>
-      <div class="pillars-grid">
-        <div class="pillar reveal">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1"/><path d="M3 18 L20 6 L37 18"/><line x1="16" y1="34" x2="16" y2="24"/><line x1="24" y1="34" x2="24" y2="24"/></svg>
-          <h3 class="pillar-title">Design-led, start to finish</h3>
-          <p class="pillar-desc">Rexford is a design studio first. We resolve your project on paper, produce documents any builder can build from, and stay accountable to the design through construction, whether that's your builder or ours.</p>
-        </div>
-        <div class="pillar reveal reveal-d1">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"/><polyline points="20,11 20,20 27,25"/></svg>
-          <h3 class="pillar-title">Schedule discipline</h3>
-          <p class="pillar-desc">We set the timeline up front and hold it, through design milestones and permit submission. When clients add construction management, the same discipline runs the site.</p>
-        </div>
-        <div class="pillar reveal reveal-d2">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 32 L8 14 L20 6 L32 14 L32 32"/><line x1="4" y1="32" x2="36" y2="32"/><rect x="15" y="21" width="10" height="11"/><line x1="20" y1="12" x2="20" y2="18"/></svg>
-          <h3 class="pillar-title">Drawn, then built</h3>
-          <p class="pillar-desc">Every finish, fitting, and detail is specified on paper before construction starts. The design studio resolves the hard decisions up front, so the site team isn't making them on the fly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!-- CTA -->
   <section class="cta" id="contact" aria-labelledby="cta-heading">
     <div class="cta-texture" aria-hidden="true"></div>
