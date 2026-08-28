@@ -87,6 +87,7 @@
     @media (max-width: 900px) { .profile-hero { grid-template-columns: 1fr; min-height: unset; } .profile-photo-col { height: 360px; order: -1; } .profile-hero-text { padding: 48px 40px 56px; } }
     @media (max-width: 600px) { .profile-hero-text { padding: 40px 20px 48px; } .profile-bio-inner { padding: 0 20px; } .profile-bio { padding: 64px 0; } .team-nav-inner { flex-direction: column; align-items: flex-start; padding: 0 20px; } .team-nav-links { justify-content: flex-start; } }
   </style>
+  <link rel="stylesheet" href="clean.css">
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/team-sarah">
   <meta property="og:type" content="profile">
@@ -109,20 +110,19 @@
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo"><span class="nav-name">Rexford</span></a>
     <ul class="nav-links" role="list">
-      <li><a href="services.html">Services</a></li><li><a href="process.html">Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+      <li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
   <section class="profile-hero" aria-labelledby="profile-name">
-    <div class="hero-texture" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
     <div class="profile-hero-text">
       <a href="about.html#team" class="profile-back">Back to Team</a>
       <p class="profile-role">Interior Designer</p>
-      <h1 class="profile-name" id="profile-name">Sarah<br>Penner</h1>
+      <h1 class="profile-name" id="profile-name">Sarah Penner</h1>
       <p class="profile-tagline">Specializing in kitchen and bath design, creating functional, beautiful spaces that truly reflect how each client lives in their home.</p>
     </div>
     <div class="profile-photo-col" aria-hidden="true">
@@ -132,20 +132,20 @@
 
   <section class="profile-bio" aria-label="Sarah Penner biography">
     <div class="profile-bio-inner">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Background</p>
         <p class="bio-p">Sarah is a recent graduate of BCIT's Residential Interiors Diploma program, bringing fresh academic training to an experienced team. She joined Rexford as Junior Interior Designer and has quickly become a trusted contributor to the studio's design process.</p>
         <p class="bio-p">Her specialization in kitchen and bath design gives her a sharp eye for the spaces where function and beauty must co-exist most deliberately, where everyday life is lived most closely with the design decisions made.</p>
       </div>
       <hr class="bio-divider">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Philosophy</p>
         <p class="bio-p">Sarah embraces a collaborative design process and draws inspiration from client conversations. She combines creativity with a personable approach, prioritizing an understanding of each client's needs above all else.</p>
         <p class="bio-p">She thrives on exploring creative possibilities alongside clients, not imposing a style, but drawing out the spaces that feel genuinely theirs. Every project is a chance to translate someone's lifestyle into something tangible and lasting.</p>
       </div>
-      <div class="bio-quote reveal">
+      <div class="bio-quote">
         <p>"Creating functional, beautiful spaces that reflect each client's unique lifestyle, and that's what good interior design does."</p>
-        <cite>&mdash; Sarah Penner, Interior Designer</cite>
+        <cite>Sarah Penner, Interior Designer</cite>
       </div>
     </div>
   </section>
@@ -159,12 +159,10 @@
     </div>
   </div>
 
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p></div>
-      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html#team" class="btn-outline">Meet the Team</a></div>
-    </div>
+  <section class="c-cta">
+    <h2>Ready to start a project?</h2>
+    <p>Tell us about your site, scope, and timeline. We will let you know if we are the right fit.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">

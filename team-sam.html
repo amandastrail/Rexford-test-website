@@ -87,6 +87,7 @@
     @media (max-width: 900px) { .profile-hero { grid-template-columns: 1fr; min-height: unset; } .profile-photo-col { height: 360px; order: -1; } .profile-hero-text { padding: 48px 40px 56px; } }
     @media (max-width: 600px) { .profile-hero-text { padding: 40px 20px 48px; } .profile-bio-inner { padding: 0 20px; } .profile-bio { padding: 64px 0; } .team-nav-inner { flex-direction: column; align-items: flex-start; padding: 0 20px; } .team-nav-links { justify-content: flex-start; } }
   </style>
+  <link rel="stylesheet" href="clean.css">
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/team-sam">
   <meta property="og:type" content="profile">
@@ -113,7 +114,7 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="services.html">Services</a></li>
-      <li><a href="process.html">Process</a></li>
+      <li><a href="projects.html">Projects</a></li>
       
       <li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
@@ -121,16 +122,14 @@
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
   <section class="profile-hero" aria-labelledby="profile-name">
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow"    aria-hidden="true"></div>
     <div class="profile-hero-text">
       <a href="about.html#team" class="profile-back">Back to Team</a>
       <p class="profile-role">Co-Founder &amp; Construction Management</p>
-      <h1 class="profile-name" id="profile-name">Sam<br>Wiebe</h1>
+      <h1 class="profile-name" id="profile-name">Sam Wiebe</h1>
       <p class="profile-tagline">Over 20 years building across agricultural, commercial, and custom residential sectors, where engineering principles meet thoughtful design on every job.</p>
     </div>
     <div class="profile-photo-col" aria-hidden="true">
@@ -140,25 +139,25 @@
 
   <section class="profile-bio" aria-label="Sam Wiebe biography">
     <div class="profile-bio-inner">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Background</p>
         <p class="bio-p">Sam grew up on a large commercial farm, where he developed early expertise in equipment, tools, and business operations under his father's guidance. He graduated from the Carpentry Program at the University of the Fraser Valley in 2005 and subsequently launched his own construction company.</p>
         <p class="bio-p">With over 20 years in the industry, Sam has completed diverse projects spanning agricultural construction, commercial tenant improvements, and custom residential homes of varying scales.</p>
       </div>
       <hr class="bio-divider">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Approach</p>
         <p class="bio-p">Sam's approach integrates engineering principles with thoughtful design, ensuring projects perform functionally while reflecting the needs and character of end users. He specializes in construction management across commercial, agricultural, and residential sectors.</p>
         <p class="bio-p">At Rexford, Sam's leadership has established the company's reputation for quality, integrity, and innovation, building not just structures, but the trust that brings clients back.</p>
       </div>
       <hr class="bio-divider">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Training &amp; Credentials</p>
         <p class="bio-p">In 2026, Sam completed the Canadian Home Builders' Association's Net Zero Builder Training, adding formal expertise in high-performance, energy-efficient construction. For clients, that means a build partner who understands airtightness, insulation, mechanical systems, and the details that take a home toward net-zero energy use.</p>
       </div>
-      <div class="bio-quote reveal">
+      <div class="bio-quote">
         <p>"The creativity and craftsmanship involved in shaping functional, enduring spaces, across every type of build, that's what gets me out of bed."</p>
-        <cite>&mdash; Sam Wiebe, Co-Founder</cite>
+        <cite>Sam Wiebe, Co-Founder</cite>
       </div>
     </div>
   </section>
@@ -181,19 +180,10 @@
     </div>
   </div>
 
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal">
-        <p class="cta-eyebrow label label--light">Work with us</p>
-        <h2 class="cta-h" id="cta-heading">Ready to start a project?</h2>
-        <p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p>
-      </div>
-      <div class="cta-btns reveal reveal-d1">
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
-        <a href="about.html#team" class="btn-outline">Meet the Team</a>
-      </div>
-    </div>
+  <section class="c-cta">
+    <h2>Ready to start a project?</h2>
+    <p>Tell us about your site, scope, and timeline. We will let you know if we are the right fit.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
   <footer>

@@ -87,6 +87,7 @@
     @media (max-width: 900px) { .profile-hero { grid-template-columns: 1fr; min-height: unset; } .profile-photo-col { height: 360px; order: -1; } .profile-hero-text { padding: 48px 40px 56px; } }
     @media (max-width: 600px) { .profile-hero-text { padding: 40px 20px 48px; } .profile-bio-inner { padding: 0 20px; } .profile-bio { padding: 64px 0; } .team-nav-inner { flex-direction: column; align-items: flex-start; padding: 0 20px; } .team-nav-links { justify-content: flex-start; } }
   </style>
+  <link rel="stylesheet" href="clean.css">
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/team-drew">
   <meta property="og:type" content="profile">
@@ -109,20 +110,19 @@
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo"><span class="nav-name">Rexford</span></a>
     <ul class="nav-links" role="list">
-      <li><a href="services.html">Services</a></li><li><a href="process.html">Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+      <li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
   <section class="profile-hero" aria-labelledby="profile-name">
-    <div class="hero-texture" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
     <div class="profile-hero-text">
       <a href="about.html#team" class="profile-back">Back to Team</a>
       <p class="profile-role">Senior Architectural Drafting &amp; Designer</p>
-      <h1 class="profile-name" id="profile-name">Drew<br>Delbridge</h1>
+      <h1 class="profile-name" id="profile-name">Drew Delbridge</h1>
       <p class="profile-tagline">27+ years of drafting and design experience across BC, Alberta, and Saskatchewan, with technical precision grounded in real-world construction insight.</p>
     </div>
     <div class="profile-photo-col" aria-hidden="true">
@@ -132,20 +132,20 @@
 
   <section class="profile-bio" aria-label="Drew Delbridge biography">
     <div class="profile-bio-inner">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Background</p>
         <p class="bio-p">Originally from Australia, Drew grew up immersed in construction through his father's work. After moving to Canada in 1993, he continued building practical knowledge by working summer projects in Chilliwack, BC, before pursuing formal training in Architectural Drafting and Design at the University of the Fraser Valley.</p>
         <p class="bio-p">With over 27 years of professional experience in architectural drafting and design, plus a decade as a structural drafter for a leading BC structural engineering firm, Drew's portfolio spans residential, commercial, and multi-family developments across BC, Alberta, and Saskatchewan.</p>
       </div>
       <hr class="bio-divider">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Beyond the drafting table</p>
         <p class="bio-p">Drew has volunteered his design expertise for meaningful humanitarian causes, including designing a school in Mirebalais, Haiti following the 2010 earthquake. That same commitment to purposeful design informs everything he brings to Rexford projects.</p>
         <p class="bio-p">His work is characterized by a commitment to craftsmanship, collaboration, and meaningful design, bringing a rare combination of technical precision and real-world insight to every project.</p>
       </div>
-      <div class="bio-quote reveal">
+      <div class="bio-quote">
         <p>"Technical precision and real-world insight aren't opposites, and the best drawings come from understanding both sides of the wall."</p>
-        <cite>&mdash; Drew Delbridge, Senior Designer</cite>
+        <cite>Drew Delbridge, Senior Designer</cite>
       </div>
     </div>
   </section>
@@ -159,12 +159,10 @@
     </div>
   </div>
 
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p></div>
-      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html#team" class="btn-outline">Meet the Team</a></div>
-    </div>
+  <section class="c-cta">
+    <h2>Ready to start a project?</h2>
+    <p>Tell us about your site, scope, and timeline. We will let you know if we are the right fit.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">

@@ -216,3 +216,81 @@ footer { background: #fff; }
   .c-team { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
   .c-head { margin-bottom: 32px; }
 }
+
+/* ═══════════════════════════════════════════
+   Team bio pages (team-*.html): restyle existing classes
+═══════════════════════════════════════════ */
+.profile-hero {
+  margin-top: 72px; min-height: 0; background: #fff; color: var(--ink);
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
+  padding: 96px 64px 72px; max-width: 1240px; margin-left: auto; margin-right: auto;
+}
+.profile-hero-text { padding: 0; max-width: 560px; }
+.profile-back { font-family: var(--body); font-size: 13px; color: var(--stone); letter-spacing: 0; text-transform: none; margin-bottom: 28px; display: inline-block; }
+.profile-back:hover { color: var(--ink); }
+.profile-role { font-family: var(--body); font-weight: 400; font-size: 13px; color: var(--stone); letter-spacing: 0; text-transform: none; margin: 0 0 12px; }
+.profile-name { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; color: var(--ink); letter-spacing: 0; text-transform: none; }
+.profile-name br { display: none; }
+.profile-tagline { font-family: var(--body); font-weight: 300; font-size: 17px; line-height: 1.7; color: var(--slate); margin-top: 20px; }
+.profile-photo-col { position: static; width: auto; height: auto; }
+.profile-photo-col img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; filter: none; opacity: 1; display: block; }
+.profile-bio { background: #fff; padding: 0 64px 96px; }
+.profile-bio-inner { max-width: 760px; margin: 0 auto; padding: 0; }
+.bio-section { border: 1px solid var(--mist); padding: 32px; }
+.bio-section + .bio-section, .bio-divider + .bio-section { margin-top: 20px; }
+.bio-divider { display: none; }
+.bio-section-label { font-family: var(--body); font-weight: 400; font-size: 12px; color: var(--stone); letter-spacing: 0; text-transform: none; margin-bottom: 12px; }
+.bio-p { font-family: var(--body); font-weight: 300; font-size: 16px; line-height: 1.75; color: var(--slate); }
+.bio-p + .bio-p { margin-top: 14px; }
+.bio-quote { margin-top: 48px; padding: 0; border: none; background: none; text-align: center; }
+.bio-quote::before { display: none; }
+.bio-quote p { font-family: var(--display); font-weight: 300; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.4; color: var(--ink); font-style: normal; }
+.bio-quote cite { display: block; margin-top: 16px; font-style: normal; font-family: var(--body); font-size: 13px; color: var(--stone); }
+.team-nav-strip { background: var(--bone); border: none; padding: 32px 64px; }
+.team-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 28px; align-items: baseline; flex-wrap: wrap; }
+.team-nav-label { font-family: var(--body); font-size: 12px; color: var(--stone); letter-spacing: 0; text-transform: none; }
+.team-nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.team-nav-link { font-family: var(--body); font-weight: 400; font-size: 14px; color: var(--slate); letter-spacing: 0; text-transform: none; padding: 0; border: none; }
+.team-nav-link:hover, .team-nav-link.current { color: var(--ink); border-bottom: 1px solid var(--ink); }
+@media (max-width: 860px) {
+  .profile-hero { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px 40px; }
+  .profile-bio { padding: 0 24px 72px; }
+  .team-nav-strip { padding: 28px 24px; }
+}
+
+/* ═══════════════════════════════════════════
+   Journal articles (blog-*.html)
+═══════════════════════════════════════════ */
+.post-page .page-hero { margin-top: 72px; min-height: 0; background: #fff; padding: 88px 64px 40px; display: block; }
+.post-page .page-hero-content { padding: 0; max-width: 760px; margin: 0 auto; }
+.post-back { font-family: var(--body); font-size: 13px; color: var(--stone); letter-spacing: 0; text-transform: none; }
+.post-back:hover { color: var(--ink); }
+.post-eyebrow { font-family: var(--body); font-weight: 400; font-size: 13px; color: var(--stone); letter-spacing: 0; text-transform: none; margin: 24px 0 12px; }
+.post-title { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.15; color: var(--ink); letter-spacing: 0; }
+.post-meta { font-family: var(--body); font-size: 13px; color: var(--stone); margin-top: 18px; }
+.post-meta span { color: var(--stone); }
+.post-photo { max-width: 1100px; margin: 24px auto 0; padding: 0 64px; }
+.post-photo img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block; }
+.post-body { background: #fff; padding: 56px 0 96px; }
+.post-body-inner { max-width: 760px; padding: 0 64px; }
+.post-body-inner h2 { font-family: var(--display); font-weight: 500; font-size: 24px; color: var(--ink); margin: 40px 0 12px; letter-spacing: 0; }
+.post-body-inner h3 { font-family: var(--display); font-weight: 500; font-size: 19px; color: var(--ink); margin: 28px 0 8px; }
+.post-body-inner p, .post-body-inner li { font-family: var(--body); font-weight: 300; font-size: 16.5px; line-height: 1.8; color: var(--slate); }
+.post-body-inner a { color: var(--bronze); }
+/* related-article cards and the closing box: neutralise the templated inline styles */
+.post-body-inner .label { font-family: var(--body) !important; font-weight: 400 !important; font-size: 12px !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--stone) !important; }
+.post-body-inner div[style*="grid"] { gap: 20px !important; }
+.post-body-inner a[style*="bone"] { background: #fff !important; border: 1px solid var(--mist); padding: 24px !important; }
+.post-body-inner a[style*="bone"]:hover { border-color: var(--sand); background: #fff !important; }
+.post-body-inner a[style*="bone"] p[style*="uppercase"] { font-family: var(--body) !important; font-weight: 400 !important; font-size: 12px !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--stone) !important; }
+.post-body-inner a[style*="bone"] p[style*="700"] { font-weight: 500 !important; }
+.post-body-inner div[style*="border-top: 3px"] { border-top: none !important; background: var(--bone) !important; padding: 32px !important; }
+.post-body-inner div[style*="border-top: 3px"] a[style*="uppercase"] { font-family: var(--body) !important; font-weight: 500 !important; font-size: 13px !important; letter-spacing: 0.04em !important; text-transform: none !important; background: var(--ink) !important; color: #fff !important; padding: 13px 24px !important; }
+@media (max-width: 860px) {
+  .post-page .page-hero { padding: 48px 24px 24px; }
+  .post-photo { padding: 0 24px; }
+  .post-body-inner { padding: 0 24px; }
+  .post-body-inner div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+.team-nav-link.current { background: none; padding: 0; }
+.bio-quote cite { letter-spacing: 0; text-transform: none; }

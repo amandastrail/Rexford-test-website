@@ -87,6 +87,7 @@
     @media (max-width: 900px) { .profile-hero { grid-template-columns: 1fr; min-height: unset; } .profile-photo-col { height: 360px; order: -1; } .profile-hero-text { padding: 48px 40px 56px; } }
     @media (max-width: 600px) { .profile-hero-text { padding: 40px 20px 48px; } .profile-bio-inner { padding: 0 20px; } .profile-bio { padding: 64px 0; } .team-nav-inner { flex-direction: column; align-items: flex-start; padding: 0 20px; } .team-nav-links { justify-content: flex-start; } }
   </style>
+  <link rel="stylesheet" href="clean.css">
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/team-jacinta">
   <meta property="og:type" content="profile">
@@ -109,20 +110,19 @@
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo"><span class="nav-name">Rexford</span></a>
     <ul class="nav-links" role="list">
-      <li><a href="services.html">Services</a></li><li><a href="process.html">Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
+      <li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a><a href="process.html">Process</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
   <section class="profile-hero" aria-labelledby="profile-name">
-    <div class="hero-texture" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
     <div class="profile-hero-text">
       <a href="about.html#team" class="profile-back">Back to Team</a>
       <p class="profile-role">Accounting &amp; Bookkeeping</p>
-      <h1 class="profile-name" id="profile-name">Jacinta<br>Hunt</h1>
+      <h1 class="profile-name" id="profile-name">Jacinta Hunt</h1>
       <p class="profile-tagline">Construction-industry financial specialist and founder of Destiny Bookkeeping, translating complex financial data into actionable intelligence for the Rexford team.</p>
     </div>
     <div class="profile-photo-col" aria-hidden="true">
@@ -132,20 +132,20 @@
 
   <section class="profile-bio" aria-label="Jacinta Hunt biography">
     <div class="profile-bio-inner">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Background</p>
         <p class="bio-p">Jacinta Hunt is the accounting and bookkeeping lead at Rexford Drafting &amp; Design Inc., bringing extensive experience in financial management. She is the founder of Destiny Bookkeeping and has developed specialized expertise in construction-industry finances through hands-on work across construction, trades, and project-based firms.</p>
         <p class="bio-p">Her expertise spans job costing and cash flow management, financial systems design and budgeting frameworks, cost-control strategies for contractors and designers, compliance, invoicing, and project profitability monitoring.</p>
       </div>
       <hr class="bio-divider">
-      <div class="bio-section reveal">
+      <div class="bio-section">
         <p class="bio-section-label">Role at Rexford</p>
         <p class="bio-p">Jacinta serves as the financial anchor at Rexford, translating complex financial data into actionable business intelligence. She enables leadership to focus on design and delivery while maintaining financial clarity, ensuring compliance and providing insights that drive growth and scaling confidence.</p>
         <p class="bio-p">Her commitment centres on building internal and client relationships while delivering industry-specific knowledge that supports organizational health and sustainable expansion. Every project is seen through to financial completion with the same attention to detail she brings to the books.</p>
       </div>
-      <div class="bio-quote reveal">
+      <div class="bio-quote">
         <p>"Financial clarity gives a studio the freedom to do its best work, and when the numbers are right, everyone can focus on what they do best."</p>
-        <cite>&mdash; Jacinta Hunt, Accounting Lead</cite>
+        <cite>Jacinta Hunt, Accounting Lead</cite>
       </div>
     </div>
   </section>
@@ -159,12 +159,10 @@
     </div>
   </div>
 
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We'll let you know if we're the right fit.</p></div>
-      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html#team" class="btn-outline">Meet the Team</a></div>
-    </div>
+  <section class="c-cta">
+    <h2>Ready to start a project?</h2>
+    <p>Tell us about your site, scope, and timeline. We will let you know if we are the right fit.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">
