@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════
+   REXFORD — Clean page system (Aug 2026)
+   Shared by the inner pages. Matches the rebuilt homepage:
+   real photography, Jost 300-500, sentence case, white
+   grounds, thin-bordered boxes, bronze only on links/buttons.
+   Loaded after styles.css; overrides where the two disagree.
+═══════════════════════════════════════════════════════ */
+
+body { background: #fff; }
+#nav { background: #fff; }
+.nav-name { font-weight: 500; letter-spacing: 0.2em; }
+.nav-links .nav-cta-link { background: var(--ink); }
+.nav-mobile { background: #fff; }
+.nav-mobile a { font-weight: 400; }
+.nav-mobile a:last-child { background: var(--ink); }
+
+/* ── Buttons and links ── */
+.c-btn {
+  display: inline-block; margin-top: 26px;
+  font-family: var(--body); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.04em; color: var(--ink);
+  background: #fff; padding: 13px 24px; border: 1px solid #fff;
+  transition: background 0.2s ease;
+}
+.c-btn:hover { background: var(--bone); }
+.c-btn--dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+.c-btn--dark:hover { background: #33393f; }
+.c-btn--outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.c-btn--outline:hover { background: var(--bone); }
+.c-link {
+  display: inline-block; margin-top: 14px;
+  font-family: var(--body); font-weight: 500; font-size: 14px;
+  color: var(--ink); border-bottom: 1px solid var(--sand);
+}
+.c-link:hover { border-color: var(--ink); }
+.c-text-link { color: var(--bronze); border-bottom: 1px solid transparent; }
+.c-text-link:hover { border-color: var(--bronze); }
+
+/* ── Photo hero (inner pages: shorter than the homepage) ── */
+.c-hero {
+  position: relative; min-height: 92vh; margin-top: 72px;
+  display: flex; align-items: flex-end; overflow: hidden; background: var(--ink);
+}
+.c-hero--page { min-height: 64vh; }
+.c-hero img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 45%;
+}
+.c-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(27,31,35,0.62) 0%, rgba(27,31,35,0.25) 45%, rgba(27,31,35,0) 70%), linear-gradient(180deg, rgba(27,31,35,0) 50%, rgba(27,31,35,0.5) 100%);
+}
+.c-hero-content { position: relative; z-index: 1; padding: 0 64px 64px; max-width: 720px; }
+.c-hero h1 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(34px, 3.6vw, 52px); line-height: 1.15;
+  color: #fff; letter-spacing: 0.01em;
+}
+.c-hero p {
+  font-family: var(--body); font-weight: 300; font-size: 16px;
+  color: rgba(255,255,255,0.88); margin-top: 14px; max-width: 480px; line-height: 1.6;
+}
+
+/* ── Sections ── */
+.c-section { padding: 104px 64px; }
+.c-section--tight { padding: 72px 64px; }
+.c-section--bone { background: var(--bone); }
+.c-section--line { border-top: 1px solid var(--mist); }
+.c-inner { max-width: 1100px; margin: 0 auto; }
+.c-inner--narrow { max-width: 720px; margin: 0 auto; }
+.c-head { max-width: 640px; margin-bottom: 48px; }
+.c-head--center { margin-left: auto; margin-right: auto; text-align: center; }
+.c-label {
+  display: block; font-family: var(--body); font-weight: 400;
+  font-size: 12px; color: var(--stone); margin-bottom: 12px;
+}
+.c-h2 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(28px, 3vw, 40px); line-height: 1.2; color: var(--ink);
+}
+.c-h3 { font-family: var(--display); font-weight: 500; font-size: 19px; color: var(--ink); line-height: 1.3; }
+.c-p {
+  font-family: var(--body); font-weight: 300; font-size: 16px;
+  line-height: 1.75; color: var(--slate); margin-top: 14px;
+}
+.c-p--lg { font-size: 17px; }
+.c-p + .c-p { margin-top: 14px; }
+.c-p a { color: var(--bronze); border-bottom: 1px solid transparent; }
+.c-p a:hover { border-color: var(--bronze); }
+.c-small { font-family: var(--body); font-weight: 300; font-size: 14px; color: var(--stone); line-height: 1.6; }
+
+/* ── Boxes: the defined areas ── */
+.c-grid { display: grid; gap: 20px; }
+.c-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.c-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.c-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.c-box { border: 1px solid var(--mist); background: #fff; padding: 28px; }
+.c-box .c-h3 { margin-top: 0; }
+.c-box .c-p { font-size: 15px; margin-top: 10px; }
+.c-box .c-small { margin-top: 12px; }
+.c-box-num {
+  display: block; font-family: var(--body); font-weight: 400;
+  font-size: 12px; color: var(--stone); margin-bottom: 14px;
+}
+.c-box--bone { background: var(--bone); border-color: var(--bone); }
+a.c-box { display: block; transition: border-color 0.2s ease; }
+a.c-box:hover { border-color: var(--sand); }
+
+/* ── Plain list inside a box or column ── */
+.c-list { list-style: none; margin-top: 14px; }
+.c-list li {
+  font-family: var(--body); font-weight: 300; font-size: 15px;
+  color: var(--slate); padding: 9px 0; border-top: 1px solid var(--mist);
+}
+.c-list li:last-child { border-bottom: 1px solid var(--mist); }
+.c-list--2 { columns: 2; column-gap: 40px; }
+.c-list--2 li { break-inside: avoid; }
+
+/* ── Split: photo beside text ── */
+.c-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.c-split img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.c-split--tall img { aspect-ratio: 4 / 5; }
+.c-split--rev > :first-child { order: 2; }
+
+/* ── Sequential steps (numbers allowed here: the content is a sequence) ── */
+.c-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.c-steps--3 { grid-template-columns: repeat(3, 1fr); }
+.c-step { border-top: 1px solid var(--ink); padding-top: 20px; }
+.c-step-num { font-family: var(--body); font-size: 12px; color: var(--stone); }
+.c-step .c-h3 { margin-top: 10px; }
+.c-step .c-p { font-size: 15px; margin-top: 8px; }
+.c-step img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 18px; display: block; }
+
+/* ── Photo bands ── */
+.c-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.c-band img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.c-full { position: relative; }
+.c-full img { width: 100%; height: 64vh; object-fit: cover; display: block; }
+.c-full-cap { padding: 20px 64px 0; }
+
+/* ── Drawing sheets (sketches) ── */
+.c-sheets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.c-sheets--3 { grid-template-columns: repeat(3, 1fr); }
+.c-sheet { border: 1px solid var(--mist); background: #fff; padding: 14px; margin: 0; }
+.c-sheet img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #fff; }
+.c-sheet figcaption {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 14px 4px 2px; font-family: var(--body); font-size: 13px; color: var(--slate);
+}
+.c-sheet figcaption span:last-child { color: var(--stone); font-size: 12px; }
+
+/* ── Quote ── */
+.c-quote {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(22px, 2.4vw, 30px); line-height: 1.4; color: var(--ink);
+  max-width: 760px; margin: 0 auto;
+}
+.c-quote cite {
+  display: block; margin-top: 20px; font-style: normal;
+  font-family: var(--body); font-size: 13px; color: var(--stone);
+}
+
+/* ── FAQ: quieten the shared accordion ── */
+.faq { background: #fff; padding: 104px 64px; border-top: 1px solid var(--mist); }
+.faq-heading { font-weight: 400; font-size: clamp(28px, 3vw, 40px); margin: 0 0 40px; }
+.faq-q { font-weight: 500; font-size: 17px; }
+.faq-q:hover, .faq-item[open] .faq-q { color: var(--ink); }
+.faq-q::after { color: var(--stone); font-weight: 300; }
+.faq .label { display: none; }
+
+/* ── Contact details ── */
+.c-details { display: grid; gap: 0; }
+.c-details div { padding: 16px 0; border-top: 1px solid var(--mist); }
+.c-details strong { display: block; font-family: var(--body); font-weight: 400; font-size: 12px; color: var(--stone); margin-bottom: 4px; }
+.c-details span, .c-details a { font-family: var(--body); font-weight: 300; font-size: 15px; color: var(--ink); line-height: 1.6; }
+.c-details a:hover { color: var(--bronze); }
+
+/* ── Team ── */
+.c-team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 20px; }
+.c-member { display: block; }
+.c-member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: var(--bone); }
+.c-member-name { font-family: var(--display); font-weight: 500; font-size: 16px; color: var(--ink); margin-top: 14px; }
+.c-member-role { font-family: var(--body); font-weight: 300; font-size: 13px; color: var(--slate); margin-top: 2px; }
+
+/* ── Embedded form ── */
+.c-form { border: 1px solid var(--mist); padding: 24px; background: #fff; }
+
+/* ── CTA ── */
+.c-cta { background: var(--bone); padding: 100px 64px; text-align: center; }
+.c-cta h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 2.8vw, 36px); color: var(--ink); }
+.c-cta p { font-family: var(--body); font-weight: 300; font-size: 16px; color: var(--slate); margin-top: 12px; }
+
+/* ── Footer: match the quieter weight ── */
+.footer-wordmark { font-weight: 500; letter-spacing: 0.2em; }
+.footer-col-label { color: var(--stone); font-weight: 500; letter-spacing: 0.12em; }
+footer { background: #fff; }
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .c-grid--4, .c-steps { grid-template-columns: repeat(2, 1fr); }
+  .c-team { grid-template-columns: repeat(3, 1fr); }
+  .c-sheets--3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .c-hero { min-height: 78vh; }
+  .c-hero--page { min-height: 56vh; }
+  .c-hero-content { padding: 0 24px 40px; }
+  .c-section, .c-section--tight, .faq, .c-cta { padding: 72px 24px; }
+  .c-grid--2, .c-grid--3, .c-grid--4, .c-steps, .c-steps--3, .c-sheets, .c-sheets--3 { grid-template-columns: 1fr; }
+  .c-split, .c-split--rev { grid-template-columns: 1fr; gap: 28px; }
+  .c-split--rev > :first-child { order: 0; }
+  .c-band { grid-template-columns: 1fr; }
+  .c-full img { height: 46vh; }
+  .c-full-cap { padding: 16px 24px 0; }
+  .c-list--2 { columns: 1; }
+  .c-team { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .c-head { margin-bottom: 32px; }
+}

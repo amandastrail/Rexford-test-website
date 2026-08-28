@@ -312,9 +312,6 @@
     const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
     mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
-    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
-    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
   </script>
 </body>
 </html>

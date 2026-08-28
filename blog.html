@@ -55,74 +55,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="clean.css">
   <style>
-    .blog-index { background: var(--bone); padding: 80px 0 96px; }
-    .blog-index-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 40px;
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
-      background: var(--mist);
-      border: 2px solid var(--mist);
-    }
-    .blog-card {
-      background: var(--paper);
-      display: flex; flex-direction: column;
-      text-decoration: none; color: inherit;
-      transition: background 0.2s ease;
-    }
-    .blog-card:hover { background: var(--bone); }
-    .blog-card-img {
-      height: 240px; position: relative; overflow: hidden; flex-shrink: 0;
-    }
-    .blog-card-img-inner {
-      position: absolute; inset: 0;
-      transition: transform 0.65s var(--ease-out);
-    }
-    .blog-card:hover .blog-card-img-inner { transform: scale(1.04); }
-    .blog-card-num {
-      position: absolute; right: 24px; bottom: 12px;
-      font-family: var(--display); font-weight: 900;
-      font-size: 100px; line-height: 1;
-      color: rgba(255,255,255,0.07);
-      pointer-events: none; user-select: none;
-    }
-    .blog-card-body { padding: 32px 36px 36px; flex: 1; display: flex; flex-direction: column; }
-    .blog-card-eyebrow {
-      font-family: var(--body); font-size: 11px; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--bronze); margin-bottom: 14px;
-    }
-    .blog-card-title {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(17px, 1.7vw, 21px);
-      color: var(--ink); line-height: 1.25; margin-bottom: 16px;
-    }
-    .blog-card-excerpt {
-      font-family: var(--body); font-size: 14.5px; font-weight: 300;
-      color: var(--slate); line-height: 1.72; margin-bottom: 28px; flex: 1;
-    }
-    .blog-card-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--mist); padding-top: 18px;
-    }
-    .blog-card-author { font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--stone); }
-    .blog-card-read {
-      font-family: var(--body); font-size: 11px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--bronze);
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.2s ease;
-    }
-    .blog-card:hover .blog-card-read { gap: 10px; }
-
-    @media (max-width: 860px) {
-      .blog-index-inner { grid-template-columns: 1fr; background: none; border: none; gap: 24px; }
-      .blog-card { border: 1px solid var(--mist); }
-    }
-    @media (max-width: 600px) {
-      .blog-index { padding: 56px 0 72px; }
-      .blog-index-inner { padding: 0 20px; }
-      .blog-card-img { height: 200px; }
-      .blog-card-body { padding: 24px; }
-    }
+    /* Journal index: quiet cards in a bordered grid */
+    .blog-index { padding: 104px 64px; }
+    .blog-index-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .blog-card { display: flex; flex-direction: column; border: 1px solid var(--mist); background: #fff; transition: border-color 0.2s ease; }
+    .blog-card:hover { border-color: var(--sand); }
+    .blog-card-img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+    .blog-card-img-inner { position: absolute; inset: 0; filter: none !important; }
+    .blog-card-num { display: none; }
+    .blog-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+    .blog-card-eyebrow { font-family: var(--body); font-weight: 400; font-size: 12px; color: var(--stone); }
+    .blog-card-title { font-family: var(--display); font-weight: 500; font-size: 18px; line-height: 1.3; color: var(--ink); margin-top: 10px; }
+    .blog-card-excerpt { font-family: var(--body); font-weight: 300; font-size: 14.5px; line-height: 1.65; color: var(--slate); margin-top: 10px; }
+    .blog-card-footer { margin-top: auto; padding-top: 18px; display: flex; justify-content: space-between; font-family: var(--body); font-size: 12.5px; color: var(--stone); }
+    .blog-card-read { color: var(--ink); font-weight: 500; }
+    @media (max-width: 1000px) { .blog-index-inner { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 860px) { .blog-index { padding: 72px 24px; } .blog-index-inner { grid-template-columns: 1fr; } }
   </style>
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/blog">
@@ -151,8 +101,7 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="services.html">Services</a></li>
-      <li><a href="process.html">Process</a></li>
-      
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="blog.html" class="active">Journal</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
@@ -160,31 +109,24 @@
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a>
-    <a href="process.html">Process</a>
-    
-    <a href="blog.html">Journal</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
-  <section class="page-hero" aria-labelledby="blog-heading">
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="page-hero-content">
-      <p class="page-hero-eyebrow label label--light">Insights &amp; Ideas</p>
-      <h1 class="page-hero-title" id="blog-heading">Journal.</h1>
-      <div class="page-hero-rule" aria-hidden="true"></div>
-      <p class="page-hero-sub">Practical thinking on home building, interior design, and living well, from the Rexford team.</p>
+  <!-- HERO -->
+  <section class="c-hero c-hero--page">
+    <img src="Marketing/website-photos/interior-living-wide.jpeg" alt="Living room designed by Rexford">
+    <div class="c-hero-content">
+      <h1>Journal.</h1>
+      <p>Practical thinking on home building, interior design, and living well, from the Rexford team.</p>
     </div>
   </section>
 
   <div class="blog-index">
     <div class="blog-index-inner">
 
-      <a href="blog-hiring-builders.html" class="blog-card reveal" aria-label="Read: Essential Steps for Hiring Builders and Designers">
+      <a href="blog-hiring-builders.html" class="blog-card" aria-label="Read: Essential Steps for Hiring Builders and Designers">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/construction-framing-aerial.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/construction-framing-aerial.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">01</span>
         </div>
         <div class="blog-card-body">
@@ -198,9 +140,9 @@
         </div>
       </a>
 
-      <a href="blog-kitchen-tips.html" class="blog-card reveal reveal-d1" aria-label="Read: Top 5 Tips for Renovating Your Kitchen">
+      <a href="blog-kitchen-tips.html" class="blog-card" aria-label="Read: Top 5 Tips for Renovating Your Kitchen">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-kitchen-4.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-kitchen-4.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">02</span>
         </div>
         <div class="blog-card-body">
@@ -214,9 +156,9 @@
         </div>
       </a>
 
-      <a href="blog-secondary-suite.html" class="blog-card reveal" aria-label="Read: Should You Add a Secondary Suite?">
+      <a href="blog-secondary-suite.html" class="blog-card" aria-label="Read: Should You Add a Secondary Suite?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-living-1.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-living-1.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">03</span>
         </div>
         <div class="blog-card-body">
@@ -230,9 +172,9 @@
         </div>
       </a>
 
-      <a href="blog-flooring.html" class="blog-card reveal reveal-d1" aria-label="Read: Top Flooring Options for Western Canada">
+      <a href="blog-flooring.html" class="blog-card" aria-label="Read: Top Flooring Options for Western Canada">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-staircase.jpg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-staircase.jpg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">04</span>
         </div>
         <div class="blog-card-body">
@@ -246,9 +188,9 @@
         </div>
       </a>
 
-      <a href="blog-drafting-cost.html" class="blog-card reveal" aria-label="Read: How Much Do Architectural Drawings Cost in BC?">
+      <a href="blog-drafting-cost.html" class="blog-card" aria-label="Read: How Much Do Architectural Drawings Cost in BC?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-fluted-wood-island.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-fluted-wood-island.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">05</span>
         </div>
         <div class="blog-card-body">
@@ -262,7 +204,7 @@
         </div>
       </a>
 
-      <a href="blog-permit-drawings.html" class="blog-card reveal reveal-d1" aria-label="Read: What Your BC Building Permit Drawings Need to Include">
+      <a href="blog-permit-drawings.html" class="blog-card" aria-label="Read: What Your BC Building Permit Drawings Need to Include">
         <div class="blog-card-img">
           <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/rolled-blueprints-plans.jpeg'); background-size: cover; background-position: center; filter: brightness(0.55) saturate(0.7);"></div>
           <span class="blog-card-num" aria-hidden="true">06</span>
@@ -278,9 +220,9 @@
         </div>
       </a>
 
-      <a href="blog-design-vs-drafting.html" class="blog-card reveal" aria-label="Read: Architectural Design vs. Drafting">
+      <a href="blog-design-vs-drafting.html" class="blog-card" aria-label="Read: Architectural Design vs. Drafting">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-white-oak-dining.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-white-oak-dining.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">07</span>
         </div>
         <div class="blog-card-body">
@@ -294,9 +236,9 @@
         </div>
       </a>
 
-      <a href="blog-custom-home-timeline.html" class="blog-card reveal reveal-d1" aria-label="Read: How Long Does It Take to Build a Custom Home in BC?">
+      <a href="blog-custom-home-timeline.html" class="blog-card" aria-label="Read: How Long Does It Take to Build a Custom Home in BC?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-walnut-double-island.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-walnut-double-island.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">08</span>
         </div>
         <div class="blog-card-body">
@@ -310,9 +252,9 @@
         </div>
       </a>
 
-      <a href="blog-addition-vs-moving.html" class="blog-card reveal" aria-label="Read: Home Addition vs. Moving">
+      <a href="blog-addition-vs-moving.html" class="blog-card" aria-label="Read: Home Addition vs. Moving">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-living-room-stone-fireplace.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-living-room-stone-fireplace.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">09</span>
         </div>
         <div class="blog-card-body">
@@ -326,9 +268,9 @@
         </div>
       </a>
 
-      <a href="blog-design-build.html" class="blog-card reveal reveal-d1" aria-label="Read: What Is a Design-Build Firm?">
+      <a href="blog-design-build.html" class="blog-card" aria-label="Read: What Is a Design-Build Firm?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-brass-pot-filler.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-kitchen-brass-pot-filler.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">10</span>
         </div>
         <div class="blog-card-body">
@@ -342,9 +284,9 @@
         </div>
       </a>
 
-      <a href="blog-ssmuh-fourplex-design.html" class="blog-card reveal" aria-label="Read: Designing a Fourplex People Actually Want to Live In">
+      <a href="blog-ssmuh-fourplex-design.html" class="blog-card" aria-label="Read: Designing a Fourplex People Actually Want to Live In">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/ssmuh-streetscape-front-doors.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/ssmuh-streetscape-front-doors.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">11</span>
         </div>
         <div class="blog-card-body">
@@ -358,9 +300,9 @@
         </div>
       </a>
 
-      <a href="blog-fourplex-pro-forma.html" class="blog-card reveal reveal-d1" aria-label="Read: The Fourplex Pro Forma: Where Design Decisions Quietly Eat Your Margin">
+      <a href="blog-fourplex-pro-forma.html" class="blog-card" aria-label="Read: The Fourplex Pro Forma: Where Design Decisions Quietly Eat Your Margin">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/architect-drawing-floorplans.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/architect-drawing-floorplans.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">12</span>
         </div>
         <div class="blog-card-body">
@@ -374,9 +316,9 @@
         </div>
       </a>
 
-      <a href="blog-renovate-or-rebuild.html" class="blog-card reveal" aria-label="Read: Renovate or Rebuild? How to Make the Call Honestly">
+      <a href="blog-renovate-or-rebuild.html" class="blog-card" aria-label="Read: Renovate or Rebuild? How to Make the Call Honestly">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-bedroom.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-bedroom.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">13</span>
         </div>
         <div class="blog-card-body">
@@ -390,9 +332,9 @@
         </div>
       </a>
 
-      <a href="blog-finish-schedule.html" class="blog-card reveal reveal-d1" aria-label="Read: The Finish Schedule: The Least Glamorous Document That Saves the Most Money">
+      <a href="blog-finish-schedule.html" class="blog-card" aria-label="Read: The Finish Schedule: The Least Glamorous Document That Saves the Most Money">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-cabinetry.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-cabinetry.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">14</span>
         </div>
         <div class="blog-card-body">
@@ -406,9 +348,9 @@
         </div>
       </a>
 
-      <a href="blog-ssmuh-bill-25.html" class="blog-card reveal" aria-label="Read: SSMUH After Bill 25: What Your Lot Actually Allows in 2026">
+      <a href="blog-ssmuh-bill-25.html" class="blog-card" aria-label="Read: SSMUH After Bill 25: What Your Lot Actually Allows in 2026">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/construction-framing-aerial.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/construction-framing-aerial.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">15</span>
         </div>
         <div class="blog-card-body">
@@ -422,9 +364,9 @@
         </div>
       </a>
 
-      <a href="blog-net-zero-bc.html" class="blog-card reveal reveal-d1" aria-label="Read: Net Zero in BC: What It Actually Means for Your Build or Your Renovation">
+      <a href="blog-net-zero-bc.html" class="blog-card" aria-label="Read: Net Zero in BC: What It Actually Means for Your Build or Your Renovation">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-living-1.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-living-1.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">16</span>
         </div>
         <div class="blog-card-body">
@@ -438,9 +380,9 @@
         </div>
       </a>
 
-      <a href="blog-icf-bc.html" class="blog-card reveal" aria-label="Read: Insulated Concrete Forms (ICF): What It Is, and When It's Worth It in BC">
+      <a href="blog-icf-bc.html" class="blog-card" aria-label="Read: Insulated Concrete Forms (ICF): What It Is, and When It's Worth It in BC">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-staircase.jpg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-staircase.jpg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">17</span>
         </div>
         <div class="blog-card-body">
@@ -454,9 +396,9 @@
         </div>
       </a>
 
-      <a href="blog-modular-future.html" class="blog-card reveal reveal-d1" aria-label="Read: Modular Homes: The Future, or Just This Decade's Promise?">
+      <a href="blog-modular-future.html" class="blog-card" aria-label="Read: Modular Homes: The Future, or Just This Decade's Promise?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-kitchen-1.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-kitchen-1.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">18</span>
         </div>
         <div class="blog-card-body">
@@ -470,9 +412,9 @@
         </div>
       </a>
 
-      <a href="blog-open-concept.html" class="blog-card reveal" aria-label="Read: Is Open Concept Still In?">
+      <a href="blog-open-concept.html" class="blog-card" aria-label="Read: Is Open Concept Still In?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-dining-wicker-pendant.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/interior-dining-wicker-pendant.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">19</span>
         </div>
         <div class="blog-card-body">
@@ -486,9 +428,9 @@
         </div>
       </a>
 
-      <a href="blog-finish-package.html" class="blog-card reveal reveal-d1" aria-label="Read: What Is a Builder Finish Package?">
+      <a href="blog-finish-package.html" class="blog-card" aria-label="Read: What Is a Builder Finish Package?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-finish-samples.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-finish-samples.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">20</span>
         </div>
         <div class="blog-card-body">
@@ -502,9 +444,9 @@
         </div>
       </a>
 
-      <a href="blog-high-gloss.html" class="blog-card reveal" aria-label="Read: High Gloss: The Next Paint Trend?">
+      <a href="blog-high-gloss.html" class="blog-card" aria-label="Read: High Gloss: The Next Paint Trend?">
         <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-paint-room.jpeg'); background-size: cover; background-position: center; filter: brightness(0.6) saturate(0.8);"></div>
+          <div class="blog-card-img-inner" style="background-image: url('Marketing/website-photos/blog-paint-room.jpeg'); background-size: cover; background-position: center;"></div>
           <span class="blog-card-num" aria-hidden="true">21</span>
         </div>
         <div class="blog-card-body">
@@ -521,12 +463,10 @@
     </div>
   </div>
 
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div><div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal"><p class="cta-eyebrow label label--light">Work with us</p><h2 class="cta-h" id="cta-heading">Ready to start a project?</h2><p class="cta-sub">Tell us about your site, scope, and timeline. We&rsquo;ll let you know if we&rsquo;re the right fit.</p></div>
-      <div class="cta-btns reveal reveal-d1"><a href="contact.html" class="btn-primary">Get in Touch</a><a href="about.html" class="btn-outline">Meet the Team</a></div>
-    </div>
+  <section class="c-cta">
+    <h2>Ready to start a project?</h2>
+    <p>Tell us about your site, scope, and timeline. We will let you know if we are the right fit.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
   <footer><div class="footer-inner"><div class="footer-grid">
@@ -542,8 +482,6 @@
     const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
     mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
-    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   </script>
 </body>
 </html>

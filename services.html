@@ -56,155 +56,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
+  <link rel="stylesheet" href="clean.css">
   <style>
-    /* â”€â”€ Services page layout â”€â”€ */
-    .svc-list { max-width: 1400px; margin: 0 auto; }
-
-    .svc-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 560px;
-      border-bottom: 1px solid var(--mist);
-    }
-    .svc-row:last-child { border-bottom: none; }
-    .svc-row--reversed .svc-img  { order: -1; }
-
-    .svc-img {
-      position: relative;
-      overflow: hidden;
-      background: var(--stone);
-    }
-    .svc-img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.88) saturate(0.85);
-      transition: transform 0.7s var(--ease-out);
-    }
-    .svc-row:hover .svc-img img { transform: scale(1.04); }
-
-    .svc-content {
-      padding: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--paper);
-    }
-    .svc-row:nth-child(even) .svc-content { background: var(--bone); }
-
-    .svc-num {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 80px;
-      color: var(--mist);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .svc-title {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: clamp(28px, 3vw, 42px);
-      color: var(--ink);
-      letter-spacing: 0.01em;
-      margin-bottom: 8px;
-    }
-    .svc-sub {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--bronze);
-      margin-bottom: 28px;
-    }
-    .svc-rule { width: 40px; height: 1px; background: var(--bronze); margin-bottom: 28px; }
-    .svc-desc {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 17px;
-      color: var(--slate);
-      line-height: 1.72;
-      margin-bottom: 32px;
-    }
-    .svc-items {
-      list-style: none;
-      margin-bottom: 36px;
-    }
-    .svc-items li {
-      font-family: var(--body);
-      font-weight: 500;
-      font-size: 13px;
-      color: var(--ink);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--mist);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .svc-items li:first-child { border-top: 1px solid var(--mist); }
-    .svc-items li::before {
-      content: '';
-      width: 4px; height: 4px;
-      background: var(--bronze);
-      flex-shrink: 0;
-    }
-    .svc-cta {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      background: var(--bronze);
-      color: var(--paper);
-      padding: 14px 28px;
-      display: inline-block;
-      transition: background 0.2s ease;
-      align-self: flex-start;
-    }
-    .svc-cta:hover { background: var(--ink); }
-
-    /* Intro band */
-    .svc-intro {
-      background: var(--ink);
-      padding: 80px;
-      border-left: 3px solid var(--bronze-lt);
-    }
-    .svc-intro-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .svc-intro-h {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: clamp(32px, 3.5vw, 48px);
-      color: var(--paper);
-      line-height: 1.1;
-      margin-top: 16px;
-    }
-    .svc-intro-body {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 17px;
-      color: var(--sand);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 1000px) {
-      .svc-row             { grid-template-columns: 1fr; }
-      .svc-row--reversed .svc-img { order: 0; }
-      .svc-img             { min-height: 300px; }
-      .svc-content         { padding: 56px 40px; }
-      .svc-intro           { padding: 64px 32px; }
-      .svc-intro-inner     { grid-template-columns: 1fr; gap: 32px; }
-    }
-    @media (max-width: 600px) {
-      .svc-content { padding: 48px 24px; }
-      .svc-num     { font-size: 56px; }
-    }
   </style>
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/services">
@@ -224,10 +77,8 @@
   </script>
   <!-- SEO:END -->
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home">
       <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
@@ -235,175 +86,98 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="process.html">Process</a></li>
-      
-      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a>
-    <a href="process.html">Process</a>
-    
-    <a href="blog.html">Journal</a><a href="about.html">About</a>
-    <a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
-
-  <!-- PAGE HERO -->
-  <section class="page-hero" aria-labelledby="page-title">
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow"    aria-hidden="true"></div>
-    <div class="page-hero-content">
-      <p class="page-hero-eyebrow label label--light">What we offer</p>
-      <h1 class="page-hero-title" id="page-title">Services.</h1>
-      <div class="page-hero-rule" aria-hidden="true"></div>
-      <p class="page-hero-sub">Architecture, interiors, drafting, and styling, with project management and construction oversight when you need it.</p>
+  <!-- HERO -->
+  <section class="c-hero c-hero--page">
+    <img src="Marketing/website-photos/interior-kitchen-oak-vaulted.jpeg" alt="Oak kitchen with vaulted ceiling designed by Rexford">
+    <div class="c-hero-content">
+      <h1>Drafting, interior design, and styling. Led by one team.</h1>
+      <p>Design decisions inform the drawings, and the drawings inform the finished space. The project arrives the way it was conceived.</p>
+      <a class="c-btn" href="contact.html">Start a project</a>
     </div>
   </section>
 
-
-  <!-- INTRO BAND -->
-  <div class="svc-intro">
-    <div class="svc-intro-inner">
-      <div class="reveal">
-        <span class="label label--light">Where creativity meets craftsmanship</span>
-        <h2 class="svc-intro-h">Design-led, start to finish.</h2>
-      </div>
-      <p class="svc-intro-body reveal reveal-d1">
-        Most studios do one thing well. We do all four, and because they're led by the same team, they work together. Design decisions inform construction budgets. Construction realities shape design choices. The result is a project that arrives at completion the way it was conceived.
-      </p>
-    </div>
-  </div>
-
-
-  <!-- SERVICES LIST -->
-  <div class="svc-list">
-
-    <!-- 01 Drafting & Design -->
-    <div class="svc-row">
-      <div class="svc-img">
-        <img src="Marketing/website-photos/architect-drawing-floorplans.jpeg" alt="Architectural drafting and drawings" loading="lazy">
-      </div>
-      <div class="svc-content reveal">
-        <div class="svc-num">01</div>
-        <h2 class="svc-title">Drafting &amp; Design</h2>
-        <p class="svc-sub">Architectural Services</p>
-        <div class="svc-rule"></div>
-        <p class="svc-desc">
-          We provide detailed architectural drafting and design services for residential and commercial projects of all sizes. Our drawings are used by developers, builders, and contractors across BC and Alberta, and we work alongside any build team. Every line is drawn to be built, not just presented.
-        </p>
-        <ul class="svc-items">
-          <li>Concept design &amp; schematic drawings</li>
-          <li>Permit-ready construction documents</li>
-          <li>Site plans, elevations &amp; sections</li>
-          <li>3D visualization &amp; renderings</li>
-          <li>As-built drawings &amp; documentation</li>
-          <li>Residential &amp; multi-family projects</li>
-        </ul>
-        <a href="drafting.html" class="svc-cta">Get a Drafting Quote</a>
-      </div>
-    </div>
-
-    <!-- 02 Interior Design -->
-    <div class="svc-row svc-row--reversed">
-      <div class="svc-content reveal">
-        <div class="svc-num">02</div>
-        <h2 class="svc-title">Interior Design</h2>
-        <p class="svc-sub">Full-Service Interiors</p>
-        <div class="svc-rule"></div>
-        <p class="svc-desc">
-          We craft interiors that balance beauty and purpose. We work with homeowners, developers, and builders at any stage of a project, from early material selections alongside architectural plans to finished-space styling. Timeless aesthetics and practical details that hold up over time.
-        </p>
-        <ul class="svc-items">
-          <li>Space planning &amp; layout</li>
-          <li>Material &amp; finish selection</li>
-          <li>Custom millwork design</li>
-          <li>Lighting design &amp; specification</li>
-          <li>Furniture selection &amp; sourcing</li>
-          <li>Full home &amp; commercial interiors</li>
-        </ul>
-        <a href="interiors.html" class="svc-cta">Explore Rexford Interiors</a>
-      </div>
-      <div class="svc-img">
-        <img src="Marketing/website-photos/kitchen-black-cabinetry.jpeg" alt="Interior design - finished kitchen with dark cabinetry and brass fixtures" loading="lazy">
-      </div>
-    </div>
-
-    <!-- 03 Interior Styling -->
-    <div class="svc-row">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&auto=format&fit=crop" alt="Interior styling &mdash; finished and styled living room" loading="lazy">
-      </div>
-      <div class="svc-content reveal">
-        <div class="svc-num">03</div>
-        <h2 class="svc-title">Interior Styling</h2>
-        <p class="svc-sub">Finishing &amp; Styling</p>
-        <div class="svc-rule"></div>
-        <p class="svc-desc">
-          The final layer that brings a space to life. Interior styling covers the finishing details, including artwork, soft furnishings, and the careful placement of elements that make a house feel like a home or a commercial space feel considered and complete.
-        </p>
-        <ul class="svc-items">
-          <li>Move-in styling &amp; installation</li>
-          <li>Artwork curation &amp; placement</li>
-          <li>Soft furnishing selection</li>
-        </ul>
-        <a href="interiors.html" class="svc-cta">Explore Rexford Interiors</a>
-      </div>
-    </div>
-
-    <!-- 04 Construction Management -->
-    <div class="svc-row svc-row--reversed">
-      <div class="svc-content reveal">
-        <div class="svc-num">04</div>
-        <h2 class="svc-title">Construction Management</h2>
-        <p class="svc-sub">Available when you need it</p>
-        <div class="svc-rule"></div>
-        <p class="svc-desc">
-          For clients who want a single point of contact from drawings to completion, we offer construction management and project oversight. We coordinate trades, maintain schedules, and make sure what was designed is what gets built.
-        </p>
-        <ul class="svc-items">
-          <li>Trade coordination &amp; scheduling</li>
-          <li>Budget management &amp; reporting</li>
-          <li>Site supervision &amp; quality control</li>
-          <li>Custom homes &amp; renovations</li>
-        </ul>
-        <a href="contact.html" class="svc-cta">Ask about Construction</a>
-      </div>
-      <div class="svc-img">
-        <img src="Marketing/website-photos/construction-framing-aerial.jpeg" alt="Construction site management" loading="lazy">
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- PILLARS -->
-  <section class="pillars" aria-labelledby="pillars-heading">
-    <div class="pillars-inner">
-      <div class="pillars-header reveal">
-        <span class="label">Why it works</span>
-        <h2 class="pillars-h" id="pillars-heading">Design leads the work.</h2>
-      </div>
-      <div class="pillars-grid">
-        <div class="pillar reveal">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1"/><path d="M3 18 L20 6 L37 18"/><line x1="16" y1="34" x2="16" y2="24"/><line x1="24" y1="34" x2="24" y2="24"/></svg>
-          <h3 class="pillar-title">Design drives every decision</h3>
-          <p class="pillar-desc">We resolve every finish, fitting, and specification on paper before anything is ordered or installed. The design phase is where decisions get made thoughtfully, not reactively.</p>
+  <!-- DRAFTING -->
+  <section class="c-section">
+    <div class="c-inner">
+      <div class="c-split">
+        <img src="Marketing/website-photos/architect-drawing-floorplans.jpeg" alt="Architectural floor plans in progress" loading="lazy">
+        <div>
+          <h2 class="c-h2">Drafting and design</h2>
+          <p class="c-p">Architectural drafting for residential and commercial projects of every size. Our drawings are used by developers, builders, and contractors across BC and Alberta, and we work alongside any build team.</p>
+          <ul class="c-list">
+            <li>Concept design and schematic drawings</li>
+            <li>Permit-ready construction documents</li>
+            <li>Site plans, elevations, and sections</li>
+            <li>3D visualization and renderings</li>
+            <li>As-built drawings and documentation</li>
+          </ul>
+          <a class="c-link" href="drafting.html">Explore drafting</a>
         </div>
-        <div class="pillar reveal reveal-d1">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 8 L32 8 L32 32 L8 32 Z"/><line x1="14" y1="8" x2="14" y2="32"/><line x1="8" y1="17" x2="32" y2="17"/></svg>
-          <h3 class="pillar-title">Resolved before we build</h3>
-          <p class="pillar-desc">Every finish, fitting, and detail is specified on paper before construction starts. No decisions made on the fly, no expensive surprises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERIORS -->
+  <section class="c-section c-section--line">
+    <div class="c-inner">
+      <div class="c-split c-split--rev">
+        <img src="Marketing/website-photos/kitchen-black-cabinetry.jpeg" alt="Kitchen with dark cabinetry and brass fixtures" loading="lazy">
+        <div>
+          <h2 class="c-h2">Interior design</h2>
+          <p class="c-p">Interiors that balance beauty and purpose, for homeowners, developers, and builders at any stage. From early material selections alongside the architectural plans through to finished-space styling.</p>
+          <ul class="c-list">
+            <li>Space planning and layout</li>
+            <li>Material and finish selection</li>
+            <li>Custom millwork design</li>
+            <li>Lighting design and specification</li>
+            <li>Furniture selection and sourcing</li>
+          </ul>
+          <a class="c-link" href="interiors.html">Explore interiors</a>
         </div>
-        <div class="pillar reveal reveal-d2">
-          <svg class="pillar-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"/><polyline points="20,11 20,20 27,25"/></svg>
-          <h3 class="pillar-title">On schedule, on budget</h3>
-          <p class="pillar-desc">We set a timeline and hold it. Our trade coordination process is built around the schedule, and delays are addressed early, not explained after.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STYLING -->
+  <section class="c-section c-section--line">
+    <div class="c-inner">
+      <div class="c-split">
+        <img src="Marketing/website-photos/lifestyle-loft-chair.jpeg" alt="Styled living space with an armchair" loading="lazy">
+        <div>
+          <h2 class="c-h2">Interior styling</h2>
+          <p class="c-p">The final layer: artwork, soft furnishings, and the placement that makes a house feel like a home or a commercial space feel complete. Available as an add-on to any interiors project.</p>
+          <ul class="c-list">
+            <li>Move-in styling and installation</li>
+            <li>Artwork curation and placement</li>
+            <li>Soft furnishing selection</li>
+          </ul>
+          <a class="c-link" href="interiors.html">Explore interiors</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION MANAGEMENT, OPTIONAL -->
+  <section class="c-section c-section--bone">
+    <div class="c-inner">
+      <div class="c-grid c-grid--2" style="align-items:center;">
+        <div>
+          <h2 class="c-h2">Want one team through construction?</h2>
+          <p class="c-p">Some clients take our drawings to their own builder. Others want the team that drew the project to see it built. Construction management is available as an add-on to any design engagement: trade coordination, scheduling, budget reporting, and site supervision.</p>
+          <a class="c-link" href="contact.html">Ask about construction management</a>
+        </div>
+        <img src="Marketing/website-photos/construction-framing-aerial.jpeg" alt="Framing under way on a Rexford project" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;">
       </div>
     </div>
   </section>
@@ -411,7 +185,6 @@
   <!-- FAQ -->
   <section class="faq" aria-labelledby="faq-heading">
     <div class="faq-inner">
-      <span class="label">Common questions</span>
       <h2 class="faq-heading" id="faq-heading">Questions we get asked.</h2>
       <!-- FAQ:BEGIN -->
       <details class="faq-item">
@@ -457,24 +230,12 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div>
-    <div class="cta-glow"    aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal">
-        <p class="cta-eyebrow label label--light">Start a project</p>
-        <h2 class="cta-h" id="cta-heading">Ready to talk about your project?</h2>
-        <p class="cta-sub">Tell us what you're building and where you are in the process. We'll take it from there.</p>
-      </div>
-      <div class="cta-btns reveal reveal-d1">
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
-        <a href="projects.html" class="btn-outline">See Our Work</a>
-      </div>
-    </div>
+  <section class="c-cta">
+    <h2>Tell us about your project.</h2>
+    <p>Site, scope, and timeline are enough to start. We reply within one business day.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
-
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-grid">
@@ -533,10 +294,7 @@
       mobileNav.classList.remove('open'); hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
     }));
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   </script>
 </body>
 </html>

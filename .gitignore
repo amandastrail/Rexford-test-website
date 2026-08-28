@@ -28,6 +28,7 @@
 !/robots.txt
 !/sitemap.xml
 !/styles.css
+!/clean.css
 
 # Public site pages
 !/*.html

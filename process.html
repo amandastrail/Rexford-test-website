@@ -56,284 +56,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
+  <link rel="stylesheet" href="clean.css">
   <style>
-    /* â”€â”€ Process page expanded steps â”€â”€ */
-    .process-page { background: var(--paper); padding: 0 80px 120px; }
-    .process-page-inner { max-width: 1200px; margin: 0 auto; }
-
-    .process-overview {
-      background: var(--bone);
-      padding: 80px;
-      border-left: 3px solid var(--bronze);
-      margin-bottom: 0;
-    }
-    .process-overview-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .overview-h {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(28px, 3vw, 40px);
-      color: var(--ink);
-      letter-spacing: 0.01em;
-      margin-top: 16px;
-      line-height: 1.15;
-    }
-    .overview-body {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 17px;
-      color: var(--slate);
-      line-height: 1.72;
-      margin-bottom: 20px;
-    }
-    .overview-body:last-of-type { margin-bottom: 0; }
-
-    /* Expanded step cards */
-    .process-expanded {
-      background: var(--paper);
-      padding: 112px 80px;
-    }
-    .process-expanded-inner { max-width: 1200px; margin: 0 auto; }
-
-    .exp-step {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
-      padding: 64px 0;
-      border-top: 1px solid var(--mist);
-    }
-    .exp-step:last-child { border-bottom: 1px solid var(--mist); }
-
-    .exp-left {
-      padding-right: 64px;
-      border-right: 1px solid var(--mist);
-    }
-    .exp-num {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 80px;
-      color: var(--mist);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .exp-phase {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 10px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--bronze);
-    }
-
-    .exp-right { padding-left: 64px; }
-    .exp-title {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(22px, 2.5vw, 30px);
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-    .exp-desc {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 17px;
-      color: var(--slate);
-      line-height: 1.72;
-      margin-bottom: 32px;
-    }
-    .exp-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px 48px;
-    }
-    .exp-detail-col h4 {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-bottom: 14px;
-    }
-    .exp-detail-col ul { list-style: none; }
-    .exp-detail-col li {
-      font-family: var(--body);
-      font-weight: 400;
-      font-size: 14px;
-      color: var(--slate);
-      padding: 7px 0;
-      border-bottom: 1px solid var(--mist);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .exp-detail-col li:last-child { border-bottom: none; }
-    .exp-detail-col li::before {
-      content: '';
-      width: 3px; height: 3px;
-      background: var(--bronze);
-      flex-shrink: 0;
-    }
-
-    /* What to bring section */
-    .bring-section {
-      background: var(--bone);
-      padding: 80px;
-      border-left: 3px solid var(--bronze);
-    }
-    .bring-inner { max-width: 1200px; margin: 0 auto; }
-    .bring-h {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(24px, 2.5vw, 34px);
-      color: var(--ink);
-      margin-top: 14px;
-      margin-bottom: 48px;
-    }
-    .bring-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--mist);
-    }
-    .bring-item {
-      padding: 36px 40px 36px 0;
-    }
-    .bring-item + .bring-item { padding-left: 40px; border-left: 1px solid var(--mist); }
-    .bring-item-title {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .bring-item-desc {
-      font-family: var(--body);
-      font-weight: 400;
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    /* Photo strips (pattern shared with homepage) */
-    .detail-strip {
-      display: grid;
-      grid-template-columns: 1.2fr 2fr 1fr;
-      height: 300px;
-      overflow: hidden;
-    }
-    .detail-strip-photo { overflow: hidden; }
-    .detail-strip-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s ease;
-    }
-    .detail-strip-photo:hover img { transform: scale(1.05); }
-
-    /* Construction management add-on band */
-    .cm-addon {
-      background: var(--ink);
-      padding: 104px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .cm-photo-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background-image: url('Marketing/website-photos/exterior-contemporary-home.jpeg');
-      background-size: cover; background-position: center 35%;
-      opacity: 0.14; filter: grayscale(0.3);
-      pointer-events: none;
-    }
-    .cm-addon-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 80px;
-      align-items: start;
-      position: relative;
-      z-index: 1;
-    }
-    .cm-addon .label { color: var(--bronze-lt); }
-    .cm-h {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(28px, 3vw, 40px);
-      color: var(--paper);
-      letter-spacing: 0.01em;
-      margin-top: 16px;
-      line-height: 1.15;
-      margin-bottom: 24px;
-    }
-    .cm-body {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 17px;
-      color: var(--sand);
-      line-height: 1.72;
-      margin-bottom: 20px;
-    }
-    .cm-body:last-of-type { margin-bottom: 32px; }
-    .cm-list { list-style: none; margin-top: 8px; }
-    .cm-list li {
-      font-family: var(--body);
-      font-weight: 400;
-      font-size: 15px;
-      color: var(--sand);
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .cm-list li:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
-    .cm-list li::before {
-      content: '';
-      width: 4px; height: 4px;
-      background: var(--bronze);
-      flex-shrink: 0;
-    }
-    .cm-cta {
-      display: inline-block;
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      background: var(--bronze);
-      color: var(--paper);
-      padding: 14px 28px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .cm-cta:hover { background: var(--bronze-lt); }
-
-    @media (max-width: 1000px) {
-      .process-overview-inner { grid-template-columns: 1fr; gap: 40px; }
-      .cm-addon-inner { grid-template-columns: 1fr; gap: 40px; }
-      .exp-step     { grid-template-columns: 1fr; }
-      .exp-left     { padding-right: 0; border-right: none; padding-bottom: 24px; border-bottom: 1px solid var(--mist); margin-bottom: 32px; display: flex; align-items: center; gap: 24px; }
-      .exp-num      { font-size: 56px; margin-bottom: 0; }
-      .exp-right    { padding-left: 0; }
-      .exp-details  { grid-template-columns: 1fr; gap: 24px; }
-      .bring-grid   { grid-template-columns: 1fr; }
-      .bring-item + .bring-item { border-left: none; padding-left: 0; border-top: 1px solid var(--mist); padding-top: 36px; }
-    }
-    @media (max-width: 900px) {
-      .process-overview { padding: 64px 32px; }
-      .process-expanded { padding: 80px 32px; }
-      .cm-addon         { padding: 72px 32px; }
-      .bring-section    { padding: 64px 32px; }
-      .detail-strip     { grid-template-columns: 1fr 1fr; height: auto; }
-      .detail-strip-photo { height: 200px; }
-    }
   </style>
   <!-- SEO:BEGIN -->
   <link rel="canonical" href="https://rexfordco.ca/process">
@@ -353,10 +77,8 @@
   </script>
   <!-- SEO:END -->
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home">
       <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
@@ -364,272 +86,137 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="services.html">Services</a></li>
-      <li><a href="process.html" class="active">Process</a></li>
-      
-      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a>
-    <a href="process.html">Process</a>
-    
-    <a href="blog.html">Journal</a><a href="about.html">About</a>
-    <a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
 
-
-  <!-- PAGE HERO -->
-  <section class="page-hero" aria-labelledby="page-title">
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow"    aria-hidden="true"></div>
-    <div class="page-hero-content">
-      <p class="page-hero-eyebrow label label--light">How we work</p>
-      <h1 class="page-hero-title" id="page-title">Process.</h1>
-      <div class="page-hero-rule" aria-hidden="true"></div>
-      <p class="page-hero-sub">A design-led process. We resolve your project completely on paper, hand you a package any builder can build from, and stay accountable to the design every step after.</p>
+  <!-- HERO -->
+  <section class="c-hero c-hero--page">
+    <img src="Marketing/website-photos/process-discovery-consult.jpeg" alt="Discovery meeting with a Rexford designer">
+    <div class="c-hero-content">
+      <h1>The drawings decide everything.</h1>
+      <p>We resolve your project completely on paper and hand you a package any builder can price and build from.</p>
+      <a class="c-btn" href="contact.html">Start a project</a>
     </div>
   </section>
-
 
   <!-- OVERVIEW -->
-  <div class="process-overview">
-    <div class="process-overview-inner">
-      <div class="reveal">
-        <span class="label">How we work</span>
-        <h2 class="overview-h">The drawings decide everything.</h2>
-      </div>
-      <div class="reveal reveal-d1">
-        <p class="overview-body">Every successful build is decided long before anyone breaks ground. The drawings determine what the project costs, how smoothly it permits, and whether the finished space feels the way you imagined it.</p>
-        <p class="overview-body">That is why Rexford is design-led. We are a drafting and design studio first: our process is built to resolve every decision on paper and produce documents any builder can price and build from. If you want one team to carry the project through construction as well, we offer construction management as an add-on. It is an option, never a requirement.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- PHOTO STRIP: the work the process produces -->
-  <div class="detail-strip" aria-hidden="true">
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/entry-wood-door.jpeg" alt="" loading="lazy"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-kitchen-oak-vaulted.jpeg" alt="" loading="lazy"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-kitchen-dark-marble.jpeg" alt="" loading="lazy"></div>
-  </div>
-
-
-  <!-- EXPANDED STEPS -->
-  <section class="process-expanded" aria-labelledby="process-heading">
-    <div class="process-expanded-inner">
-
-      <div class="exp-step reveal">
-        <div class="exp-left">
-          <div class="exp-num">01</div>
-          <span class="exp-phase">Phase One</span>
-        </div>
-        <div class="exp-right">
-          <h2 class="exp-title">Discovery &amp; Brief</h2>
-          <p class="exp-desc">Before anything is drawn, we spend time understanding your project. Site conditions, program requirements, budget parameters, timeline expectations, and how you intend to use the space, and all of it matters. No assumptions before we understand the brief.</p>
-          <div class="exp-details">
-            <div class="exp-detail-col">
-              <h4>What happens</h4>
-              <ul>
-                <li>Initial consultation</li>
-                <li>Site visit &amp; assessment</li>
-                <li>Program development</li>
-                <li>Budget framing</li>
-                <li>Feasibility review</li>
-              </ul>
-            </div>
-            <div class="exp-detail-col">
-              <h4>What you receive</h4>
-              <ul>
-                <li>Project brief document</li>
-                <li>Preliminary budget range</li>
-                <li>Timeline overview</li>
-                <li>Go/no-go decision</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-step reveal">
-        <div class="exp-left">
-          <div class="exp-num">02</div>
-          <span class="exp-phase">Phase Two</span>
-        </div>
-        <div class="exp-right">
-          <h2 class="exp-title">Concept &amp; Design</h2>
-          <p class="exp-desc">This is where the project takes shape. The studio explores concept options with you, then iterates through schematic drawings and design development until the plan is right. Interior design runs alongside the architecture, so finishes, fixtures, and millwork are decided with the spaces rather than after them.</p>
-          <div class="exp-details">
-            <div class="exp-detail-col">
-              <h4>What happens</h4>
-              <ul>
-                <li>Concept design</li>
-                <li>Schematic drawings</li>
-                <li>Design development</li>
-                <li>Interior design direction</li>
-                <li>Client reviews &amp; revisions</li>
-              </ul>
-            </div>
-            <div class="exp-detail-col">
-              <h4>What you receive</h4>
-              <ul>
-                <li>Concept &amp; schematic drawings</li>
-                <li>Developed plans &amp; elevations</li>
-                <li>Preliminary finish direction</li>
-                <li>Updated budget alignment</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-step reveal">
-        <div class="exp-left">
-          <div class="exp-num">03</div>
-          <span class="exp-phase">Phase Three</span>
-        </div>
-        <div class="exp-right">
-          <h2 class="exp-title">Permit &amp; Construction Documents</h2>
-          <p class="exp-desc">Design becomes documentation. We produce permit-ready drawings and a complete construction package: specifications, finish schedules, and millwork drawings, with engineering coordinated along the way. Nothing is left for a site crew to guess at, and that completeness is what protects your budget.</p>
-          <div class="exp-details">
-            <div class="exp-detail-col">
-              <h4>What happens</h4>
-              <ul>
-                <li>Permit drawings &amp; application</li>
-                <li>Engineering coordination</li>
-                <li>Construction documents</li>
-                <li>Finish schedule &amp; specifications</li>
-                <li>Millwork drawings</li>
-              </ul>
-            </div>
-            <div class="exp-detail-col">
-              <h4>What you receive</h4>
-              <ul>
-                <li>Permit-ready drawing set</li>
-                <li>Specifications package</li>
-                <li>Finish schedule</li>
-                <li>Millwork drawings</li>
-                <li>Updated budget</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-step reveal">
-        <div class="exp-left">
-          <div class="exp-num">04</div>
-          <span class="exp-phase">Phase Four</span>
-        </div>
-        <div class="exp-right">
-          <h2 class="exp-title">Builder Handoff &amp; Design Support</h2>
-          <p class="exp-desc">With the documents complete, you can take the package to any builder, or one we help you select. We stay available through construction to answer site questions, review shop drawings, and make sure what gets built matches what was drawn. The design stays accountable to the end.</p>
-          <div class="exp-details">
-            <div class="exp-detail-col">
-              <h4>What happens</h4>
-              <ul>
-                <li>Builder selection support</li>
-                <li>Pricing &amp; tender questions</li>
-                <li>Shop drawing review</li>
-                <li>Site questions &amp; clarifications</li>
-                <li>Design-intent reviews</li>
-              </ul>
-            </div>
-            <div class="exp-detail-col">
-              <h4>What you receive</h4>
-              <ul>
-                <li>A builder-ready package</li>
-                <li>Ongoing design support</li>
-                <li>A build that matches the drawings</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  <section class="c-section">
+    <div class="c-inner--narrow" style="text-align:center;">
+      <h2 class="c-h2">Design-led, by design.</h2>
+      <p class="c-p c-p--lg">Every build is decided long before anyone breaks ground. The drawings set what the project costs, how smoothly it permits, and whether the finished space feels the way you imagined. So we are a drafting and design studio first. If you want one team to carry the project through construction as well, that is an option, never a requirement.</p>
     </div>
   </section>
 
-
-  <!-- PHOTO STRIP: finished spaces -->
-  <div class="detail-strip" aria-hidden="true">
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-bathroom-minimal.jpeg" alt="" loading="lazy"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-living-builtins.jpeg" alt="" loading="lazy"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-kitchen-oak-island.jpeg" alt="" loading="lazy"></div>
-  </div>
-
-
-  <!-- CONSTRUCTION MANAGEMENT ADD-ON -->
-  <section class="cm-addon" aria-labelledby="cm-heading">
-    <div class="cm-photo-bg" aria-hidden="true"></div>
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="cm-addon-inner">
-      <div class="reveal">
-        <span class="label">Optional add-on</span>
-        <h2 class="cm-h" id="cm-heading">Want one team end to end? Add construction management.</h2>
-        <p class="cm-body">Some clients take our drawings to their own builder. Others want the team that designed the project to see it built. Through our construction division, Rexford offers construction management as an add-on to any design engagement.</p>
-        <p class="cm-body">The advantage is continuity: the people running your site know the intent behind every line on the drawings, so nothing gets lost in translation between the studio and the field.</p>
-        <a href="contact.html" class="cm-cta">Ask About Construction Management &rarr;</a>
+  <!-- PHASES -->
+  <section class="c-section c-section--line" aria-labelledby="process-heading">
+    <div class="c-inner">
+      <div class="c-head">
+        <h2 class="c-h2" id="process-heading">Four phases.</h2>
       </div>
-      <div class="reveal reveal-d1">
-        <ul class="cm-list">
-          <li>Trade coordination &amp; scheduling</li>
-          <li>Budget tracking &amp; reporting</li>
-          <li>Weekly progress updates with photos</li>
-          <li>Final walkthrough &amp; deficiency close-out</li>
-          <li>Key handover with as-builts, warranties &amp; maintenance guides</li>
-          <li>Post-occupancy check-in</li>
-        </ul>
+      <div class="c-grid c-grid--2">
+        <div class="c-box">
+          <span class="c-box-num">Phase 1</span>
+          <h3 class="c-h3">Discovery and brief</h3>
+          <p class="c-p">Before anything is drawn, we understand the site, the program, the budget, the timeline, and how you intend to use the space. No assumptions before the brief.</p>
+          <div class="c-grid c-grid--2" style="gap:24px; margin-top:8px;">
+            <div><span class="c-label" style="margin:14px 0 0;">What happens</span><ul class="c-list" style="margin-top:8px;"><li>Initial consultation</li><li>Site visit and assessment</li><li>Program development</li><li>Budget framing</li><li>Feasibility review</li></ul></div>
+            <div><span class="c-label" style="margin:14px 0 0;">What you receive</span><ul class="c-list" style="margin-top:8px;"><li>Project brief document</li><li>Preliminary budget range</li><li>Timeline overview</li><li>Go or no-go decision</li></ul></div>
+          </div>
+        </div>
+        <div class="c-box">
+          <span class="c-box-num">Phase 2</span>
+          <h3 class="c-h3">Concept and design</h3>
+          <p class="c-p">Concept options, then schematic drawings and design development until the plan is right. Interiors run alongside the architecture, so finishes and millwork are decided with the spaces, not after them.</p>
+          <div class="c-grid c-grid--2" style="gap:24px; margin-top:8px;">
+            <div><span class="c-label" style="margin:14px 0 0;">What happens</span><ul class="c-list" style="margin-top:8px;"><li>Concept design</li><li>Schematic drawings</li><li>Design development</li><li>Interior design direction</li><li>Client reviews and revisions</li></ul></div>
+            <div><span class="c-label" style="margin:14px 0 0;">What you receive</span><ul class="c-list" style="margin-top:8px;"><li>Concept and schematic drawings</li><li>Developed plans and elevations</li><li>Preliminary finish direction</li><li>Updated budget alignment</li></ul></div>
+          </div>
+        </div>
+        <div class="c-box">
+          <span class="c-box-num">Phase 3</span>
+          <h3 class="c-h3">Permit and construction documents</h3>
+          <p class="c-p">Design becomes documentation: permit-ready drawings plus specifications, finish schedules, and millwork drawings, with engineering coordinated along the way. Nothing is left for a site crew to guess at.</p>
+          <div class="c-grid c-grid--2" style="gap:24px; margin-top:8px;">
+            <div><span class="c-label" style="margin:14px 0 0;">What happens</span><ul class="c-list" style="margin-top:8px;"><li>Permit drawings and application</li><li>Engineering coordination</li><li>Construction documents</li><li>Finish schedule and specifications</li><li>Millwork drawings</li></ul></div>
+            <div><span class="c-label" style="margin:14px 0 0;">What you receive</span><ul class="c-list" style="margin-top:8px;"><li>Permit-ready drawing set</li><li>Specifications package</li><li>Finish schedule</li><li>Millwork drawings</li><li>Updated budget</li></ul></div>
+          </div>
+        </div>
+        <div class="c-box">
+          <span class="c-box-num">Phase 4</span>
+          <h3 class="c-h3">Builder handoff and design support</h3>
+          <p class="c-p">Take the package to any builder, or one we help you select. We stay available through construction to answer site questions, review shop drawings, and make sure what gets built matches what was drawn.</p>
+          <div class="c-grid c-grid--2" style="gap:24px; margin-top:8px;">
+            <div><span class="c-label" style="margin:14px 0 0;">What happens</span><ul class="c-list" style="margin-top:8px;"><li>Builder selection support</li><li>Pricing and tender questions</li><li>Shop drawing review</li><li>Site questions and clarifications</li><li>Design-intent reviews</li></ul></div>
+            <div><span class="c-label" style="margin:14px 0 0;">What you receive</span><ul class="c-list" style="margin-top:8px;"><li>A builder-ready package</li><li>Ongoing design support</li><li>A build that matches the drawings</li></ul></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- PHOTO BAND -->
+  <section class="c-section" style="padding-top:0;">
+    <div class="c-inner">
+      <div class="c-band">
+        <img src="Marketing/website-photos/entry-wood-door.jpeg" alt="Wood front door on a finished home" loading="lazy">
+        <img src="Marketing/website-photos/interior-kitchen-oak-vaulted.jpeg" alt="Oak kitchen with vaulted ceiling" loading="lazy">
+        <img src="Marketing/website-photos/interior-bathroom-minimal.jpeg" alt="Minimal bathroom with natural finishes" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CM ADD-ON -->
+  <section class="c-section c-section--bone">
+    <div class="c-inner">
+      <div class="c-grid c-grid--2" style="align-items:center;">
+        <div>
+          <h2 class="c-h2">Want one team end to end?</h2>
+          <p class="c-p">Some clients take our drawings to their own builder. Others want the team that designed the project to see it built. Through our construction division, construction management is available as an add-on to any design engagement. The advantage is continuity: the people running your site know the intent behind every line.</p>
+          <a class="c-link" href="contact.html">Ask about construction management</a>
+        </div>
+        <img src="Marketing/website-photos/construction-framing-aerial.jpeg" alt="Framing under way on a Rexford project" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;">
+      </div>
+    </div>
+  </section>
 
   <!-- WHAT TO BRING -->
-  <div class="bring-section">
-    <div class="bring-inner reveal">
-      <span class="label">Before your first conversation</span>
-      <h2 class="bring-h">What's helpful to have ready.</h2>
-      <div class="bring-grid">
-        <div class="bring-item reveal">
-          <h3 class="bring-item-title">Site or address</h3>
-          <p class="bring-item-desc">Whether you own the lot already or are still looking, knowing the location helps us understand zoning, setbacks, and site conditions before we meet.</p>
-        </div>
-        <div class="bring-item reveal reveal-d1">
-          <h3 class="bring-item-title">A rough budget range</h3>
-          <p class="bring-item-desc">You don't need a number to the dollar. A range tells us whether we can design the project you have in mind, and helps us prioritize where the money should go.</p>
-        </div>
-        <div class="bring-item reveal reveal-d2">
-          <h3 class="bring-item-title">A sense of what you want</h3>
-          <p class="bring-item-desc">Photos, a list, a description, or anything that communicates how you want to live in the space. The more we understand your intentions, the better the brief we can write.</p>
-        </div>
+  <section class="c-section">
+    <div class="c-inner">
+      <div class="c-head">
+        <h2 class="c-h2">What&rsquo;s helpful to have ready.</h2>
       </div>
-    </div>
-  </div>
-
-
-  <!-- CTA -->
-  <section class="cta" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div>
-    <div class="cta-glow"    aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal">
-        <p class="cta-eyebrow label label--light">Start a project</p>
-        <h2 class="cta-h" id="cta-heading">Ready to begin the conversation?</h2>
-        <p class="cta-sub">Discovery starts with a call. Tell us about your project and we'll tell you what we need to get started.</p>
-      </div>
-      <div class="cta-btns reveal reveal-d1">
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
-        <a href="projects.html" class="btn-outline">See Our Work</a>
+      <div class="c-grid c-grid--3">
+        <div class="c-box">
+          <h3 class="c-h3">Site or address</h3>
+          <p class="c-p">Owned or still looking, the location tells us about zoning, setbacks, and site conditions before we meet.</p>
+        </div>
+        <div class="c-box">
+          <h3 class="c-h3">A rough budget range</h3>
+          <p class="c-p">Not a number to the dollar. A range tells us whether we can design the project you have in mind, and where the money should go.</p>
+        </div>
+        <div class="c-box">
+          <h3 class="c-h3">A sense of what you want</h3>
+          <p class="c-p">Photos, a list, a description. The more we understand your intentions, the better the brief.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="c-cta">
+    <h2>Ready to begin the conversation?</h2>
+    <p>Discovery starts with a call. Tell us about your project and we will tell you what we need.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
+  </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-grid">
@@ -688,10 +275,7 @@
       mobileNav.classList.remove('open'); hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
     }));
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   </script>
 </body>
 </html>
