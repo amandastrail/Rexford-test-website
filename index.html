@@ -55,339 +55,140 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
   <style>
-    /* â”€â”€ Homepage-specific: Full-viewport hero â”€â”€ */
-    .hero {
-      min-height: 100svh;
-      background: var(--ink);
-      display: grid;
-      grid-template-rows: 1fr auto;
-      padding-top: 72px;
-      position: relative;
+    /* Homepage: photo-first, quiet typography, no animations */
+    body { background: #fff; }
+
+    /* Nav: lighter weight wordmark, quieter CTA */
+    #nav { background: #fff; }
+    .nav-name { font-weight: 500; letter-spacing: 0.2em; }
+    .nav-cta-link { background: var(--ink) !important; }
+
+    /* ── Hero: real photograph, one sentence, one button ── */
+    .c-hero {
+      position: relative; min-height: 92vh; margin-top: 72px;
+      display: flex; align-items: flex-end;
       overflow: hidden;
     }
-    .hero-main {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 80px 72px;
+    .c-hero img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 45%;
     }
-    .hero-eyebrow {
-      margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
+    .c-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(27,31,35,0.62) 0%, rgba(27,31,35,0.25) 45%, rgba(27,31,35,0) 70%), linear-gradient(180deg, rgba(27,31,35,0) 50%, rgba(27,31,35,0.5) 100%);
     }
-    .hero-wordmark {
-      font-family: var(--display);
-      font-weight: 300;
-      font-size: clamp(58px, 10vw, 140px);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--paper);
-      line-height: 1;
-      margin-bottom: 44px;
-      opacity: 0;
-      animation: fadeUp 0.9s var(--ease-out) 0.5s forwards;
+    .c-hero-content {
+      position: relative; z-index: 1; padding: 0 64px 64px; max-width: 720px;
     }
-    .hero-rule {
-      width: 0;
-      height: 1px;
-      background: var(--bronze);
-      margin-bottom: 28px;
-      animation: growRule 0.9s var(--ease-out) 0.85s forwards;
+    .c-hero h1 {
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(34px, 3.6vw, 52px); line-height: 1.15;
+      color: #fff; letter-spacing: 0.01em;
     }
-    .hero-sub {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: clamp(16px, 1.7vw, 21px);
-      color: var(--sand);
-      line-height: 1.6;
-      max-width: 520px;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease-out) 1s forwards;
+    .c-hero p {
+      font-family: var(--body); font-weight: 300; font-size: 16px;
+      color: rgba(255,255,255,0.88); margin-top: 14px; max-width: 480px; line-height: 1.6;
     }
-    .hero-sub em { font-style: italic; color: var(--paper); }
-    .hero-scroll-hint {
-      position: absolute;
-      right: 80px; bottom: 72px;
-      display: flex; flex-direction: column; align-items: center; gap: 14px;
-      z-index: 2;
-      opacity: 0;
-      animation: fadeIn 1s ease 1.5s forwards;
+    .c-btn {
+      display: inline-block; margin-top: 26px;
+      font-family: var(--body); font-weight: 500; font-size: 13px;
+      letter-spacing: 0.04em; color: var(--ink);
+      background: #fff; padding: 13px 24px;
+      transition: background 0.2s ease;
     }
-    .hero-scroll-hint span {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--stone);
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
+    .c-btn:hover { background: var(--bone); }
+    .c-btn--dark { background: var(--ink); color: #fff; }
+    .c-btn--dark:hover { background: #33393f; }
+
+    /* ── Credibility strip ── */
+    .c-cred { padding: 40px 64px; border-bottom: 1px solid var(--mist); }
+    .c-cred-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 56px; flex-wrap: wrap;
     }
-    .scroll-bar {
-      width: 1px; height: 56px;
-      background: linear-gradient(to bottom, var(--bronze), transparent);
-      animation: pulse 2.2s ease-in-out infinite;
+    .c-cred img { height: 34px; width: auto; opacity: 0.55; filter: grayscale(1); }
+    .c-cred span {
+      font-family: var(--body); font-size: 12px; color: var(--stone); white-space: nowrap;
     }
 
-    /* â”€â”€ Intro band â”€â”€ */
-    .intro {
-      background: var(--bone);
-      padding: 96px 80px;
-      border-left: 3px solid var(--bronze);
+    /* ── Welcome ── */
+    .c-welcome { padding: 120px 64px; text-align: center; }
+    .c-welcome-inner { max-width: 640px; margin: 0 auto; }
+    .c-welcome h2 {
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(28px, 3vw, 40px); line-height: 1.2; color: var(--ink);
     }
-    .intro-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 96px;
-      align-items: center;
-    }
-    .intro-heading {
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: clamp(34px, 3.5vw, 52px);
-      color: var(--ink);
-      line-height: 1.1;
-      letter-spacing: 0.01em;
-      margin-top: 16px;
-    }
-    .intro-body {
-      font-family: var(--body);
-      font-weight: 300;
-      font-size: 18px;
-      color: var(--slate);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .intro-body:last-of-type { margin-bottom: 0; }
-    .intro-stats {
-      display: flex;
-      gap: 0;
-      margin-top: 48px;
-      padding-top: 48px;
-      border-top: 1px solid var(--mist);
-    }
-    .stat {
-      padding-right: 48px;
-      margin-right: 48px;
-      border-right: 1px solid var(--mist);
-    }
-    .stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
-    .stat-n { font-family: var(--display); font-weight: 700; font-size: 38px; color: var(--ink); line-height: 1; margin-bottom: 8px; }
-    .stat-l { font-family: var(--body); font-weight: 500; font-size: 12px; color: var(--stone); letter-spacing: 0.04em; }
-
-    /* â”€â”€ Services split panel â”€â”€ */
-    .services { display: grid; grid-template-columns: 1fr 1fr; }
-    .svc {
-      padding: 88px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 48px;
-      position: relative;
-      overflow: hidden;
-      min-height: 620px;
-    }
-    .svc--design      { background: var(--bone); }
-    .svc--construction{ background: var(--ink); }
-    .svc__glow { position: absolute; inset: 0; pointer-events: none; }
-    .svc--design .svc__glow      { background: radial-gradient(ellipse 60% 50% at 90% 10%, rgba(138,111,78,0.08), transparent); }
-    .svc--construction .svc__glow{ background: radial-gradient(ellipse 50% 60% at 10% 90%, rgba(69,85,106,0.25), transparent); }
-    .svc__body { position: relative; z-index: 1; }
-    .svc__name {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: clamp(30px, 3vw, 44px);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      line-height: 1;
-      margin: 16px 0 4px;
-    }
-    .svc--design .svc__name      { color: var(--ink); }
-    .svc--construction .svc__name{ color: var(--paper); }
-    .svc__sub {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-    }
-    .svc--design .svc__sub      { color: var(--bronze); }
-    .svc--construction .svc__sub{ color: var(--bronze-lt); }
-    .svc__rule { width: 40px; height: 1px; margin-bottom: 32px; }
-    .svc--design .svc__rule      { background: var(--bronze); }
-    .svc--construction .svc__rule{ background: var(--bronze-lt); }
-    .svc__desc { font-family: var(--body); font-weight: 400; font-size: 15.5px; line-height: 1.7; margin-bottom: 36px; }
-    .svc--design .svc__desc      { color: var(--slate); }
-    .svc--construction .svc__desc{ color: var(--sand); }
-    .svc__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 36px;
-    }
-    .svc__tag {
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 14px 24px;
-      border: 2.5px solid var(--mist);
-      color: var(--ink);
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-    .svc__tag:hover { border-color: var(--bronze); color: var(--bronze); }
-    .svc__link {
-      position: relative; z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      font-family: var(--body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      padding: 15px 30px;
-      transition: all 0.22s ease;
-      align-self: flex-start;
-    }
-    .svc--design .svc__link { background: var(--bronze); color: var(--paper); }
-    .svc--design .svc__link:hover { background: var(--ink); }
-    .svc--construction .svc__link { border: 1px solid var(--bronze-lt); color: var(--paper); }
-    .svc--construction .svc__link:hover { background: var(--bronze-lt); color: var(--ink); }
-
-    /* ── Work gallery strip ── */
-    .work-gallery { overflow: hidden; }
-    .work-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      height: 500px;
-    }
-    .wg-photo { overflow: hidden; position: relative; }
-    .wg-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s ease;
-    }
-    .wg-photo:hover img { transform: scale(1.04); }
-
-    /* ── Detail strip ── */
-    .detail-strip {
-      display: grid;
-      grid-template-columns: 1.2fr 2fr 1fr;
-      height: 300px;
-      overflow: hidden;
-    }
-    .detail-strip-photo { overflow: hidden; }
-    .detail-strip-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s ease;
-    }
-    .detail-strip-photo:hover img { transform: scale(1.05); }
-
-    /* ── Homepage responsive ── */
-    @media (max-width: 1100px) {
-      .intro-inner { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 900px) {
-      .hero-main        { padding: 0 32px 56px; }
-      .hero-scroll-hint { display: none; }
-      .intro            { padding: 72px 32px; border-left-width: 2px; }
-      .services         { grid-template-columns: 1fr; }
-      .svc              { padding: 64px 32px; min-height: unset; }
-      .intro-stats      { flex-wrap: wrap; gap: 32px; }
-      .stat             { border-right: none; padding-right: 0; margin-right: 0; }
-    }
-    @media (max-width: 768px) {
-      .work-gallery-grid { grid-template-columns: 1fr; height: auto; }
-      .wg-photo { height: 260px; }
-      .detail-strip { grid-template-columns: 1fr 1fr; height: auto; }
-      .detail-strip-photo { height: 200px; }
-    }
-    @media (max-width: 480px) {
-      .hero-wordmark { letter-spacing: 0.03em; }
+    .c-welcome p {
+      font-family: var(--body); font-weight: 300; font-size: 17px;
+      line-height: 1.75; color: var(--slate); margin-top: 22px;
     }
 
-    /* ── Split gateway: two studios below the hero ── */
-    .gateway {
-      display: flex;
-      min-height: 68vh;
+    /* ── Two studios ── */
+    .c-studios {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      padding: 0 64px 120px; max-width: 1240px; margin: 0 auto;
     }
-    .gate {
-      position: relative;
-      flex: 1;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      transition: flex 0.7s var(--ease-out);
+    .c-studio { display: block; }
+    .c-studio img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+      background: #fff;
     }
-    .gateway:hover .gate       { flex: 0.85; }
-    .gateway:hover .gate:hover { flex: 1.3; }
-    .gate-img {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      transition: transform 1.2s var(--ease-out);
+    .c-studio h3 {
+      font-family: var(--display); font-weight: 500; font-size: 22px;
+      color: var(--ink); margin-top: 22px;
     }
-    .gate:hover .gate-img { transform: scale(1.04); }
-    .gate-body { position: relative; z-index: 2; padding: 52px; width: 100%; }
-    .gate-eyebrow {
-      font-family: var(--body); font-weight: 600;
-      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
-      margin-bottom: 14px; display: block;
+    .c-studio p {
+      font-family: var(--body); font-weight: 300; font-size: 15px;
+      line-height: 1.7; color: var(--slate); margin-top: 8px; max-width: 460px;
     }
-    .gate-rule { width: 44px; height: 1px; margin: 20px 0; transition: width 0.6s var(--ease-out); }
-    .gate:hover .gate-rule { width: 88px; }
-    .gate-desc { font-size: 15px; line-height: 1.7; max-width: 420px; font-weight: 300; }
-    .gate-cta {
-      display: inline-block; margin-top: 24px;
-      font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
-      font-weight: 600; padding-bottom: 6px;
-      border-bottom: 1px solid currentColor;
+    .c-link {
+      display: inline-block; margin-top: 14px;
+      font-family: var(--body); font-weight: 500; font-size: 14px;
+      color: var(--ink); border-bottom: 1px solid var(--sand);
     }
-    .gate--drafting .gate-img { background-image: url('Marketing/website-photos/rolled-blueprints-plans.jpeg'); }
-    .gate--drafting::after {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(180deg, rgba(27,31,35,0.42) 0%, rgba(27,31,35,0.88) 100%);
+    .c-link:hover { border-color: var(--ink); }
+
+    /* ── Work band ── */
+    .c-work { padding: 0 0 120px; }
+    .c-work-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .c-work-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+    .c-work-foot {
+      max-width: 1240px; margin: 28px auto 0; padding: 0 64px;
+      display: flex; justify-content: space-between; align-items: baseline;
     }
-    .gate--drafting .gate-eyebrow { color: var(--bronze-lt); }
-    .gate--drafting .gate-title {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(28px, 3vw, 42px); letter-spacing: 0.04em;
-      color: var(--paper); line-height: 1.1;
+    .c-work-foot p { font-family: var(--body); font-weight: 300; font-size: 15px; color: var(--slate); }
+
+    /* ── One review ── */
+    .c-review { padding: 0 64px 120px; text-align: center; }
+    .c-review blockquote {
+      font-family: var(--display); font-weight: 300;
+      font-size: clamp(22px, 2.4vw, 30px); line-height: 1.4; color: var(--ink);
+      max-width: 760px; margin: 0 auto;
     }
-    .gate--drafting .gate-rule { background: var(--bronze-lt); }
-    .gate--drafting .gate-desc { color: var(--mist); }
-    .gate--drafting .gate-cta  { color: var(--bronze-lt); }
-    .gate--interiors .gate-img { background-image: url('Marketing/website-photos/interior-living-1.jpeg'); }
-    .gate--interiors::after {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(180deg, rgba(251,249,245,0.10) 0%, rgba(244,241,236,0.92) 100%);
+    .c-review cite {
+      display: block; margin-top: 20px; font-style: normal;
+      font-family: var(--body); font-size: 13px; color: var(--stone);
     }
-    .gate--interiors .gate-eyebrow { color: var(--bronze); }
-    .gate--interiors .gate-title {
-      font-family: 'Cormorant Garamond', serif; font-weight: 500;
-      font-size: clamp(32px, 3.6vw, 50px); letter-spacing: 0.01em;
-      color: var(--ink); line-height: 1.05;
+
+    /* ── CTA ── */
+    .c-cta { background: var(--bone); padding: 100px 64px; text-align: center; }
+    .c-cta h2 {
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(26px, 2.8vw, 36px); color: var(--ink);
     }
-    .gate--interiors .gate-title em { font-style: italic; font-weight: 400; color: var(--bronze); }
-    .gate--interiors .gate-rule { background: var(--bronze); }
-    .gate--interiors .gate-desc { color: var(--slate); }
-    .gate--interiors .gate-cta  { color: var(--bronze); }
+    .c-cta p { font-family: var(--body); font-weight: 300; font-size: 16px; color: var(--slate); margin-top: 12px; }
+
     @media (max-width: 860px) {
-      .gateway { flex-direction: column; min-height: unset; }
-      .gate { min-height: 56vh; flex: unset !important; }
-      .gate-body { padding: 36px 28px; }
+      .c-hero { min-height: 78vh; }
+      .c-hero-content { padding: 0 24px 40px; }
+      .c-cred { padding: 28px 24px; } .c-cred-inner { gap: 28px; }
+      .c-welcome, .c-review { padding: 80px 24px; }
+      .c-studios { grid-template-columns: 1fr; gap: 48px; padding: 0 24px 80px; }
+      .c-work-grid { grid-template-columns: 1fr; }
+      .c-work-foot { padding: 0 24px; flex-direction: column; gap: 8px; }
+      .c-cta { padding: 72px 24px; }
     }
   </style>
   <!-- SEO:BEGIN -->
@@ -408,10 +209,8 @@
   </script>
   <!-- SEO:END -->
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
     <a href="index.html" class="nav-brand" aria-label="Rexford home">
       <img src="Brand%20Asset/R-web.png" alt="Rexford monogram" class="nav-logo">
@@ -419,341 +218,103 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="services.html">Services</a></li>
-      <li><a href="process.html">Process</a></li>
-      
-      <li><a href="blog.html">Journal</a></li><li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta-link">Start a Project</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
-
   <div class="nav-mobile" id="mobileNav">
-    <a href="services.html">Services</a>
-    <a href="process.html">Process</a>
-    
-    <a href="blog.html">Journal</a><a href="about.html">About</a>
-    <a href="contact.html">Start a Project &rarr;</a>
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Start a Project &rarr;</a>
   </div>
-
 
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow"    aria-hidden="true"></div>
-    <div class="hero-main">
-      <p class="hero-eyebrow label label--light">British Columbia Based &nbsp;&middot;&nbsp; Design &amp; Drafting</p>
-      <h1 class="hero-wordmark" id="hero-heading">REXFORD</h1>
-      <div class="hero-rule" aria-hidden="true"></div>
-      <p class="hero-sub">
-        Custom homes, multi-family, and commercial projects designed and styled under one roof.<br>
-        <em>Built on principle. By design.</em>
-      </p>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <div class="scroll-bar"></div>
-      <span>Scroll</span>
-    </div>
-    <div class="hero-ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>Site Planning</span><span class="sep">&middot;</span><span>Drafting</span><span class="sep">&middot;</span>
-        <span>Custom Homes</span><span class="sep">&middot;</span><span>Renovations</span><span class="sep">&middot;</span>
-        <span>Multi-family</span><span class="sep">&middot;</span><span>Commercial</span><span class="sep">&middot;</span>
-        <span>Interior Design</span>
-      </div>
+  <section class="c-hero">
+    <img src="Marketing/website-photos/exterior-entry-craftsman-door.jpeg" alt="Craftsman front entry of a home designed by Rexford">
+    <div class="c-hero-content">
+      <h1>From first concept to finished space.</h1>
+      <p>Architectural drafting and interior design for custom homes, renovations, and multi-family projects across British Columbia.</p>
+      <a class="c-btn" href="contact.html">Start a project</a>
     </div>
   </section>
 
+  <!-- CREDIBILITY -->
+  <section class="c-cred" aria-label="Memberships and coverage">
+    <div class="c-cred-inner">
+      <img src="Affiliated%20Logos/chilliwack-chamber-logo.png" alt="Chilliwack Chamber of Commerce">
+      <img src="Affiliated%20Logos/Screenshot_27-4-2026_132713_www.chba.ca.jpeg" alt="Canadian Home Builders' Association">
+      <img src="Affiliated%20Logos/MetisNation-Logo-FullColour.png" alt="Metis Nation British Columbia">
+      <img src="Affiliated%20Logos/worksafebc_logo.jpg" alt="WorkSafeBC">
+      <img src="Affiliated%20Logos/travelers-logo.jpg" alt="Travelers home warranty">
+    </div>
+  </section>
 
-  <!-- SPLIT GATEWAY -->
-  <div class="gateway" aria-label="Choose a studio">
+  <!-- WELCOME -->
+  <section class="c-welcome">
+    <div class="c-welcome-inner">
+      <h2>A design and drafting studio in Chilliwack, BC.</h2>
+      <p>We produce the drawings and interior designs that projects are built from. Every finish, material, and detail is resolved before construction begins, so what you approve is what gets built, whether your builder is yours or ours.</p>
+    </div>
+  </section>
 
-    <a class="gate gate--drafting" href="drafting.html" aria-label="Explore drafting and permit services">
-      <div class="gate-img" aria-hidden="true"></div>
-      <div class="gate-body">
-        <span class="gate-eyebrow">Permit-Ready &middot; Precise</span>
-        <h2 class="gate-title">Drafting<br>&amp; Permits</h2>
-        <div class="gate-rule" aria-hidden="true"></div>
-        <p class="gate-desc">Architectural drawings, permit documentation, and site planning for custom homes, multi-family, and commercial projects across BC and Alberta.</p>
-        <span class="gate-cta">Explore Drafting &rarr;</span>
-      </div>
+  <!-- TWO STUDIOS -->
+  <div class="c-studios">
+    <a class="c-studio" href="drafting.html">
+      <img src="Marketing/website-photos/exterior-nelson-house.jpeg" alt="Nelson House, a custom home drafted by Rexford">
+      <h3>Drafting and permits</h3>
+      <p>Permit-ready drawing sets for custom homes, renovations, secondary suites, multiplexes, and multi-family projects.</p>
+      <span class="c-link">Explore drafting</span>
     </a>
-
-    <a class="gate gate--interiors" href="interiors.html" aria-label="Explore interior design services">
-      <div class="gate-img" aria-hidden="true"></div>
-      <div class="gate-body">
-        <span class="gate-eyebrow">Considered &middot; Curated</span>
-        <h2 class="gate-title">Interior <em>Design</em></h2>
-        <div class="gate-rule" aria-hidden="true"></div>
-        <p class="gate-desc">Full-service interior design and styling. Every finish, fixture, and furnishing resolved into spaces that feel effortless to live in.</p>
-        <span class="gate-cta">Explore Interiors &rarr;</span>
-      </div>
+    <a class="c-studio" href="interiors.html">
+      <img src="Marketing/website-photos/interior-kitchen-rattan-pendants.jpeg" alt="Cream kitchen with oak island designed by Rexford Interiors">
+      <h3>Interior design</h3>
+      <p>Full-service interiors, single-room design, and finish packages for builders, adapted to how you actually live.</p>
+      <span class="c-link">Explore interiors</span>
     </a>
-
   </div>
 
-
-  <!-- INTRO -->
-  <section class="intro" aria-labelledby="intro-heading">
-    <div class="intro-inner">
-      <div class="reveal">
-        <span class="label">What we do</span>
-        <h2 class="intro-heading" id="intro-heading">Design.<br>Plan.<br>Create.</h2>
-      </div>
-      <div class="reveal reveal-d1">
-        <p class="intro-body">Rexford is a design and drafting studio based in Chilliwack, BC. We produce architectural drawings and interior designs that work alongside any build team. For clients who want one firm handling both, we offer construction management too.</p>
-        <p class="intro-body">We resolve every finish, material, and detail on paper before construction begins. That process is what keeps projects on track and finished spaces looking the way they were designed.</p>
-        <div class="intro-stats">
-          <div class="stat"><span class="stat-n">BC</span><span class="stat-l">&amp; Alberta</span></div>
-          <div class="stat"><span class="stat-n">01</span><span class="stat-l">Studio. Design through delivery.</span></div>
-          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Accountable, start to finish</span></div>
-        </div>
-      </div>
+  <!-- WORK -->
+  <section class="c-work" aria-label="Selected work">
+    <div class="c-work-grid">
+      <img src="Marketing/website-photos/interior-bathroom-sage-brass.jpeg" alt="Sage green bathroom with brass fixtures">
+      <img src="Marketing/website-photos/interior-living-builtins.jpeg" alt="Living room with custom built-ins">
+      <img src="Marketing/website-photos/interior-dining-wicker-pendant.jpeg" alt="Dining room with oak table and wicker pendant">
+    </div>
+    <div class="c-work-foot">
+      <p>Recent work across the Fraser Valley, Metro Vancouver, and Alberta.</p>
+      <a class="c-link" href="projects.html">See projects</a>
     </div>
   </section>
 
-
-  <!-- AFFILIATIONS -->
-  <div class="affiliations" aria-label="Industry affiliations">
-    <div class="affiliations-inner">
-      <span class="affiliations-label">Industry affiliations, memberships &amp; coverage</span>
-      <div class="affiliations-logos">
-        <img src="Affiliated%20Logos/chilliwack-chamber-logo.png" alt="Chilliwack Chamber of Commerce" loading="lazy">
-        <span class="affil-chamber-split" role="img" aria-label="Chilliwack Chamber of Commerce — Horizontal">
-          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-icon-layer" aria-hidden="true" loading="lazy">
-          <img src="Affiliated%20Logos/Untitled%20design%20(1).png" class="affil-text-layer" aria-hidden="true" loading="lazy">
-        </span>
-        <img src="Affiliated%20Logos/Screenshot_27-4-2026_132713_www.chba.ca.jpeg" alt="Canadian Home Builders' Association" loading="lazy">
-        <img src="Affiliated%20Logos/MetisNation-Logo-FullColour.png" alt="M&eacute;tis Nation British Columbia" loading="lazy">
-        <img src="Affiliated%20Logos/worksafebc_logo.jpg" alt="WorkSafeBC" loading="lazy">
-        <img src="Affiliated%20Logos/travelers-logo.jpg" alt="Travelers &ndash; home warranty provider" loading="lazy">
-      </div>
-    </div>
-  </div>
-
-
-  <!-- SERVICES -->
-  <!-- WORK GALLERY -->
-  <section class="work-gallery" aria-label="Our work">
-    <div class="work-gallery-grid">
-      <div class="wg-photo">
-        <img src="Marketing/website-photos/interior-living-2.jpeg" alt="Residential interior — grand living space with fireplace" loading="lazy">
-      </div>
-      <div class="wg-photo">
-        <img src="Marketing/website-photos/interior-staircase.jpg" alt="Residential interior — custom staircase detail" loading="lazy">
-      </div>
-      <div class="wg-photo">
-        <img src="Marketing/website-photos/lifestyle-loft-living.jpeg" alt="Residential interior — loft living space with wood-framed doors and exposed beams" loading="lazy">
-      </div>
-    </div>
+  <!-- ONE REVIEW -->
+  <section class="c-review">
+    <blockquote>&ldquo;It&rsquo;s been an absolute joy to have Amanda and her team supporting and guiding us through the re-build process. Not only do we now have a gorgeous house, we feel like we have gained friends.&rdquo;</blockquote>
+    <cite>Dorry van Driel, Google review</cite>
   </section>
 
-
-  <!-- PROCESS (summary) -->
-  <section class="process" id="process" aria-labelledby="process-heading">
-    <div class="process-inner">
-      <div class="process-header">
-        <div class="reveal">
-          <span class="label">How we work</span>
-          <h2 class="process-h" id="process-heading">From first conversation<br>to finished design.</h2>
-        </div>
-        <p class="process-intro reveal reveal-d1">Every project starts with a proper design phase. Drawings, finishes, and details are all resolved before your build team breaks ground.</p>
-      </div>
-      <a href="process.html" class="process-link reveal">See our process &rarr;</a>
-    </div>
-  </section>
-
-
-  <!-- REVIEWS -->
-  <section class="reviews" aria-labelledby="reviews-heading">
-    <div class="reviews-inner">
-      <div class="reviews-header">
-        <div class="reveal">
-          <span class="label label--light">Client stories</span>
-          <h2 class="section-h" id="reviews-heading" style="color:var(--paper);margin-top:12px;">What our clients say.</h2>
-        </div>
-        <a href="https://www.google.com/search?kgmid=/g/11y2kp7nqq" class="reviews-google reveal reveal-d1" target="_blank" rel="noopener" aria-label="View Rexford on Google Reviews">&#9733; 5.0 &nbsp;&middot;&nbsp; Google Reviews</a>
-      </div>
-      <div class="reviews-grid">
-
-        <div class="review-card reveal">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">It&rsquo;s been an absolute joy to have Amanda and her team supporting and guiding us through the re-build process. They made me feel like royalty, always attentive and responsive to my wishes. Not only do we now have a gorgeous house, we feel like we have gained friends.</p>
-          <div class="review-author">
-            <span class="review-name">Dorry van driel</span>
-            <span class="review-source">Google</span>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-d1">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">Working with the Rexford team has been a great experience for our home-building project. We are in a small Northern BC town without designers or drafters, but we&rsquo;ve been able to get all we need from Rexford. Amanda and team walked us through every change and edit along the way!</p>
-          <div class="review-author">
-            <span class="review-name">Jaclyn Neufeld</span>
-            <span class="review-source">Google</span>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-d2">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">The Rexford team did a wonderful job with the design and drawings for our home addition. They took the time to collaborate with us and were receptive to adjustments and changes. We appreciate their skills and great communication!</p>
-          <div class="review-author">
-            <span class="review-name">Kara Erickson</span>
-            <span class="review-source">Google</span>
-          </div>
-        </div>
-
-        <div class="review-card reveal">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">Thank you so much for the work you have done, it has exceeded our expectations! We appreciate all the care you took of our home and with our family during these past few months. You have a very good team of trades.</p>
-          <div class="review-author">
-            <span class="review-name">Schmidt Family</span>
-            <span class="review-source">Client</span>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-d1">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">We have had a lot of work done on 2 of our houses. High quality workmanship, and very good ideas for doing the job right. I would recommend Rexford for all your building and renovations. We will definitely have them back.</p>
-          <div class="review-author">
-            <span class="review-name">Thiessen Family</span>
-            <span class="review-source">Google</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <!-- ABOUT STUDIO (summary) -->
-  <section class="about-studio" id="about" aria-labelledby="about-heading">
-    <div class="about-inner">
-      <div class="reveal">
-        <span class="label">Our studio</span>
-        <h2 class="about-h" id="about-heading">A BC-based design &amp; drafting studio.</h2>
-        <p class="about-pull">"Every project gets our full attention, whether it's a single home or a multi-lot development."</p>
-        <p class="about-body">Rexford is a design and drafting studio based in Chilliwack, BC. We work with homeowners, builders, and developers who want their spaces properly thought through, not just drawn.</p>
-        <p class="about-body">We get involved early and stay that way, from the first sketch through to the finished space.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <div class="about-card">
-          <span class="about-card-label">Find us</span>
-          <div class="about-card-item"><strong>Address</strong><span>8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</span></div>
-          <div class="about-card-item"><strong>Phone</strong><span><a href="tel:7788086397">778.808.6397</a></span></div>
-          <div class="about-card-item"><strong>Email</strong><span><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></span></div>
-          <div class="about-card-item"><strong>Instagram</strong><span><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></span></div>
-          <div class="about-card-item"><strong>Region</strong><span>British Columbia &amp; Alberta</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PRINCIPLE QUOTE -->
-  <section class="principle" aria-label="Guiding principle">
-    <div class="principle-inner reveal">
-      <div class="principle-mark" aria-hidden="true">"</div>
-      <p class="principle-text">Good design is only as good as the thinking behind it. We stay involved from the first sketch to the final detail, because the details don't take care of themselves.</p>
-      <span class="principle-attr label">Rexford &nbsp;&middot;&nbsp; Design &amp; Drafting</span>
-    </div>
-  </section>
-
-
-  <!-- CONSTRUCTION (quiet supporting note) -->
-
-  <!-- DETAIL STRIP -->
-  <div class="detail-strip" aria-hidden="true">
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-kitchen-1.jpeg" alt="" loading="lazy" style="object-position:center 70%;"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-bedroom.jpeg"   alt="" loading="lazy"></div>
-    <div class="detail-strip-photo"><img src="Marketing/website-photos/interior-bathroom.jpeg"  alt="" loading="lazy" style="object-position:center 80%;"></div>
-  </div>
-
-
-  <!-- PILLARS -->
   <!-- CTA -->
-  <section class="cta" id="contact" aria-labelledby="cta-heading">
-    <div class="cta-texture" aria-hidden="true"></div>
-    <div class="cta-glow"    aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="reveal">
-        <p class="cta-eyebrow label label--light">Start a project</p>
-        <h2 class="cta-h" id="cta-heading">Ready to design something worth keeping?</h2>
-        <p class="cta-sub">Tell us about your project, including site, scope, and timeline. We'll tell you if we're the right fit.</p>
-      </div>
-      <div class="cta-btns reveal reveal-d1">
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
-        <a href="about.html" class="btn-outline">About Rexford</a>
-      </div>
-    </div>
+  <section class="c-cta">
+    <h2>Tell us about your project.</h2>
+    <p>Site, scope, and timeline are enough to start. We reply within one business day.</p>
+    <a class="c-btn c-btn--dark" href="contact.html">Start a project</a>
   </section>
 
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div>
-          <p class="footer-tagline">Built on principle. By design.</p>
-          <p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p>
-        </div>
-        <div>
-          <p class="footer-col-label">Services</p>
-          <ul class="footer-links" role="list">
-            <li><a href="services.html">Rexford Design</a></li>
-            <li><a href="interiors.html">Rexford Interiors</a></li>
-            <li><a href="services.html">Custom Homes</a></li>
-            <li><a href="services.html">Multi-family</a></li>
-            <li><a href="services.html">Renovations</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-col-label">Company</p>
-          <ul class="footer-links" role="list">
-            <li><a href="about.html">About Rexford</a></li>
-            
-            <li><a href="process.html">Our Process</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-col-label">Contact</p>
-          <p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p>
-          <p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p>
-          <p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p>
-          <p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></p>
-        <div class="footer-sub-brands"><a href="services.html">Rexford Design</a></div>
-      </div>
-    </div>
-  </footer>
-
+  <footer><div class="footer-inner"><div class="footer-grid">
+    <div><div class="footer-wordmark"><img src="Brand%20Asset/R-web.png" alt="Rexford monogram"><span>REXFORD</span></div><p class="footer-tagline">Built on principle. By design.</p><p class="footer-blurb">Custom homes, multi-family, and commercial projects. Design and drafting across British Columbia.</p></div>
+    <div><p class="footer-col-label">Services</p><ul class="footer-links" role="list"><li><a href="services.html">Rexford Design</a></li><li><a href="interiors.html">Rexford Interiors</a></li><li><a href="services.html">Custom Homes</a></li><li><a href="services.html">Multi-family</a></li><li><a href="services.html">Renovations</a></li></ul></div>
+    <div><p class="footer-col-label">Company</p><ul class="footer-links" role="list"><li><a href="about.html">About Rexford</a></li><li><a href="process.html">Our Process</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><p class="footer-col-label">Contact</p><p class="footer-contact-item"><a href="mailto:info@rexfordco.ca">info@rexfordco.ca</a></p><p class="footer-contact-item" style="margin-top:10px;"><a href="tel:7788086397">778.808.6397</a></p><p class="footer-contact-item" style="margin-top:12px;">8465 Harvard Pl #16<br>Chilliwack, BC &nbsp;V2P 7Z5</p><p class="footer-contact-item" style="margin-top:12px;"><a href="https://instagram.com/therexfordcompany" target="_blank" rel="noopener">@therexfordcompany</a></p></div>
+  </div><div class="footer-bottom"><p class="footer-legal">&copy; 2026 Rexford Drafting &amp; Design Inc. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></p><div class="footer-sub-brands"><a href="services.html">Rexford Design</a></div></div></div></footer>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 32); }, { passive: true });
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      hamburger.classList.toggle('open', open);
-      hamburger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
-      mobileNav.classList.remove('open'); hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-    }));
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
+    const hamburger = document.getElementById('hamburger'); const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
   </script>
 </body>
 </html>
