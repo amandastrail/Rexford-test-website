@@ -294,3 +294,15 @@ footer { background: #fff; }
 }
 .team-nav-link.current { background: none; padding: 0; }
 .bio-quote cite { letter-spacing: 0; text-transform: none; }
+
+/* ═══════════════════════════════════════════
+   Accessibility pass (WCAG 2.1 AA), Aug 29 2026
+═══════════════════════════════════════════ */
+/* The stone grey used for small labels measured 3.96:1 on white; this shade is about 5.7:1 on white and 5.1:1 on bone. */
+:root { --stone: #6E6355; }
+/* Footer legal line and sub-brand were sand (#B8AFA4, 2.2:1). */
+.footer-legal, .footer-legal a, .footer-sub-brands a { color: var(--stone); }
+/* Links inside running text get an underline so they no longer rely on colour alone. */
+.c-p a, .faq-a a, .post-body-inner p a, .post-body-inner li a, .bio-p a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+/* Visible keyboard focus on everything interactive. */
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
