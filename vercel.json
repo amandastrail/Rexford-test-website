@@ -38,6 +38,21 @@
       "source": "/sarah-penner",
       "destination": "/team-sarah",
       "permanent": true
+    },
+    {
+      "source": "/team-andrew",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/team-caijsa",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/team-jacinta",
+      "destination": "/about",
+      "permanent": true
     }
   ]
 }
